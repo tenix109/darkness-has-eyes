@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpcw0sqd12u8v"
+path="res://.godot/imported/Manic One-Shot.wav-884847c56c24c8bd2703be10772722ad.sample"
+
+[deps]
+
+source_file="res://audio/sounds/scares/Manic One-Shot.wav"
+dest_files=["res://.godot/imported/Manic One-Shot.wav-884847c56c24c8bd2703be10772722ad.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

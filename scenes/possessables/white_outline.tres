@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d0pttkhbrnwhu"]
+
+[ext_resource type="Shader" uid="uid://cg5g4swm3f2hl" path="res://scenes/possessables/white_outline.gdshader" id="1_mhyiw"]
+
+[resource]
+shader = ExtResource("1_mhyiw")
+shader_parameter/outline_color = Color(1, 0, 0, 1)
+shader_parameter/outline_size = 1.0

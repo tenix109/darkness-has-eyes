@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://bjfjopxpmnlfd"]
+
+[ext_resource type="Script" uid="uid://bx6364kldos8j" path="res://scenes/hud.gd" id="1_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://b7tkr0apx8et6" path="res://art/images/props/battery_25x50px1.png" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://cxbmpsfs5a0xc" path="res://art/spritesheets/memory_fragment.png" id="2_0m4u7"]
+[ext_resource type="FontFile" uid="uid://hm5lqiqlhdie" path="res://fonts/LibertinusMono-Regular.ttf" id="2_oo0fn"]
+[ext_resource type="Script" uid="uid://cofqrvmtwebgu" path="res://scenes/ui/token_rich_text_label.gd" id="4_6fi6k"]
+[ext_resource type="FontFile" uid="uid://wbyxpn0d8v1e" path="res://fonts/AlmendraSC-Regular.ttf" id="5_047uy"]
+[ext_resource type="PackedScene" uid="uid://dhf3c8ik7b8i5" path="res://scenes/ui/pause_screen.tscn" id="5_uo2fv"]
+[ext_resource type="Theme" uid="uid://cdnfrlclc77jv" path="res://resources/main_theme.tres" id="7_5pdws"]
+[ext_resource type="Script" uid="uid://dp1xgxq1tbffr" path="res://scenes/ui/game_over_screen.gd" id="7_hd3ao"]
+[ext_resource type="Shader" uid="uid://2jthcrjfyof5" path="res://resources/darkness_void.gdshader" id="8_0i1j5"]
+[ext_resource type="PackedScene" uid="uid://cebsyos73rc0l" path="res://scenes/ui/memory_popup.tscn" id="10_mphia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apjy4"]
+atlas = ExtResource("2_0m4u7")
+region = Rect2(37, 40, 120, 121)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mphia"]
+shader = ExtResource("8_0i1j5")
+shader_parameter/radius = 0.0
+shader_parameter/softness = 0.3150000149625
+
+[node name="HUD" type="CanvasLayer" unique_id=158779456]
+script = ExtResource("1_5ysmq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1904194130]
+offset_left = 30.0
+offset_top = 546.0
+offset_right = 160.0
+offset_bottom = 702.0
+alignment = 2
+
+[node name="MemoryCountUI" type="Control" parent="VBoxContainer" unique_id=869726091]
+custom_minimum_size = Vector2(72, 56)
+layout_mode = 2
+
+[node name="MemoryIcon" type="TextureRect" parent="VBoxContainer/MemoryCountUI" unique_id=191074969]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -54.0
+offset_right = 37.0
+offset_bottom = -12.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_apjy4")
+expand_mode = 2
+
+[node name="MemeoryCountLabel" type="Label" parent="VBoxContainer/MemoryCountUI" unique_id=152092585]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -61.0
+offset_right = 91.0
+offset_bottom = -9.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_oo0fn")
+theme_override_font_sizes/font_size = 32
+text = "1/10"
+vertical_alignment = 1
+
+[node name="FuseUI" type="Control" parent="VBoxContainer" unique_id=1051987832]
+custom_minimum_size = Vector2(72, 56)
+layout_mode = 2
+
+[node name="FuseIcon" type="TextureRect" parent="VBoxContainer/FuseUI" unique_id=2140731394]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -60.0
+offset_right = 56.0
+offset_bottom = -12.0
+grow_vertical = 0
+rotation = 0.30215594
+texture = ExtResource("1_ahhtf")
+stretch_mode = 4
+
+[node name="FuseCountLabel" type="Label" parent="VBoxContainer/FuseUI" unique_id=971818120]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -52.0
+offset_right = 91.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_oo0fn")
+theme_override_font_sizes/font_size = 32
+text = "0"
+vertical_alignment = 1
+
+[node name="ContextLabel" type="RichTextLabel" parent="." unique_id=1825767095]
+custom_minimum_size = Vector2(512, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -107.0
+offset_right = 256.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("2_oo0fn")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Context Message"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_6fi6k")
+
+[node name="ToastLabel" type="RichTextLabel" parent="." unique_id=1292049263]
+custom_minimum_size = Vector2(512, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -152.0
+offset_right = 320.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("2_oo0fn")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Feedback Message"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_6fi6k")
+metadata/_edit_use_anchors_ = true
+
+[node name="IntroLabel" type="RichTextLabel" parent="." unique_id=683392965]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -228.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.49019608, 0.23921569, 0.7019608, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("5_047uy")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "Level Intro
+Stuff and Things"
+horizontal_alignment = 1
+
+[node name="MemoryPopup" parent="." unique_id=843771058 instance=ExtResource("10_mphia")]
+visible = false
+
+[node name="PauseScreen" parent="." unique_id=560565870 instance=ExtResource("5_uo2fv")]
+visible = false
+
+[node name="GameOverLayer" type="CanvasLayer" parent="." unique_id=292436286]
+
+[node name="GameOverScreen" type="Control" parent="GameOverLayer" unique_id=1622167302]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_hd3ao")
+
+[node name="DarknessVoid" type="ColorRect" parent="GameOverLayer/GameOverScreen" unique_id=580828501]
+material = SubResource("ShaderMaterial_mphia")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14117648, 0.07450981, 0.19607843, 0.9411765)
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverLayer/GameOverScreen" unique_id=170951075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButtons" type="VBoxContainer" parent="GameOverLayer/GameOverScreen/CenterContainer" unique_id=853068474]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="GameOverLayer/GameOverScreen/CenterContainer/MainButtons" unique_id=96113795]
+layout_mode = 2
+theme = ExtResource("7_5pdws")
+text = "Retry"
+
+[node name="TitleScreenButton" type="Button" parent="GameOverLayer/GameOverScreen/CenterContainer/MainButtons" unique_id=1146303699]
+layout_mode = 2
+theme = ExtResource("7_5pdws")
+text = "Title Screen"
+
+[node name="QuitButton" type="Button" parent="GameOverLayer/GameOverScreen/CenterContainer/MainButtons" unique_id=946248278]
+layout_mode = 2
+theme = ExtResource("7_5pdws")
+text = "Quit"
+
+[node name="GameoverLabel" type="RichTextLabel" parent="GameOverLayer/GameOverScreen" unique_id=1246766967]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -228.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.54509807, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7853687, 0.15192941, 0.1493412, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("5_047uy")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "You Died"
+horizontal_alignment = 1
+vertical_alignment = 1

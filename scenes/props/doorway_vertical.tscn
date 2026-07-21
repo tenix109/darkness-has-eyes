@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ct7cd00d3le8"]
+
+[ext_resource type="Texture2D" uid="uid://baa4xmqqii76w" path="res://art/tilesets/Walls_32x32.png" id="1_6qh0w"]
+[ext_resource type="Texture2D" uid="uid://b2okyyvnbkjei" path="res://art/tilesets/Borders_32x32.png" id="2_ifjne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh0w"]
+size = Vector2(14, 68)
+
+[node name="Doorway_Vertical" type="StaticBody2D" unique_id=1979788788]
+
+[node name="LeftEdge" type="Sprite2D" parent="." unique_id=177190465]
+position = Vector2(3.5, -32)
+texture = ExtResource("1_6qh0w")
+region_enabled = true
+region_rect = Rect2(0, 256, 7, 64)
+
+[node name="RightEdge" type="Sprite2D" parent="." unique_id=1543516315]
+position = Vector2(10.5, -32)
+texture = ExtResource("1_6qh0w")
+region_enabled = true
+region_rect = Rect2(89, 256, 7, 64)
+
+[node name="TopEdge" type="Sprite2D" parent="." unique_id=1861750730]
+position = Vector2(7, -60)
+texture = ExtResource("2_ifjne")
+region_enabled = true
+region_rect = Rect2(210, 242, 14, 16)
+
+[node name="BottomEdge" type="Sprite2D" parent="." unique_id=985144107]
+z_index = 11
+position = Vector2(7, 48)
+texture = ExtResource("2_ifjne")
+region_enabled = true
+region_rect = Rect2(210, 202, 14, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=673094148]
+visible = false
+position = Vector2(7, -34)
+shape = SubResource("RectangleShape2D_6qh0w")

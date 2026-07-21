@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://diokk8q0r0xbc"]
+
+[ext_resource type="Texture2D" uid="uid://c7m7c8ugvfloc" path="res://art/images/props/carts_test.png" id="1_knyln"]
+
+[node name="CartHorizontal" type="AnimatableBody2D" unique_id=2093506797]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1594096047]
+texture = ExtResource("1_knyln")
+offset = Vector2(0, -13)
+region_enabled = true
+region_rect = Rect2(0, 6, 25, 26)

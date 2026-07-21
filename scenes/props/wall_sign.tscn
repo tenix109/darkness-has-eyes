@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://unhy7fwbf5n8"]
+
+[ext_resource type="Script" uid="uid://bgsue3t3rmp0q" path="res://scenes/props/message_sign.gd" id="1_j1hip"]
+[ext_resource type="Texture2D" uid="uid://bcuycph8icn3p" path="res://art/tilesets/props_and_objects.png" id="2_j1hip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vj2f"]
+
+[node name="WallSign" type="Area2D" unique_id=1184885036]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_j1hip")
+message = "Run with {run} at your own risk!"
+interaction_prompt = "Read Sign"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1793356602]
+shape = SubResource("RectangleShape2D_1vj2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=913218908]
+position = Vector2(0, -8)
+texture = ExtResource("2_j1hip")
+region_enabled = true
+region_rect = Rect2(133, 117, 32, 16)

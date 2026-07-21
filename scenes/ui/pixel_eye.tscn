@@ -1,0 +1,233 @@
+[gd_scene format=3 uid="uid://bd0a8dekiuum"]
+
+[ext_resource type="Texture2D" uid="uid://bvvkxtdqpwrkh" path="res://art/images/pixel_eye.png" id="1_4awnq"]
+[ext_resource type="Script" uid="uid://d2f3021htpvyu" path="res://scenes/ui/pixel_eye.gd" id="1_rdbva"]
+
+[sub_resource type="Animation" id="Animation_rdbva"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qbs3j"]
+resource_name = "clockwise"
+length = 2.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -3.5), Vector2(3.5, 0), Vector2(0, 3.5), Vector2(-3.5, 0), Vector2(0, -3.5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6w478"]
+resource_name = "counter_clockwise_2"
+length = 2.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3.5), Vector2(3.5, 0), Vector2(0, -3.5), Vector2(-3.5, 0), Vector2(0, 3.5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ovk8w"]
+resource_name = "down"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xpmf1"]
+resource_name = "down_left"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2.8, 2.8), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y6roq"]
+resource_name = "down_right"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.8, 2.8), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5x6gv"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vjvdy"]
+resource_name = "left"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_obajg"]
+resource_name = "right"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(4, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vevqj"]
+resource_name = "up"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gcvgp"]
+resource_name = "up_left"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2.8, -2.8), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3ptwb"]
+resource_name = "up_right"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyeball/Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.8, -2.8), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ptwb"]
+_data = {
+&"RESET": SubResource("Animation_rdbva"),
+&"clockwise": SubResource("Animation_qbs3j"),
+&"counter_clockwise_2": SubResource("Animation_6w478"),
+&"down": SubResource("Animation_ovk8w"),
+&"down_left": SubResource("Animation_xpmf1"),
+&"down_right": SubResource("Animation_y6roq"),
+&"idle": SubResource("Animation_5x6gv"),
+&"left": SubResource("Animation_vjvdy"),
+&"right": SubResource("Animation_obajg"),
+&"up": SubResource("Animation_vevqj"),
+&"up_left": SubResource("Animation_gcvgp"),
+&"up_right": SubResource("Animation_3ptwb")
+}
+
+[node name="PixelEye" type="Node2D" unique_id=1382498033]
+script = ExtResource("1_rdbva")
+color_list = Array[Color]([Color(0.54509807, 0, 0, 1), Color(0.26666668, 0.105882354, 0.3137255, 1), Color(0.49019608, 0.23921569, 0.7019608, 1), Color(0.101960786, 0.7019608, 0.30980393, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1)])
+
+[node name="Eyeball" type="Sprite2D" parent="." unique_id=1586974840]
+texture = ExtResource("1_4awnq")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 15)
+
+[node name="Pupil" type="Sprite2D" parent="Eyeball" unique_id=314637499]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_4awnq")
+region_enabled = true
+region_rect = Rect2(21, 5, 6, 5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=705210731]
+libraries/ = SubResource("AnimationLibrary_3ptwb")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=696691480]
+zoom = Vector2(4, 4)

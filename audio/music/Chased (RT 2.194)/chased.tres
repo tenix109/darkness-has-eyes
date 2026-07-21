@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OvaniSong" format=3 uid="uid://c3txb8t1mujsp"]
+
+[ext_resource type="AudioStream" uid="uid://c3cx82naw3v14" path="res://audio/music/Chased (RT 2.194)/Horror Vol5 Chased Intensity 1.wav" id="1_csg8d"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="1_yvs8l"]
+[ext_resource type="AudioStream" uid="uid://7dm6oae2iop6" path="res://audio/music/Chased (RT 2.194)/Horror Vol5 Chased Intensity 2.wav" id="2_07h38"]
+[ext_resource type="AudioStream" uid="uid://b3wx0vfspjle6" path="res://audio/music/Chased (RT 2.194)/Horror Vol5 Chased Main.wav" id="3_l4tt6"]
+
+[resource]
+script = ExtResource("1_yvs8l")
+Intensity1 = ExtResource("1_csg8d")
+Intensity2 = ExtResource("2_07h38")
+Intensity3 = ExtResource("3_l4tt6")
+ReverbTail = 2.194
+metadata/_custom_type_script = "uid://b6hl5qjc8221s"

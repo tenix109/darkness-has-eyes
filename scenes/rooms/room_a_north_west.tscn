@@ -1,0 +1,79 @@
+[gd_scene format=4 uid="uid://px7ouepj0yv4"]
+
+[ext_resource type="Script" uid="uid://dw3nlfnvrknwj" path="res://scenes/rooms/room.gd" id="1_0crac"]
+[ext_resource type="TileSet" uid="uid://kdhqiha7hpu3" path="res://resources/main_tile_set.tres" id="2_lo34e"]
+[ext_resource type="PackedScene" uid="uid://ct7cd00d3le8" path="res://scenes/props/doorway_vertical.tscn" id="3_m8261"]
+[ext_resource type="Texture2D" uid="uid://0mxftwg3pywp" path="res://art/images/lights/cone_256x256_1.png" id="4_4tm6c"]
+[ext_resource type="Texture2D" uid="uid://fo75ocf38xsp" path="res://art/images/lights/cone_128x128_2.png" id="5_lo34e"]
+[ext_resource type="PackedScene" uid="uid://dwljdud1aqw74" path="res://scenes/props/light_switch.tscn" id="5_rh7em"]
+[ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="6_ouxsa"]
+
+[sub_resource type="Gradient" id="Gradient_3xqj6"]
+offsets = PackedFloat32Array(0.868, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lknu1"]
+gradient = SubResource("Gradient_3xqj6")
+width = 224
+height = 236
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24j2n"]
+size = Vector2(210, 233)
+
+[node name="Room_A_North_West" type="Node2D" unique_id=575161556]
+script = ExtResource("1_0crac")
+
+[node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=893062753]
+tile_map_data = PackedByteArray("AAD9////AwAAAAkAAAD9//7/AwAAAAgAAAD+//7/AwABAAgAAAD+////AwABAAkAAAADAP7/AwACAAgAAAADAP//AwACAAkAAAACAP7/AwABAAgAAAACAP//AwABAAkAAAABAP7/AwAAAAgAAAD///7/AwACAAgAAAD/////AwACAAkAAAD+/wEAAAAnAAwAAAD9/wAAAAAnAAwAAAD+/wAAAAAnAAwAAAD//wAAAAAnAAwAAAADAAAAAAAnAAwAAAABAAAAAAAnAAwAAAACAAAAAAAnAAwAAAAAAAAAAAAnAAwAAAD//wEAAAAnAAwAAAD//wIAAAAnAAwAAAAAAAEAAAAnAAwAAAAAAAIAAAAnAAwAAAABAAEAAAAnAAwAAAABAAIAAAAnAAwAAAACAAEAAAAnAAwAAAACAAIAAAAnAAwAAAADAAEAAAAnAAwAAAADAAIAAAAnAAwAAAD+/wMAAAAnAAwAAAD//wMAAAAnAAwAAAAAAAMAAAAnAAwAAAABAAMAAAAnAAwAAAACAAMAAAAnAAwAAAADAAMAAAAnAAwAAAD+/wQAAAAnAAwAAAD//wQAAAAnAAwAAAAAAAQAAAAnAAwAAAABAAQAAAAnAAwAAAACAAQAAAAnAAwAAAADAAQAAAAnAAwAAAD+/wIAAAAnAAwAAAD9/wQAAAAnAAwAAAD9/wEAAAAnAAwAAAD9/wIAAAAnAAwAAAD9/wMAAAAnAAwAAAABAP//AwAAAAkAAAAAAP//AAAnAAwAAAAAAP7/AAAnAAwAAAA=")
+tile_set = ExtResource("2_lo34e")
+
+[node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=231612808]
+z_index = 10
+tile_map_data = PackedByteArray("AAD+//7/BAAHAAYAAAACAP7/BAAHAAYAAAADAP7/BAAAAAcAAAADAAQABAACAAUAAAADAAMABAACAAUAAAADAAIABAACAAUAAAADAAEABAACAAUAAAADAAAABAACAAUAAAADAP//BAACAAUAAAD9////BAADAAUAAAD9//7/BAABAAcAAAADAAUABAAAAAYAAAD9/wQABAADAAUAAAD9/wUABAABAAYAAAD+/wUABAAHAAgAAAAAAAUABAAHAAgAAAABAAUABAAHAAgAAAACAAUABAAHAAgAAAD9/wMABAADAAAAAAD//wUABAAHAAgAAAD///7/BAACAAYAAAABAP7/BAADAAYAAAA=")
+tile_set = ExtResource("2_lo34e")
+
+[node name="Doorway_Vertical" parent="." unique_id=797466524 instance=ExtResource("3_m8261")]
+position = Vector2(-96, 64)
+
+[node name="Lights" type="Node2D" parent="." unique_id=2028339248]
+visible = false
+
+[node name="RoomLight" type="PointLight2D" parent="Lights" unique_id=1896899898]
+energy = 0.9
+range_z_min = -512
+range_z_max = 512
+texture = SubResource("GradientTexture2D_lknu1")
+offset = Vector2(16, 54)
+
+[node name="SpillLightW" type="PointLight2D" parent="Lights" unique_id=869717975]
+position = Vector2(-113, 55)
+rotation = -1.5707964
+scale = Vector2(1.3, 0.2)
+texture = ExtResource("4_4tm6c")
+
+[node name="SpillLightN" type="PointLight2D" parent="Lights" unique_id=695833111]
+position = Vector2(16, -82)
+scale = Vector2(1, 0.4)
+texture = ExtResource("5_lo34e")
+
+[node name="LightSwitch" parent="." unique_id=1997813369 node_paths=PackedStringArray("room", "lights") instance=ExtResource("5_rh7em")]
+position = Vector2(-32, 0)
+room = NodePath("..")
+lights = NodePath("../Lights")
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=1727648255]
+visible = false
+color = Color(0.12103007, 0.12103007, 0.12103007, 1)
+script = ExtResource("6_ouxsa")
+visible_on_runtime = false
+
+[node name="RoomArea" type="Area2D" parent="." unique_id=1786275778]
+visible = false
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomArea" unique_id=1771411542]
+position = Vector2(9, 52.5)
+shape = SubResource("RectangleShape2D_24j2n")

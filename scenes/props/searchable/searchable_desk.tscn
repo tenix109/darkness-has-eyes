@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dmwiv3hufywue"]
+
+[ext_resource type="Script" uid="uid://u812wt4dk2x8" path="res://scenes/props/searchable/searchable.gd" id="1_wvsix"]
+[ext_resource type="Texture2D" uid="uid://bcuycph8icn3p" path="res://art/tilesets/props_and_objects.png" id="2_1o15w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6fou"]
+size = Vector2(60, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b21jy"]
+size = Vector2(60, 30)
+
+[node name="SearchableDesk" type="Area2D" unique_id=202116977]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_wvsix")
+search_time_range = Vector2(4, 8)
+interaction_prompt = "Search"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1327135214]
+position = Vector2(0, 28)
+texture = ExtResource("2_1o15w")
+offset = Vector2(0, -16)
+region_enabled = true
+region_rect = Rect2(187, 20, 64, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=918843970]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_j6fou")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=562456029]
+position = Vector2(-8, -14)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=772803854]
+position = Vector2(8, 22)
+shape = SubResource("RectangleShape2D_b21jy")

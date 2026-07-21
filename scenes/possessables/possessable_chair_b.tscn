@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://0yi1fe7wi7fu"]
+
+[ext_resource type="Script" uid="uid://q6psxft3phds" path="res://scenes/possessables/possessable.gd" id="1_cijhf"]
+[ext_resource type="Texture2D" uid="uid://bcuycph8icn3p" path="res://art/tilesets/props_and_objects.png" id="2_82ryi"]
+[ext_resource type="Shader" uid="uid://c2d7dgnwswipy" path="res://scenes/possessables/white_outline_overlay.gdshader" id="3_n16bg"]
+[ext_resource type="Script" uid="uid://0embql8uahlu" path="res://utils/state_machine/state_machine.gd" id="4_isn7y"]
+[ext_resource type="Script" uid="uid://dinb7cwx0i30x" path="res://scenes/possessables/idle.gd" id="5_ix4r7"]
+[ext_resource type="Script" uid="uid://54e4igj5jmk7" path="res://scenes/possessables/awakening.gd" id="6_byhin"]
+[ext_resource type="Script" uid="uid://cj0yv51ivpjo4" path="res://scenes/possessables/possessed.gd" id="7_xjm12"]
+[ext_resource type="Script" uid="uid://n86s8nn0ly04" path="res://scenes/possessables/repelled.gd" id="8_uklxq"]
+[ext_resource type="Script" uid="uid://bkwkbpit1em4v" path="res://scenes/possessables/flee.gd" id="9_3qa5k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fkl3u"]
+shader = ExtResource("3_n16bg")
+shader_parameter/outline_color = Color(1, 0, 0, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rkbd"]
+radius = 12.0
+
+[node name="PossessableChairB" type="CharacterBody2D" unique_id=1282559479]
+collision_layer = 68
+collision_mask = 4
+motion_mode = 1
+safe_margin = 0.001
+script = ExtResource("1_cijhf")
+max_speed = 80.0
+acceleration_rate = 0.5
+
+[node name="Visuals" type="Node2D" parent="." unique_id=809882152]
+position = Vector2(0, -9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1137627167]
+texture = ExtResource("2_82ryi")
+region_enabled = true
+region_rect = Rect2(259, 64, 26, 42)
+
+[node name="OutlineSprite" type="Sprite2D" parent="Visuals/Sprite2D" unique_id=1159884334]
+material = SubResource("ShaderMaterial_fkl3u")
+texture = ExtResource("2_82ryi")
+region_enabled = true
+region_rect = Rect2(194, 63, 28, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2140863421]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8rkbd")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1279498962]
+script = ExtResource("4_isn7y")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=396705174]
+script = ExtResource("5_ix4r7")
+
+[node name="Awakening" type="Node" parent="StateMachine" unique_id=1235259240]
+script = ExtResource("6_byhin")
+awaken_duration = 1.0
+
+[node name="Possessed" type="Node" parent="StateMachine" unique_id=1523020939]
+script = ExtResource("7_xjm12")
+
+[node name="Repelled" type="Node" parent="StateMachine" unique_id=1852756998]
+script = ExtResource("8_uklxq")
+repel_duration = 0.6
+
+[node name="Flee" type="Node" parent="StateMachine" unique_id=476268663]
+script = ExtResource("9_3qa5k")
+
+[node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=937690142]
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=180280942]
+position = Vector2(-1, -3)
+rect = Rect2(-13, -28, 28, 44)

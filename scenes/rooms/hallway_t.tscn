@@ -1,0 +1,36 @@
+[gd_scene format=4 uid="uid://cwr8gt6g2ivuw"]
+
+[ext_resource type="Script" uid="uid://dw3nlfnvrknwj" path="res://scenes/rooms/room.gd" id="1_ck0p2"]
+[ext_resource type="TileSet" uid="uid://kdhqiha7hpu3" path="res://resources/main_tile_set.tres" id="2_rcmlv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_il0sp"]
+size = Vector2(352, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0p2"]
+size = Vector2(32, 96)
+
+[node name="Hallway_T" type="Node2D" unique_id=648858787]
+script = ExtResource("1_ck0p2")
+is_hallway = true
+has_no_light = true
+
+[node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=1889537290]
+tile_map_data = PackedByteArray("AAD+//r/AwABAAgAAAD+//v/AwABAAkAAAD+//z/AAAnAAwAAAD///r/AwABAAgAAAD///v/AwABAAkAAAD///z/AAAnAAwAAAAAAPr/AwABAAgAAAAAAPv/AwABAAkAAAAAAPz/AAAnAAwAAAABAPr/AwABAAgAAAABAPv/AwABAAkAAAABAPz/AAAnAAwAAAACAPr/AwABAAgAAAACAPv/AwABAAkAAAACAPz/AAAnAAwAAAAAAP3/AAAnAAwAAAAAAP7/AAAnAAwAAAAAAP//AAAnAAwAAAD9//z/AAAnAAwAAAADAPz/AAAnAAwAAAAEAPz/AAAnAAwAAAD8//z/AAAnAAwAAAD7//r/AwABAAgAAAD7//v/AwABAAkAAAAFAPr/AwABAAgAAAAFAPv/AwABAAkAAAAEAPr/AwABAAgAAAAEAPv/AwABAAkAAAADAPr/AwABAAgAAAADAPv/AwABAAkAAAD9//r/AwABAAgAAAD9//v/AwABAAkAAAD8//r/AwABAAgAAAD8//v/AwABAAkAAAD7//z/AAAnAAwAAAAFAPz/AAAnAAwAAAA=")
+tile_set = ExtResource("2_rcmlv")
+
+[node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=1543524968]
+z_index = 10
+tile_map_data = PackedByteArray("AAD+//r/BAAHAAYAAAD///r/BAAHAAYAAAAAAPr/BAAHAAYAAAABAPr/BAAHAAYAAAACAPr/BAAHAAYAAAADAPr/BAAHAAYAAAAEAPr/BAAHAAYAAAD7//r/BAAHAAYAAAD8//r/BAAHAAYAAAD9//r/BAAHAAYAAAAFAPr/BAAHAAYAAAD///3/BAAAAAcAAAD+//3/BAAHAAgAAAD9//3/BAAHAAgAAAD8//3/BAAHAAgAAAD7//3/BAAHAAgAAAABAP3/BAABAAcAAAACAP3/BAAHAAgAAAADAP3/BAAHAAgAAAAEAP3/BAAHAAgAAAAFAP3/BAAHAAgAAAD///7/BAACAAUAAAD/////BAACAAUAAAABAP7/BAADAAUAAAABAP//BAADAAUAAAA=")
+tile_set = ExtResource("2_rcmlv")
+
+[node name="RoomArea" type="Area2D" parent="." unique_id=646576813]
+visible = false
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomArea" unique_id=1881116447]
+position = Vector2(16, -144)
+shape = SubResource("RectangleShape2D_il0sp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoomArea" unique_id=983197778]
+position = Vector2(16, -48)
+shape = SubResource("RectangleShape2D_ck0p2")

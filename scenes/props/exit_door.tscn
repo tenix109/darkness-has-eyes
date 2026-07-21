@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://berp1akae1vmm"]
+
+[ext_resource type="Script" uid="uid://c2l21gf855bt2" path="res://scenes/props/exit_door.gd" id="1_ci7bc"]
+[ext_resource type="Texture2D" uid="uid://dqio2rsidc5gp" path="res://art/tilesets/exit_door_tileset.png" id="2_46v16"]
+[ext_resource type="PackedScene" uid="uid://n1xgyo0oxqtv" path="res://scenes/props/exit_sign.tscn" id="2_ci7bc"]
+[ext_resource type="Texture2D" uid="uid://0mxftwg3pywp" path="res://art/images/lights/cone_256x256_1.png" id="5_n6pst"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46v16"]
+size = Vector2(8, 16)
+
+[sub_resource type="Animation" id="Animation_n6pst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightAnchor:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_0hijk"]
+resource_name = "closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightAnchor:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_2y7j1"]
+resource_name = "opening"
+step = 0.16
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 64, 50), Rect2(64, 0, 64, 50), Rect2(128, 0, 64, 50), Rect2(192, 0, 64, 50), Rect2(256, 0, 64, 50), Rect2(320, 0, 64, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightAnchor:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667, 0.8333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 1), Vector2(0.169, 1), Vector2(0.337, 1), Vector2(0.503, 1), Vector2(0.57, 1), Vector2(0.85, 1), Vector2(0.85, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c233b"]
+_data = {
+&"RESET": SubResource("Animation_n6pst"),
+&"closed": SubResource("Animation_0hijk"),
+&"opening": SubResource("Animation_2y7j1")
+}
+
+[node name="ExitDoor" type="Area2D" unique_id=471537759]
+collision_layer = 8
+collision_mask = 32
+monitoring = false
+script = ExtResource("1_ci7bc")
+interaction_prompt = "Escape"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=324026705]
+offset_left = -17.0
+offset_top = -46.0
+offset_right = 35.0
+offset_bottom = -2.0
+
+[node name="DoorSprite" type="Sprite2D" parent="." unique_id=1653041677]
+position = Vector2(9, -25)
+texture = ExtResource("2_46v16")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 50)
+
+[node name="ButtonSprite2" type="Sprite2D" parent="." unique_id=1223004338]
+position = Vector2(49, -22)
+texture = ExtResource("2_46v16")
+region_enabled = true
+region_rect = Rect2(386, 16, 12, 20)
+
+[node name="ExitSign" parent="." unique_id=626629450 instance=ExtResource("2_ci7bc")]
+position = Vector2(64, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2020487104]
+position = Vector2(48, -25)
+shape = SubResource("RectangleShape2D_46v16")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2098349919]
+libraries/ = SubResource("AnimationLibrary_c233b")
+autoplay = &"closed"
+
+[node name="LightAnchor" type="Node2D" parent="." unique_id=1039158095]
+position = Vector2(9, -46)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="PointLight2D" type="PointLight2D" parent="LightAnchor" unique_id=639390159]
+position = Vector2(-9.536743e-07, 65)
+rotation = 3.1415927
+scale = Vector2(0.86, 0.5)
+texture = ExtResource("5_n6pst")

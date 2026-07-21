@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hnx0bqcqc5hy"
+path="res://.godot/imported/Cosmic Hit.wav-f5653e735b2fe9c8d8a61a8be73ec133.sample"
+
+[deps]
+
+source_file="res://audio/sounds/scares/Cosmic Hit.wav"
+dest_files=["res://.godot/imported/Cosmic Hit.wav-f5653e735b2fe9c8d8a61a8be73ec133.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

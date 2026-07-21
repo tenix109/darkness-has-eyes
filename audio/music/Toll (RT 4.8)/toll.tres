@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OvaniSong" format=3 uid="uid://dfoaasay5qo41"]
+
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="1_6fkgc"]
+[ext_resource type="AudioStream" uid="uid://dkb7g60gx5866" path="res://audio/music/Toll (RT 4.8)/Horror Vol8 Toll Intensity 1.wav" id="1_6n7dk"]
+[ext_resource type="AudioStream" uid="uid://clmbmlh8b4mf3" path="res://audio/music/Toll (RT 4.8)/Horror Vol8 Toll Intensity 2.wav" id="2_1v0fr"]
+[ext_resource type="AudioStream" uid="uid://bu84gm36cqoyo" path="res://audio/music/Toll (RT 4.8)/Horror Vol8 Toll Main.wav" id="3_oqgk0"]
+
+[resource]
+script = ExtResource("1_6fkgc")
+Intensity1 = ExtResource("1_6n7dk")
+Intensity2 = ExtResource("2_1v0fr")
+Intensity3 = ExtResource("3_oqgk0")
+ReverbTail = 4.8
+metadata/_custom_type_script = "uid://b6hl5qjc8221s"

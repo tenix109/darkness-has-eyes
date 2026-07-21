@@ -1,0 +1,41 @@
+[gd_scene format=4 uid="uid://jeqot8gbyi3g"]
+
+[ext_resource type="Script" uid="uid://d2wp6hi6dfh77" path="res://scenes/follow_camera.gd" id="1_7k8c1"]
+[ext_resource type="PackedScene" uid="uid://b48727n3mrxi0" path="res://scenes/player/player.tscn" id="1_tsias"]
+[ext_resource type="PackedScene" uid="uid://cwni0vkycy7ma" path="res://scenes/rooms/room_start.tscn" id="2_f1v6p"]
+[ext_resource type="PackedScene" uid="uid://daewq46xvceaa" path="res://scenes/rooms/room_a_east.tscn" id="3_gy5pc"]
+[ext_resource type="TileSet" uid="uid://kdhqiha7hpu3" path="res://resources/main_tile_set.tres" id="7_f1v6p"]
+[ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="8_dp8al"]
+
+[node name="World" type="Node2D" unique_id=499134380]
+
+[node name="FollowCamera" type="Camera2D" parent="." unique_id=1082060348 node_paths=PackedStringArray("target")]
+zoom = Vector2(3, 3)
+script = ExtResource("1_7k8c1")
+follow_offset = Vector2(0, -16)
+target = NodePath("../PlayerTheGirl")
+
+[node name="Rooms" type="Node2D" parent="." unique_id=701764686]
+
+[node name="RoomStart" parent="Rooms" unique_id=1817066731 instance=ExtResource("2_f1v6p")]
+
+[node name="Room_A_East" parent="Rooms" unique_id=575161556 instance=ExtResource("3_gy5pc")]
+position = Vector2(256, -416)
+
+[node name="TileMap_Base" type="TileMapLayer" parent="Rooms" unique_id=672563077]
+z_index = -10
+tile_map_data = PackedByteArray("AAAAAPr/AAAnAAwAAAAAAPv/AAAnAAwAAAAAAPz/AAAnAAwAAAAAAPn/AAAnAAwAAAAAAP3/AAAnAAwAAAAAAPj/AAAnAAwAAAAAAPf/AAAnAAwAAAAAAPb/AAAnAAwAAAAAAPX/AAAnAAwAAAAAAPT/AAAnAAwAAAAAAPP/AAAnAAwAAAABAPb/AAAnAAwAAAABAPT/AwAAAAgAAAABAPX/AwAAAAkAAAACAPT/AwABAAgAAAADAPT/AwABAAgAAAAEAPT/AwABAAgAAAACAPX/AwABAAkAAAADAPX/AwABAAkAAAAEAPX/AwABAAkAAAACAPb/AAAnAAwAAAADAPb/AAAnAAwAAAAEAPb/AAAnAAwAAAA=")
+tile_set = ExtResource("7_f1v6p")
+
+[node name="TileMap_Borders" type="TileMapLayer" parent="Rooms" unique_id=1584498463]
+z_index = 10
+tile_map_data = PackedByteArray("AAABAP3/BAADAAUAAAD///z/BAACAAUAAAD///v/BAACAAUAAAABAPz/BAADAAUAAAABAPv/BAADAAUAAAABAPr/BAADAAUAAAABAPn/BAADAAUAAAABAPj/BAADAAUAAAD///3/BAACAAUAAAD///r/BAACAAUAAAD///n/BAACAAUAAAD///j/BAACAAUAAAD///f/BAACAAUAAAD///b/BAACAAUAAAD///X/BAACAAUAAAD///T/BAACAAUAAAD///P/BAACAAUAAAABAPf/BAABAAcAAAABAPT/BAABAAYAAAABAPP/BAADAAUAAAACAPf/BAAHAAgAAAADAPf/BAAHAAgAAAAEAPf/BAAHAAgAAAACAPT/BAAHAAYAAAADAPT/BAAHAAYAAAAEAPT/BAAHAAYAAAA=")
+tile_set = ExtResource("7_f1v6p")
+
+[node name="PlayerTheGirl" parent="." unique_id=1218181351 instance=ExtResource("1_tsias")]
+position = Vector2(16, 80)
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=1727305468]
+visible = false
+color = Color(0.12103007, 0.12103007, 0.12103007, 1)
+script = ExtResource("8_dp8al")

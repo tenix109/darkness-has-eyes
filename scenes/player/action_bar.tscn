@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c20ir7jfdy7wm"]
+
+[ext_resource type="FontFile" uid="uid://hm5lqiqlhdie" path="res://fonts/LibertinusMono-Regular.ttf" id="1_04uig"]
+[ext_resource type="Script" uid="uid://cv2gmxx5ucn6u" path="res://scenes/player/action_bar.gd" id="1_ppwpb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uniwh"]
+content_margin_left = 4.0
+bg_color = Color(0.12968749, 0.12968749, 0.12968749, 1)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04uig"]
+bg_color = Color(1, 1, 0, 0.8784314)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="ActionBar" type="VBoxContainer" unique_id=1598359483]
+z_index = 10
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -24.0
+theme_override_constants/separation = 0
+script = ExtResource("1_ppwpb")
+
+[node name="ActionLabel" type="RichTextLabel" parent="." unique_id=404538381]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.87058824, 1, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("1_04uig")
+theme_override_font_sizes/normal_font_size = 6
+text = "Searching"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionProgressBar" type="ProgressBar" parent="." unique_id=1060341097]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_uniwh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_04uig")
+value = 0.1
+show_percentage = false

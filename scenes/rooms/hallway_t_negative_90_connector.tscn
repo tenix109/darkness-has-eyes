@@ -1,0 +1,36 @@
+[gd_scene format=4 uid="uid://crhhrgtcigoea"]
+
+[ext_resource type="Script" uid="uid://dw3nlfnvrknwj" path="res://scenes/rooms/room.gd" id="1_adlvq"]
+[ext_resource type="TileSet" uid="uid://kdhqiha7hpu3" path="res://resources/main_tile_set.tres" id="2_p0e0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocbgi"]
+size = Vector2(32, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5ekk"]
+size = Vector2(64, 32)
+
+[node name="Hallway_T_Negative_90_Connector" type="Node2D" unique_id=648858787]
+script = ExtResource("1_adlvq")
+is_hallway = true
+has_no_light = true
+
+[node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=1889537290]
+tile_map_data = PackedByteArray("AAAAAP3/AAAnAAwAAAAAAP7/AAAnAAwAAAAAAP//AAAnAAwAAAAAAAAAAAAnAAwAAAD/////AAAnAAwAAAD///3/AwACAAgAAAD///7/AwACAAkAAAA=")
+tile_set = ExtResource("2_p0e0v")
+
+[node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=1543524968]
+z_index = 10
+tile_map_data = PackedByteArray("AAABAAAABAADAAUAAAD//wAABAAAAAcAAAABAP//BAADAAUAAAD///3/BAAAAAYAAAABAP7/BAADAAUAAAABAP3/BAADAAUAAAA=")
+tile_set = ExtResource("2_p0e0v")
+
+[node name="RoomArea" type="Area2D" parent="." unique_id=991061633]
+visible = false
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomArea" unique_id=1755530932]
+position = Vector2(16, -32)
+shape = SubResource("RectangleShape2D_ocbgi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoomArea" unique_id=1855552708]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_m5ekk")

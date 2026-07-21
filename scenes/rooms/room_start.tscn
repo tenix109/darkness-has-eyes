@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://cwni0vkycy7ma"]
+
+[ext_resource type="Script" uid="uid://dw3nlfnvrknwj" path="res://scenes/rooms/room.gd" id="1_3xqj6"]
+[ext_resource type="TileSet" uid="uid://kdhqiha7hpu3" path="res://resources/main_tile_set.tres" id="1_w3tkv"]
+[ext_resource type="Texture2D" uid="uid://fo75ocf38xsp" path="res://art/images/lights/cone_128x128_2.png" id="2_ckmdi"]
+
+[sub_resource type="Gradient" id="Gradient_ckmdi"]
+offsets = PackedFloat32Array(0.868, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r2mul"]
+gradient = SubResource("Gradient_ckmdi")
+width = 232
+height = 236
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xqj6"]
+size = Vector2(196, 224)
+
+[node name="RoomStart" type="Node2D" unique_id=1817066731]
+script = ExtResource("1_3xqj6")
+is_start_room = true
+
+[node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=1426801890]
+tile_map_data = PackedByteArray("AAD9////AwAAAAkAAAD9//7/AwAAAAgAAAD+//7/AwABAAgAAAD+////AwABAAkAAAADAP7/AwACAAgAAAADAP//AwACAAkAAAACAP7/AwABAAgAAAACAP//AwABAAkAAAABAP7/AwAAAAgAAAABAP//AwAAAAkAAAD///7/AwACAAgAAAD/////AwACAAkAAAD+/wEAAAAnAAwAAAD9/wAAAAAnAAwAAAD+/wAAAAAnAAwAAAD//wAAAAAnAAwAAAADAAAAAAAnAAwAAAABAAAAAAAnAAwAAAACAAAAAAAnAAwAAAD9/wEAAAAnAAwAAAAAAAAAAAAnAAwAAAD//wEAAAAnAAwAAAD9/wIAAAAnAAwAAAD+/wIAAAAnAAwAAAD//wIAAAAnAAwAAAAAAAEAAAAnAAwAAAAAAAIAAAAnAAwAAAABAAEAAAAnAAwAAAABAAIAAAAnAAwAAAACAAEAAAAnAAwAAAACAAIAAAAnAAwAAAADAAEAAAAnAAwAAAADAAIAAAAnAAwAAAAAAP//AAAnAAwAAAAAAP7/AAAnAAwAAAD9/wMAAAAnAAwAAAD+/wMAAAAnAAwAAAD//wMAAAAnAAwAAAAAAAMAAAAnAAwAAAABAAMAAAAnAAwAAAACAAMAAAAnAAwAAAADAAMAAAAnAAwAAAD9/wQAAAAnAAwAAAD+/wQAAAAnAAwAAAD//wQAAAAnAAwAAAAAAAQAAAAnAAwAAAABAAQAAAAnAAwAAAACAAQAAAAnAAwAAAADAAQAAAAnAAwAAAA=")
+tile_set = ExtResource("1_w3tkv")
+
+[node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=480884547]
+z_index = 10
+tile_map_data = PackedByteArray("AAD+//7/BAAHAAYAAAD///7/BAACAAYAAAABAP7/BAADAAYAAAACAP7/BAAHAAYAAAADAP7/BAAAAAcAAAD9/wUABAABAAYAAAD+/wUABAAHAAgAAAD//wUABAAHAAgAAAAAAAUABAAHAAgAAAABAAUABAAHAAgAAAACAAUABAAHAAgAAAADAAUABAAAAAYAAAADAAQABAACAAUAAAADAAMABAACAAUAAAADAAIABAACAAUAAAADAAEABAACAAUAAAADAAAABAACAAUAAAADAP//BAACAAUAAAD9/wMABAADAAUAAAD9/wIABAADAAUAAAD9/wEABAADAAUAAAD9/wAABAADAAUAAAD9////BAADAAUAAAD9/wQABAADAAUAAAD9//7/BAABAAcAAAA=")
+tile_set = ExtResource("1_w3tkv")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=255304153]
+energy = 0.9
+range_z_min = -512
+range_z_max = 512
+texture = SubResource("GradientTexture2D_r2mul")
+offset = Vector2(16, 54)
+
+[node name="SpillLight" type="PointLight2D" parent="." unique_id=1341783613]
+position = Vector2(16, -89)
+scale = Vector2(1, 0.4)
+texture = ExtResource("2_ckmdi")
+
+[node name="RoomArea" type="Area2D" parent="." unique_id=1326026125]
+visible = false
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomArea" unique_id=908794777]
+position = Vector2(16, 48)
+shape = SubResource("RectangleShape2D_3xqj6")

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dwljdud1aqw74"]
+
+[ext_resource type="Script" uid="uid://dkic8itokfbuu" path="res://scenes/props/light_switch.gd" id="1_g3tcv"]
+[ext_resource type="Texture2D" uid="uid://cgehubuw8fc20" path="res://art/images/lights/cone_64x64_1.png" id="2_8yk2g"]
+[ext_resource type="AudioStream" uid="uid://dmjwh5n0k5h51" path="res://audio/sounds/light_switch.wav" id="2_ymfqu"]
+[ext_resource type="AudioStream" uid="uid://blv5hgj1e1ory" path="res://audio/sounds/power_down.wav" id="3_302uv"]
+[ext_resource type="AudioStream" uid="uid://c6ntstlrg0mgo" path="res://audio/sounds/power_up.wav" id="3_ymfqu"]
+[ext_resource type="Texture2D" uid="uid://bcuycph8icn3p" path="res://art/tilesets/props_and_objects.png" id="5_ymfqu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yk2g"]
+size = Vector2(10, 16)
+
+[node name="LightSwitch" type="Area2D" unique_id=1997813369]
+process_mode = 1
+collision_layer = 8
+collision_mask = 2
+monitoring = false
+script = ExtResource("1_g3tcv")
+light_switch = ExtResource("2_ymfqu")
+power_off = ExtResource("3_302uv")
+power_on = ExtResource("3_ymfqu")
+interaction_prompt = "Turn on Light"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=149086769]
+texture = ExtResource("5_ymfqu")
+offset = Vector2(16, -22)
+region_enabled = true
+region_rect = Rect2(134, 175, 12, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377242742]
+position = Vector2(16, -20)
+shape = SubResource("RectangleShape2D_8yk2g")
+
+[node name="UsableLight" type="PointLight2D" parent="." unique_id=1514542972]
+position = Vector2(4.263257e-14, -12.000001)
+rotation = 3.1415927
+scale = Vector2(0.7, 0.9)
+color = Color(0, 1, 0, 1)
+energy = 0.6
+texture = ExtResource("2_8yk2g")
+offset = Vector2(-23, -12)

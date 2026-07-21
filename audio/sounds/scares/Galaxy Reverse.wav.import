@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cuejhpakhgeq4"
+path="res://.godot/imported/Galaxy Reverse.wav-023cb232738b69ad9f774e0e3a00ae0d.sample"
+
+[deps]
+
+source_file="res://audio/sounds/scares/Galaxy Reverse.wav"
+dest_files=["res://.godot/imported/Galaxy Reverse.wav-023cb232738b69ad9f774e0e3a00ae0d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

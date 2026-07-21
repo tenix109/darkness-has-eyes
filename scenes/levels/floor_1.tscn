@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://b11ean280sawy"]
+
+[ext_resource type="Script" uid="uid://d2wp6hi6dfh77" path="res://scenes/follow_camera.gd" id="1_ipbav"]
+[ext_resource type="Script" uid="uid://cr64xba2ufexq" path="res://scenes/levels/floor.gd" id="1_yvytt"]
+[ext_resource type="PackedScene" uid="uid://cwni0vkycy7ma" path="res://scenes/rooms/room_start.tscn" id="2_l71cr"]
+[ext_resource type="PackedScene" uid="uid://dfut0im7k0cqt" path="res://scenes/rooms/room_a_west.tscn" id="3_0vqpd"]
+[ext_resource type="TileSet" uid="uid://kdhqiha7hpu3" path="res://resources/main_tile_set.tres" id="4_ak87x"]
+[ext_resource type="PackedScene" uid="uid://cwr8gt6g2ivuw" path="res://scenes/rooms/hallway_t.tscn" id="5_57w5f"]
+[ext_resource type="PackedScene" uid="uid://daewq46xvceaa" path="res://scenes/rooms/room_a_east.tscn" id="6_ek7yy"]
+[ext_resource type="PackedScene" uid="uid://dfuypy6oavd2u" path="res://scenes/rooms/hallway_x.tscn" id="7_mwadm"]
+[ext_resource type="PackedScene" uid="uid://da32n38v7jtng" path="res://scenes/rooms/hallway_t_180_connector.tscn" id="8_78iff"]
+[ext_resource type="PackedScene" uid="uid://boh0coe1d28db" path="res://scenes/rooms/hallway_t_connector.tscn" id="9_vrsxn"]
+[ext_resource type="PackedScene" uid="uid://rky0j6rn0ka0" path="res://scenes/rooms/hallway_i_4x.tscn" id="10_tgspi"]
+[ext_resource type="PackedScene" uid="uid://berp1akae1vmm" path="res://scenes/props/exit_door.tscn" id="11_1hwrx"]
+[ext_resource type="PackedScene" uid="uid://b48727n3mrxi0" path="res://scenes/player/player.tscn" id="12_yvytt"]
+[ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="13_8gdan"]
+[ext_resource type="PackedScene" uid="uid://unhy7fwbf5n8" path="res://scenes/props/wall_sign.tscn" id="13_i10nr"]
+[ext_resource type="PackedScene" uid="uid://bjfjopxpmnlfd" path="res://scenes/hud.tscn" id="14_10hsx"]
+[ext_resource type="PackedScene" uid="uid://bp8012hthnihn" path="res://scenes/possessables/possessable_phone_a.tscn" id="15_57w5f"]
+[ext_resource type="PackedScene" uid="uid://bn6v8adlwcxdg" path="res://scenes/possessables/possessable_lamp_b.tscn" id="15_ek7yy"]
+[ext_resource type="PackedScene" uid="uid://cmrjbk6lvmca2" path="res://scenes/possessables/possessable_chair_a.tscn" id="16_ek7yy"]
+[ext_resource type="PackedScene" uid="uid://cr5my0io2jmar" path="res://scenes/possessables/possessable_phone_d.tscn" id="17_1hwrx"]
+[ext_resource type="Script" uid="uid://bytj751rstygx" path="res://scenes/props/possessor.gd" id="17_ak87x"]
+[ext_resource type="PackedScene" uid="uid://lqpqtjm8yjh7" path="res://scenes/possessables/possessable_lamp_a.tscn" id="18_yvytt"]
+[ext_resource type="PackedScene" uid="uid://drmxt1wnslnut" path="res://scenes/props/searchable/searchable_nightstand.tscn" id="20_8gdan"]
+[ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="20_vrsxn"]
+[ext_resource type="PackedScene" uid="uid://dmwiv3hufywue" path="res://scenes/props/searchable/searchable_desk.tscn" id="21_10hsx"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="21_tgspi"]
+[ext_resource type="Resource" uid="uid://qu6vgijwc4mh" path="res://audio/music/Phobia (RT 3.081)/phobia.tres" id="22_1hwrx"]
+[ext_resource type="PackedScene" uid="uid://b7hjfyad24v1d" path="res://scenes/props/searchable/searchable_dresser_clutter.tscn" id="22_6jofm"]
+[ext_resource type="PackedScene" uid="uid://b7ogmvyvvp7c7" path="res://scenes/props/searchable/searchable_dresser_smashed.tscn" id="23_i10nr"]
+[ext_resource type="PackedScene" uid="uid://dm2assh8eg7d5" path="res://scenes/props/searchable/searchable_dresser.tscn" id="24_l1kn8"]
+[ext_resource type="PackedScene" uid="uid://doigfx673jjhv" path="res://scenes/possessables/possessable_chair_c.tscn" id="25_i10nr"]
+[ext_resource type="PackedScene" uid="uid://bkjad4ddepkfv" path="res://scenes/props/memory_fragment.tscn" id="26_l1kn8"]
+[ext_resource type="PackedScene" uid="uid://diokk8q0r0xbc" path="res://scenes/props/cart_horizontal.tscn" id="27_xtt5c"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_57w5f"]
+vertices = PackedVector2Array(297, -105, 9, -105, -7, -137, 9, -137, 297, -393, 297, -457, 473, -457, 473, -297, 297, -297, 297, -361, -295, -393, 233, -361, 297, -137, 297, -201, 473, -201, 473, -41, 297, -41, 217, -137, 233, -137, 9, 55, -7, 55, -7, -105, -215, -137, -295, -105, -231, -137, -295, -41, -471, -41, -471, -201, -295, -201, -295, -137, -215, -361, -231, -361, -295, -361, -295, -297, -471, -297, -471, -457, -295, -457, 217, -361, 9, -361, -7, -361)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 8, 9), PackedInt32Array(4, 7, 9), PackedInt32Array(10, 4, 9, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 16, 0), PackedInt32Array(15, 0, 17, 18), PackedInt32Array(1, 19, 20, 21), PackedInt32Array(2, 1, 21, 22), PackedInt32Array(22, 21, 23, 24), PackedInt32Array(23, 25, 26, 27), PackedInt32Array(27, 28, 29), PackedInt32Array(23, 27, 29), PackedInt32Array(23, 29, 24), PackedInt32Array(30, 22, 24, 31), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(35, 36, 10), PackedInt32Array(32, 35, 10, 31), PackedInt32Array(18, 12, 15), PackedInt32Array(11, 18, 17, 37), PackedInt32Array(10, 11, 37), PackedInt32Array(10, 37, 38), PackedInt32Array(30, 31, 10), PackedInt32Array(3, 17, 0), PackedInt32Array(38, 3, 2, 39), PackedInt32Array(10, 38, 39), PackedInt32Array(30, 10, 39)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-15, 63, 17, 63, 17, -97, -15, -97, -15, 63, -15, 55), PackedVector2Array(-479, -209, -479, -33, -287, -33, -287, -97, 289, -97, 289, -33, 481, -33, 481, -209, 289, -209, 289, -145, -287, -145, -287, -209), PackedVector2Array(-239, -145, -207, -145, -207, -353, -239, -353), PackedVector2Array(-479, -465, -479, -289, -287, -289, -287, -353, 289, -353, 289, -289, 481, -289, 481, -465, 289, -465, 289, -401, -287, -401, -287, -465), PackedVector2Array(-15, -353, 17, -353, 17, -145, -15, -145), PackedVector2Array(209, -145, 241, -145, 241, -353, 209, -353)])
+agent_radius = 8.0
+
+[node name="Floor_1" type="Node2D" unique_id=499134380]
+script = ExtResource("1_yvytt")
+next_scene_path = "res://scenes/levels/floor_2.tscn"
+level_title = "Dark Corridors"
+
+[node name="FollowCamera" type="Camera2D" parent="." unique_id=1082060348 node_paths=PackedStringArray("target")]
+zoom = Vector2(4, 4)
+script = ExtResource("1_ipbav")
+follow_offset = Vector2(0, -16)
+target = NodePath("../YSort/PlayerTheGirl")
+
+[node name="Rooms" type="Node2D" parent="." unique_id=701764686]
+
+[node name="RoomStart" parent="Rooms" unique_id=1817066731 instance=ExtResource("2_l71cr")]
+
+[node name="Room_A_West2" parent="Rooms" unique_id=575161556 instance=ExtResource("3_0vqpd")]
+position = Vector2(384, -512)
+
+[node name="Room_A_West" parent="Rooms" unique_id=1567686891 instance=ExtResource("3_0vqpd")]
+position = Vector2(384, -256)
+
+[node name="TileMap_Base" type="TileMapLayer" parent="Rooms" unique_id=672563077]
+z_index = -10
+tile_set = ExtResource("4_ak87x")
+
+[node name="TileMap_Borders" type="TileMapLayer" parent="Rooms" unique_id=1584498463]
+z_index = 10
+tile_set = ExtResource("4_ak87x")
+
+[node name="Hallway_T" parent="Rooms" unique_id=648858787 instance=ExtResource("5_57w5f")]
+position = Vector2(0, -320)
+
+[node name="Room_A_East" parent="Rooms" unique_id=747154176 instance=ExtResource("6_ek7yy")]
+position = Vector2(-384, -256)
+
+[node name="Room_A_East2" parent="Rooms" unique_id=344153044 instance=ExtResource("6_ek7yy")]
+position = Vector2(-384, -512)
+has_no_light = true
+
+[node name="Hallway_X" parent="Rooms" unique_id=627172819 instance=ExtResource("7_mwadm")]
+position = Vector2(0, -64)
+
+[node name="Hallway_T_180" parent="Rooms" unique_id=423304070 instance=ExtResource("8_78iff")]
+position = Vector2(-224, -160)
+
+[node name="Hallway_T_181" parent="Rooms" unique_id=504241430 instance=ExtResource("8_78iff")]
+position = Vector2(224, -160)
+
+[node name="Hallway_T_Connector" parent="Rooms" unique_id=46034066 instance=ExtResource("9_vrsxn")]
+position = Vector2(224, -416)
+
+[node name="Hallway_T_Connector2" parent="Rooms" unique_id=1148720667 instance=ExtResource("9_vrsxn")]
+position = Vector2(-224, -416)
+
+[node name="Hallway_I_x4" parent="Rooms" unique_id=1231089622 instance=ExtResource("10_tgspi")]
+position = Vector2(224, -256)
+
+[node name="Hallway_I_x5" parent="Rooms" unique_id=564381566 instance=ExtResource("10_tgspi")]
+position = Vector2(-224, -256)
+
+[node name="ExitDoor" parent="Rooms" unique_id=471537759 instance=ExtResource("11_1hwrx")]
+position = Vector2(8, -448)
+
+[node name="RunSign" parent="Rooms" unique_id=1184885036 instance=ExtResource("13_i10nr")]
+position = Vector2(56, -208)
+
+[node name="YSort" type="Node2D" parent="." unique_id=399036488]
+y_sort_enabled = true
+
+[node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("12_yvytt")]
+position = Vector2(16, 72)
+
+[node name="PossessablePhoneA" parent="YSort" unique_id=568051810 instance=ExtResource("15_57w5f")]
+position = Vector2(-448, -254)
+
+[node name="PossessableLampB" parent="YSort" unique_id=1728117966 instance=ExtResource("15_ek7yy")]
+position = Vector2(-424, -199)
+
+[node name="PossessableLampB2" parent="YSort" unique_id=745177664 instance=ExtResource("15_ek7yy")]
+position = Vector2(372, -264)
+
+[node name="PossessableChairA" parent="YSort" unique_id=1031614178 instance=ExtResource("16_ek7yy")]
+position = Vector2(342, -394)
+
+[node name="PossessablePhoneD" parent="YSort" unique_id=1282559479 instance=ExtResource("17_1hwrx")]
+position = Vector2(472, -451)
+
+[node name="PossessableLampA" parent="YSort" unique_id=1712873915 instance=ExtResource("18_yvytt")]
+position = Vector2(448, -451)
+
+[node name="SearchableNightstand" parent="YSort" unique_id=883901282 instance=ExtResource("20_8gdan")]
+position = Vector2(372, -269)
+
+[node name="SearchableDesk" parent="YSort" unique_id=156951682 instance=ExtResource("21_10hsx")]
+position = Vector2(464, -153)
+
+[node name="SearchableDesk2" parent="YSort" unique_id=202116977 instance=ExtResource("21_10hsx")]
+position = Vector2(461, -456)
+
+[node name="SearchableDresserClutter" parent="YSort" unique_id=503809964 instance=ExtResource("22_6jofm")]
+position = Vector2(-352, -272)
+
+[node name="SearchableDresserSmashed" parent="YSort" unique_id=801794112 instance=ExtResource("23_i10nr")]
+position = Vector2(-438, -203)
+
+[node name="SearchableDresser" parent="YSort" unique_id=2088701077 instance=ExtResource("24_l1kn8")]
+position = Vector2(-439, -259)
+
+[node name="PossessableChairC" parent="YSort" unique_id=770908081 instance=ExtResource("25_i10nr")]
+position = Vector2(-376, -482)
+
+[node name="PossessableChairC2" parent="YSort" unique_id=829026743 instance=ExtResource("25_i10nr")]
+position = Vector2(-320, -389)
+scale = Vector2(-1, 1)
+
+[node name="MemoryFragment" parent="YSort" unique_id=1175381629 instance=ExtResource("26_l1kn8")]
+position = Vector2(16, -312)
+
+[node name="MemoryFragment2" parent="YSort" unique_id=1736895929 instance=ExtResource("26_l1kn8")]
+position = Vector2(-418, -440)
+
+[node name="CartHorizontal" parent="YSort" unique_id=2093506797 instance=ExtResource("27_xtt5c")]
+position = Vector2(-12, 73)
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=1727305468]
+visible = false
+light_mask = 3
+color = Color(0.09366939, 0.09366938, 0.09366938, 1)
+script = ExtResource("13_8gdan")
+
+[node name="HUD" parent="." unique_id=158779456 instance=ExtResource("14_10hsx")]
+
+[node name="Possessor" type="Node" parent="." unique_id=2129355073 node_paths=PackedStringArray("ovani_player")]
+script = ExtResource("17_ak87x")
+max_dist = 144.0
+ovani_player = NodePath("../OvaniPlayer")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=912262973]
+visible = false
+position = Vector2(15, -63)
+navigation_polygon = SubResource("NavigationPolygon_57w5f")
+
+[node name="OvaniPlayer" type="Node" parent="." unique_id=727552000]
+process_mode = 3
+script = ExtResource("20_vrsxn")
+QueuedSongs = Array[ExtResource("21_tgspi")]([ExtResource("22_1hwrx")])
+Volume = -10.0
+Bus = &"Music"
+
+[editable path="YSort/PlayerTheGirl"]

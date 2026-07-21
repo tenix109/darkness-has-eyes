@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OvaniSong" format=3 uid="uid://dovl11knj84h3"]
+
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="1_mrfxd"]
+[ext_resource type="AudioStream" uid="uid://bbe3oc72uu2le" path="res://audio/music/Ancient Grounds (RT 4.0)/Horror Vol8 Ancient Grounds Intensity 1.wav" id="1_qje64"]
+[ext_resource type="AudioStream" uid="uid://cfprvsgm8xmwi" path="res://audio/music/Ancient Grounds (RT 4.0)/Horror Vol8 Ancient Grounds Intensity 2.wav" id="2_4jete"]
+[ext_resource type="AudioStream" uid="uid://bqgvwfid1gon2" path="res://audio/music/Ancient Grounds (RT 4.0)/Horror Vol8 Ancient Grounds Main.wav" id="3_8yf4r"]
+
+[resource]
+script = ExtResource("1_mrfxd")
+Intensity1 = ExtResource("1_qje64")
+Intensity2 = ExtResource("2_4jete")
+Intensity3 = ExtResource("3_8yf4r")
+ReverbTail = 4.0
+metadata/_custom_type_script = "uid://b6hl5qjc8221s"

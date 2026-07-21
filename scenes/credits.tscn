@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://b8ston1lag0hl"]
+
+[ext_resource type="Script" uid="uid://cus1g5qdr2dp6" path="res://scenes/credits.gd" id="1_2ckv8"]
+[ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="3_8gwij"]
+[ext_resource type="FontFile" uid="uid://wbyxpn0d8v1e" path="res://fonts/AlmendraSC-Regular.ttf" id="3_mah5v"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="4_mah5v"]
+[ext_resource type="Resource" uid="uid://dfoaasay5qo41" path="res://audio/music/Toll (RT 4.8)/toll.tres" id="5_8gwij"]
+
+[node name="Credits" type="Control" unique_id=167529111]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ckv8")
+scroll_speed = 110.0
+fast_scroll_speed = 500.0
+metadata/_edit_vertical_guides_ = [531.0, 534.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1362821266]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14117648, 0.07450981, 0.19607843, 1)
+
+[node name="CreditsVBox" type="VBoxContainer" parent="." unique_id=238689249]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 2412.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HeaderLabel" type="RichTextLabel" parent="CreditsVBox" unique_id=338346424]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 0
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/normal_font = ExtResource("3_mah5v")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[font_size=74]Darkness Has Eyes[/font_size]
+
+
+
+
+
+A Game By
+[img=400]res://art/ui/ecksoft-logo-640-X8LVjtA.png[/img]
+
+
+
+
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MainCreditsLabel" type="RichTextLabel" parent="CreditsVBox" unique_id=983282368]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 0
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/normal_font = ExtResource("3_mah5v")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "
+
+
+[font_size=36]Game Design[/font_size]
+Aaron Muntean
+
+
+
+[font_size=36]Programming[/font_size]
+Aaron Muntean
+
+
+
+[font_size=36]Art[/font_size]
+Modern Iinteriors by limezu.itch.io
+Aaron Muntean
+
+
+
+[font_size=36]Audio[/font_size]
+Aaron Muntean
+
+
+
+[font_size=36]Story[/font_size]
+Aaron Muntean
+
+
+
+
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SpecialThanksLabel" type="RichTextLabel" parent="CreditsVBox" unique_id=32663212]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 10
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/normal_font = ExtResource("3_mah5v")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[font_size=48]Special Thanks[/font_size]
+[img=28]res://art/ui/glitch_flat_purple.png[/img]  @ALilSpacey
+     [img=28]res://art/ui/glitch_flat_purple.png[/img]  @Chaos_Joe23
+  [img=28]res://art/ui/glitch_flat_purple.png[/img]  @LilMissKme
+
+
+
+
+
+
+
+
+
+
+
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="EndLabel" type="RichTextLabel" parent="CreditsVBox" unique_id=637020358]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 0
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/normal_font = ExtResource("3_mah5v")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[font_size=54]The End[/font_size]
+
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LoreUnlockedLabel" type="RichTextLabel" parent="CreditsVBox" unique_id=1226905745]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.101960786, 0.7019608, 0.30980393, 1)
+theme_override_constants/line_separation = 0
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/normal_font = ExtResource("3_mah5v")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "
+Memories have been scattered across the floors.
+Find them.
+
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="OvaniPlayer" type="Node" parent="." unique_id=819062219]
+process_mode = 3
+script = ExtResource("3_8gwij")
+QueuedSongs = Array[ExtResource("4_mah5v")]([ExtResource("5_8gwij")])
+Volume = -10.0
+Bus = &"Music"

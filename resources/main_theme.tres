@@ -1,0 +1,56 @@
+[gd_resource type="Theme" format=3 uid="uid://cdnfrlclc77jv"]
+
+[ext_resource type="FontFile" uid="uid://wbyxpn0d8v1e" path="res://fonts/AlmendraSC-Regular.ttf" id="1_biaja"]
+[ext_resource type="FontFile" uid="uid://hm5lqiqlhdie" path="res://fonts/LibertinusMono-Regular.ttf" id="1_ols5k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnc4k"]
+bg_color = Color(0.101960786, 0.7019608, 0.30980393, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.627451, 0.60784316, 0.65882355, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_biaja"]
+bg_color = Color(0.49019608, 0.23921569, 0.7019608, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.627451, 0.60784316, 0.65882355, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.26666668, 0.105882354, 0.3137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49019608, 0.23921569, 0.7019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.49019608, 0.23921569, 0.7019608, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.627451, 0.60784316, 0.65882355, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ols5k"]
+bg_color = Color(0.26666668, 0.105882354, 0.3137255, 1)
+
+[resource]
+default_font = ExtResource("1_ols5k")
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_biaja")
+Button/styles/focus = SubResource("StyleBoxFlat_vnc4k")
+Button/styles/hover = SubResource("StyleBoxFlat_biaja")
+Button/styles/normal = SubResource("StyleBoxFlat_rtw2f")
+CheckButton/fonts/font = ExtResource("1_biaja")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_wu84c")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ols5k")
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_biaja")

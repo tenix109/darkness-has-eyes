@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://rllmd75fys6w"]
+
+[ext_resource type="Texture2D" uid="uid://3xmpdie7683a" path="res://art/darkness_has_eyes_logo.png" id="1_20321"]
+[ext_resource type="Shader" uid="uid://c6cpgls5840sj" path="res://scenes/pixel_shader.gdshader" id="2_7dkgj"]
+[ext_resource type="PackedScene" uid="uid://bd0a8dekiuum" path="res://scenes/ui/pixel_eye.tscn" id="2_fuwcm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ip415"]
+shader = ExtResource("2_7dkgj")
+shader_parameter/pixel_size = 4
+shader_parameter/color_depth = 16
+
+[node name="CapsuleAssets" type="CanvasLayer" unique_id=1486647079]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=778984148]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14117648, 0.07450981, 0.19607843, 1)
+
+[node name="PixelEye" parent="." unique_id=1382498033 instance=ExtResource("2_fuwcm")]
+position = Vector2(498, 365)
+scale = Vector2(3, 3)
+
+[node name="PixelEye5" parent="." unique_id=1005691356 instance=ExtResource("2_fuwcm")]
+position = Vector2(833, 111)
+scale = Vector2(3, 3)
+
+[node name="PixelEye2" parent="." unique_id=479788236 instance=ExtResource("2_fuwcm")]
+position = Vector2(844, 440)
+scale = Vector2(4, 4)
+
+[node name="PixelEye3" parent="." unique_id=1582506813 instance=ExtResource("2_fuwcm")]
+position = Vector2(117.000015, 237)
+scale = Vector2(2.5, 2.5)
+
+[node name="PixelEye4" parent="." unique_id=1964579439 instance=ExtResource("2_fuwcm")]
+position = Vector2(1116, 267)
+scale = Vector2(2, 2)
+
+[node name="PixelEye6" parent="." unique_id=1507668582 instance=ExtResource("2_fuwcm")]
+position = Vector2(530, 153)
+scale = Vector2(2, 2)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1634122657]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.035, 1.035)
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=1762080938]
+material = SubResource("ShaderMaterial_ip415")
+custom_minimum_size = Vector2(1024, 576)
+layout_mode = 2
+texture = ExtResource("1_20321")
+expand_mode = 1

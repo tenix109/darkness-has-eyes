@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OvaniSong" format=3 uid="uid://cvg3eu6vanglc"]
+
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="1_juls1"]
+[ext_resource type="AudioStream" uid="uid://ts8krlugmojn" path="res://audio/music/Anguish (RT 4.091)/Horror Vol8 Anguish Intensity 1.wav" id="1_tea3p"]
+[ext_resource type="AudioStream" uid="uid://dq3d1f5a7vciq" path="res://audio/music/Anguish (RT 4.091)/Horror Vol8 Anguish Intensity 2.wav" id="2_llwlm"]
+[ext_resource type="AudioStream" uid="uid://dpo78ognrnbnx" path="res://audio/music/Anguish (RT 4.091)/Horror Vol8 Anguish Main.wav" id="3_5f4ip"]
+
+[resource]
+script = ExtResource("1_juls1")
+Intensity1 = ExtResource("1_tea3p")
+Intensity2 = ExtResource("2_llwlm")
+Intensity3 = ExtResource("3_5f4ip")
+ReverbTail = 4.091
+metadata/_custom_type_script = "uid://b6hl5qjc8221s"

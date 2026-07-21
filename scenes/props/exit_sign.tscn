@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://n1xgyo0oxqtv"]
+
+[ext_resource type="Texture2D" uid="uid://bcuycph8icn3p" path="res://art/tilesets/props_and_objects.png" id="1_o1ugt"]
+[ext_resource type="Texture2D" uid="uid://fo75ocf38xsp" path="res://art/images/lights/cone_128x128_2.png" id="2_rnyi1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gutag"]
+light_mode = 2
+
+[node name="ExitSign" type="Node2D" unique_id=626629450]
+
+[node name="ExitSign" type="Sprite2D" parent="." unique_id=1274482601]
+material = SubResource("CanvasItemMaterial_gutag")
+texture = ExtResource("1_o1ugt")
+offset = Vector2(16, -8)
+region_enabled = true
+region_rect = Rect2(133, 144, 31.843597, 16)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1793172860]
+position = Vector2(16, -10)
+rotation = 3.1415927
+scale = Vector2(1, 0.75)
+color = Color(1, 0, 0, 1)
+texture = ExtResource("2_rnyi1")
+offset = Vector2(0, -58)

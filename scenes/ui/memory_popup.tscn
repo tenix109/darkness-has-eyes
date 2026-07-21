@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cebsyos73rc0l"]
+
+[ext_resource type="Shader" uid="uid://ds4isylcucrxg" path="res://resources/screen_blur.gdshader" id="1_4vs1d"]
+[ext_resource type="Script" uid="uid://cb8o5wvwtvgb4" path="res://scenes/ui/memory_popup.gd" id="1_yg3vy"]
+[ext_resource type="FontFile" uid="uid://hm5lqiqlhdie" path="res://fonts/LibertinusMono-Regular.ttf" id="2_5dsq6"]
+[ext_resource type="Script" uid="uid://cofqrvmtwebgu" path="res://scenes/ui/token_rich_text_label.gd" id="3_yg3vy"]
+
+[sub_resource type="Gradient" id="Gradient_yg3vy"]
+offsets = PackedFloat32Array(0.005181347, 0.81865287, 1)
+colors = PackedColorArray(0.9019608, 0.9411765, 0.98039216, 1, 0.9019608, 0.9411765, 0.98039216, 0.54901963, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ylroc"]
+gradient = SubResource("Gradient_yg3vy")
+width = 128
+fill = 1
+fill_from = Vector2(0.4982699, 0.51903117)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yg3vy"]
+shader = ExtResource("1_4vs1d")
+shader_parameter/blur_amount = 2.0
+
+[node name="MemoryPopup" type="CanvasLayer" unique_id=843771058]
+process_mode = 3
+layer = 3
+script = ExtResource("1_yg3vy")
+
+[node name="BackgroundRect" type="TextureRect" parent="." unique_id=302437218]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ylroc")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="BackgroundRect" unique_id=1530443629]
+copy_mode = 2
+rect = Rect2(0, 0, 1280, 720)
+
+[node name="BlurRect" type="ColorRect" parent="BackgroundRect/BackBufferCopy" unique_id=977851938]
+material = SubResource("ShaderMaterial_yg3vy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentLabel" type="RichTextLabel" parent="BackgroundRect/BackBufferCopy/BlurRect" unique_id=756904593]
+custom_minimum_size = Vector2(700, 256)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -128.0
+offset_right = 350.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.5058824, 0.58431375, 0.7607843, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("2_5dsq6")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Remember"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLabel" type="RichTextLabel" parent="BackgroundRect/BackBufferCopy/BlurRect" unique_id=415055749]
+process_mode = 3
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -107.0
+offset_right = 256.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.5058824, 0.58431375, 0.7607843, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("2_5dsq6")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "{interact} Close"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_yg3vy")

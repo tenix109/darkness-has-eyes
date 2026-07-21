@@ -1,0 +1,548 @@
+[gd_scene format=3 uid="uid://1c3nflycxpk2"]
+
+[ext_resource type="Shader" uid="uid://c6cpgls5840sj" path="res://scenes/pixel_shader.gdshader" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://4ihmqxw2hj55" path="res://scenes/main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://cu0xfn50iwwkt" path="res://art/ui/darkness_has_eyes_title.png" id="2_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://bd0a8dekiuum" path="res://scenes/ui/pixel_eye.tscn" id="3_bqqt6"]
+[ext_resource type="Theme" uid="uid://cdnfrlclc77jv" path="res://resources/main_theme.tres" id="4_wu84c"]
+[ext_resource type="PackedScene" uid="uid://i1lf0iirrd58" path="res://scenes/ui/settings_menu.tscn" id="6_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://dt4434hydn607" path="res://art/ui/ecksoft-logo-640-X8LVjtA.png" id="7_5dd4i"]
+[ext_resource type="Script" uid="uid://metkumqq3yqr" path="res://scenes/ui/focused_scroll_container.gd" id="7_7b55j"]
+[ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="7_jk1qb"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="8_5dd4i"]
+[ext_resource type="FontFile" uid="uid://hm5lqiqlhdie" path="res://fonts/LibertinusMono-Regular.ttf" id="8_flqon"]
+[ext_resource type="FontFile" uid="uid://wbyxpn0d8v1e" path="res://fonts/AlmendraSC-Regular.ttf" id="8_rcqid"]
+[ext_resource type="Resource" uid="uid://cvg3eu6vanglc" path="res://audio/music/Anguish (RT 4.091)/anguish.tres" id="9_lgwnu"]
+[ext_resource type="Script" uid="uid://cofqrvmtwebgu" path="res://scenes/ui/token_rich_text_label.gd" id="9_rcqid"]
+[ext_resource type="Script" uid="uid://c6rn5ahy2y4c6" path="res://scenes/ui/memory_container.gd" id="10_1ajci"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wu84c"]
+shader = ExtResource("1_ekxnf")
+shader_parameter/pixel_size = 2
+shader_parameter/color_depth = 16
+
+[sub_resource type="Gradient" id="Gradient_1ajci"]
+offsets = PackedFloat32Array(0.005181347, 0.81865287, 1)
+colors = PackedColorArray(0.9019608, 0.9411765, 0.98039216, 1, 0.9019608, 0.9411765, 0.98039216, 0.54901963, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7b55j"]
+gradient = SubResource("Gradient_1ajci")
+width = 128
+fill = 1
+fill_from = Vector2(0.4982699, 0.51903117)
+fill_to = Vector2(0, 1)
+
+[node name="MainMenu" type="Node2D" unique_id=439334268]
+script = ExtResource("1_rtw2f")
+floor1_path = "res://scenes/levels/floor_1.tscn"
+floor2_path = "res://scenes/levels/floor_2.tscn"
+floor3_path = "res://scenes/levels/floor_3.tscn"
+
+[node name="MainLayer" type="CanvasLayer" parent="." unique_id=1595737560]
+
+[node name="ColorRect" type="ColorRect" parent="MainLayer" unique_id=1516784251]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14117648, 0.07450981, 0.19607843, 1)
+
+[node name="TextureRect" type="TextureRect" parent="MainLayer" unique_id=1007841902]
+material = SubResource("ShaderMaterial_wu84c")
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_ekxnf")
+
+[node name="Eyeballs" type="Node2D" parent="MainLayer" unique_id=412767801]
+
+[node name="PixelEye" parent="MainLayer/Eyeballs" unique_id=1382498033 instance=ExtResource("3_bqqt6")]
+position = Vector2(420, 242)
+scale = Vector2(2.4, 2.4)
+
+[node name="PixelEye6" parent="MainLayer/Eyeballs" unique_id=968297650 instance=ExtResource("3_bqqt6")]
+position = Vector2(957, 274)
+scale = Vector2(1.8, 1.8)
+
+[node name="PixelEye2" parent="MainLayer/Eyeballs" unique_id=429460760 instance=ExtResource("3_bqqt6")]
+position = Vector2(1177, 85)
+scale = Vector2(1.9, 1.9)
+
+[node name="PixelEye3" parent="MainLayer/Eyeballs" unique_id=369546950 instance=ExtResource("3_bqqt6")]
+position = Vector2(1053, 510)
+scale = Vector2(2.2, 2.2)
+
+[node name="PixelEye4" parent="MainLayer/Eyeballs" unique_id=1610462707 instance=ExtResource("3_bqqt6")]
+position = Vector2(210, 558)
+scale = Vector2(1.7, 1.7)
+
+[node name="PixelEye5" parent="MainLayer/Eyeballs" unique_id=931247961 instance=ExtResource("3_bqqt6")]
+position = Vector2(97, 90)
+scale = Vector2(2.1, 2.1)
+
+[node name="MainButtons" type="VBoxContainer" parent="MainLayer" unique_id=868304635]
+visible = false
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.0
+offset_top = 492.0
+offset_right = 127.0
+offset_bottom = 596.0
+grow_horizontal = 2
+
+[node name="PlayButton" type="Button" parent="MainLayer/MainButtons" unique_id=1776621766]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Play"
+metadata/ignore_ui_press = true
+
+[node name="MemoriesButton" type="Button" parent="MainLayer/MainButtons" unique_id=1969664461]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Memories"
+
+[node name="SettingsButton" type="Button" parent="MainLayer/MainButtons" unique_id=262986707]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MainLayer/MainButtons" unique_id=543130028]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Quit"
+
+[node name="LevelSelect" type="VBoxContainer" parent="MainLayer" unique_id=852200338]
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.0
+offset_top = 492.0
+offset_right = 127.0
+offset_bottom = 596.0
+grow_horizontal = 2
+
+[node name="Floor1Button" type="Button" parent="MainLayer/LevelSelect" unique_id=330430870]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Floor 1"
+metadata/ignore_ui_press = true
+
+[node name="Floor2Button" type="Button" parent="MainLayer/LevelSelect" unique_id=756264238]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Floor 2"
+metadata/ignore_ui_press = true
+
+[node name="Floor3Button" type="Button" parent="MainLayer/LevelSelect" unique_id=1792603360]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Floor 3"
+metadata/ignore_ui_press = true
+
+[node name="LevelSelectBackButton" type="Button" parent="MainLayer/LevelSelect" unique_id=1890342821]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Back"
+
+[node name="SettingsMenu" parent="MainLayer" unique_id=824274218 instance=ExtResource("6_5dd4i")]
+visible = false
+
+[node name="MemoriesScreen" type="TextureRect" parent="MainLayer" unique_id=1957767566]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_7b55j")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLayer/MemoriesScreen" unique_id=791337184]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer" unique_id=1176241428]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HeaderLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer" unique_id=1815161431]
+custom_minimum_size = Vector2(1080, 48)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.5058824, 0.58431375, 0.7607843, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_rcqid")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "Memories"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_rcqid")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer" unique_id=1652434222]
+custom_minimum_size = Vector2(1080, 400)
+layout_mode = 2
+focus_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("7_7b55j")
+scroll_speed = 1200.0
+
+[node name="MemoriesContainer" type="VBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer" unique_id=469275431]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="MemoryContainer0" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=478170630]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer0" unique_id=146538960]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer0" unique_id=751061605]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer1" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=447685730]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 1
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer1" unique_id=666828745]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer1" unique_id=427535656]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer2" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=79619854]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 2
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer2" unique_id=1854045498]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer2" unique_id=279298365]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer3" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1735246608]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 3
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer3" unique_id=1488692751]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer3" unique_id=1996793131]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer4" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1395986448]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 4
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer4" unique_id=146062650]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer4" unique_id=617089492]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer5" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=2132516832]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 5
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer5" unique_id=1197058610]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer5" unique_id=1042651467]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer6" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=842326158]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 6
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer6" unique_id=94691454]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer6" unique_id=2122711949]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer7" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1125670743]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 7
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer7" unique_id=352185541]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer7" unique_id=871438123]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer8" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1877841348]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 8
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer8" unique_id=229320827]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer8" unique_id=494748574]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="MemoryContainer9" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=120634319]
+layout_mode = 2
+script = ExtResource("10_1ajci")
+index = 9
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer9" unique_id=828608528]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.49019608, 0.54901963, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Memory 1"
+scroll_active = false
+
+[node name="ContentLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer9" unique_id=1354606268]
+custom_minimum_size = Vector2(900, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "???"
+fit_content = true
+scroll_active = false
+
+[node name="BackLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer" unique_id=1044711862]
+custom_minimum_size = Vector2(250, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/default_color = Color(0.5058824, 0.58431375, 0.7607843, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_flqon")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "{cancel}Back"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_rcqid")
+
+[node name="SplashScreen" type="ColorRect" parent="MainLayer" unique_id=1054359111]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainLayer/SplashScreen" unique_id=1511927111]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -85.5
+offset_right = 320.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_5dd4i")
+
+[node name="OvaniPlayer" type="Node" parent="." unique_id=1351464656]
+script = ExtResource("7_jk1qb")
+QueuedSongs = Array[ExtResource("8_5dd4i")]([ExtResource("9_lgwnu")])
+Volume = -10.0
+Bus = &"Music"

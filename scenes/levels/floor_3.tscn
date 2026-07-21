@@ -1,0 +1,338 @@
+[gd_scene format=3 uid="uid://drm6tawbs0s18"]
+
+[ext_resource type="Script" uid="uid://cr64xba2ufexq" path="res://scenes/levels/floor.gd" id="1_s806d"]
+[ext_resource type="Script" uid="uid://d2wp6hi6dfh77" path="res://scenes/follow_camera.gd" id="2_c2v8j"]
+[ext_resource type="PackedScene" uid="uid://cwni0vkycy7ma" path="res://scenes/rooms/room_start.tscn" id="3_4308k"]
+[ext_resource type="PackedScene" uid="uid://dfut0im7k0cqt" path="res://scenes/rooms/room_a_west.tscn" id="5_ssicb"]
+[ext_resource type="PackedScene" uid="uid://px7ouepj0yv4" path="res://scenes/rooms/room_a_north_west.tscn" id="7_12hfj"]
+[ext_resource type="PackedScene" uid="uid://dbo8kyie1v2qh" path="res://scenes/rooms/hallway_i_1x.tscn" id="8_k265q"]
+[ext_resource type="PackedScene" uid="uid://gn0twdw8ptup" path="res://scenes/rooms/hallway_horizontal_3x.tscn" id="11_2c0mp"]
+[ext_resource type="PackedScene" uid="uid://rlg1eiqhvj0q" path="res://scenes/rooms/room_a_south_west.tscn" id="12_nwjxa"]
+[ext_resource type="PackedScene" uid="uid://dim66y5ny00gp" path="res://scenes/rooms/hallway_horizontal_8x.tscn" id="16_krtyf"]
+[ext_resource type="PackedScene" uid="uid://bq3knnevrmvqj" path="res://scenes/rooms/hallway_i_5x.tscn" id="17_c2v8j"]
+[ext_resource type="PackedScene" uid="uid://berp1akae1vmm" path="res://scenes/props/exit_door.tscn" id="17_qwrr0"]
+[ext_resource type="PackedScene" uid="uid://bp5ril2potsdi" path="res://scenes/rooms/room_a_east_south_west.tscn" id="18_4308k"]
+[ext_resource type="PackedScene" uid="uid://b48727n3mrxi0" path="res://scenes/player/player.tscn" id="18_m6fcx"]
+[ext_resource type="PackedScene" uid="uid://b1itccsqceak" path="res://scenes/rooms/room_a_north.tscn" id="19_4ssih"]
+[ext_resource type="PackedScene" uid="uid://lqpqtjm8yjh7" path="res://scenes/possessables/possessable_lamp_a.tscn" id="19_c46ov"]
+[ext_resource type="PackedScene" uid="uid://bd575fdwwn5hd" path="res://scenes/props/searchable/searchable_desk_clutter.tscn" id="20_kps30"]
+[ext_resource type="PackedScene" uid="uid://blohqi5xo5qep" path="res://scenes/rooms/hallway_t_90_connector.tscn" id="20_ssicb"]
+[ext_resource type="PackedScene" uid="uid://boh0coe1d28db" path="res://scenes/rooms/hallway_t_connector.tscn" id="20_xye1l"]
+[ext_resource type="PackedScene" uid="uid://crh1qq60asiis" path="res://scenes/rooms/hallway_i_3x.tscn" id="21_12hfj"]
+[ext_resource type="PackedScene" uid="uid://dsg30f0riuahd" path="res://scenes/rooms/hallway_dead_end_west.tscn" id="21_k265q"]
+[ext_resource type="PackedScene" uid="uid://dmwiv3hufywue" path="res://scenes/props/searchable/searchable_desk.tscn" id="21_r22hy"]
+[ext_resource type="PackedScene" uid="uid://i3jo2b85fvf" path="res://scenes/rooms/hallway_dead_end_east.tscn" id="21_ssicb"]
+[ext_resource type="PackedScene" uid="uid://crhhrgtcigoea" path="res://scenes/rooms/hallway_t_negative_90_connector.tscn" id="21_xmqum"]
+[ext_resource type="PackedScene" uid="uid://b8cjmdhmcsq8t" path="res://scenes/rooms/room_a_east_south.tscn" id="21_xye1l"]
+[ext_resource type="PackedScene" uid="uid://17m0jecxr38a" path="res://scenes/props/searchable/searchable_nightstand_smashed.tscn" id="22_qef23"]
+[ext_resource type="PackedScene" uid="uid://c2ybk2fqr5n3m" path="res://scenes/rooms/room_a_north_east.tscn" id="22_xye1l"]
+[ext_resource type="PackedScene" uid="uid://3kpujqcn3tx5" path="res://scenes/rooms/hallway_horizontal_5x.tscn" id="23_12hfj"]
+[ext_resource type="PackedScene" uid="uid://cr5my0io2jmar" path="res://scenes/possessables/possessable_phone_d.tscn" id="23_y72qg"]
+[ext_resource type="PackedScene" uid="uid://b7ogmvyvvp7c7" path="res://scenes/props/searchable/searchable_dresser_smashed.tscn" id="24_e76p0"]
+[ext_resource type="PackedScene" uid="uid://dnf2roha54g7f" path="res://scenes/possessables/possessable_globe.tscn" id="25_kw5rs"]
+[ext_resource type="PackedScene" uid="uid://cmrjbk6lvmca2" path="res://scenes/possessables/possessable_chair_a.tscn" id="26_2a1af"]
+[ext_resource type="PackedScene" uid="uid://bp8012hthnihn" path="res://scenes/possessables/possessable_phone_a.tscn" id="27_hi3qb"]
+[ext_resource type="PackedScene" uid="uid://dm2assh8eg7d5" path="res://scenes/props/searchable/searchable_dresser.tscn" id="28_ckck5"]
+[ext_resource type="PackedScene" uid="uid://c3bq8he066o8d" path="res://scenes/possessables/possessable_lamp_c.tscn" id="29_o76s1"]
+[ext_resource type="PackedScene" uid="uid://drmxt1wnslnut" path="res://scenes/props/searchable/searchable_nightstand.tscn" id="30_g28fc"]
+[ext_resource type="PackedScene" uid="uid://b8t8bkme7k8nr" path="res://scenes/possessables/possessable_lamp_d.tscn" id="31_boujr"]
+[ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="32_lw2wg"]
+[ext_resource type="PackedScene" uid="uid://bjfjopxpmnlfd" path="res://scenes/hud.tscn" id="33_kdhmd"]
+[ext_resource type="Script" uid="uid://bytj751rstygx" path="res://scenes/props/possessor.gd" id="34_q22ew"]
+[ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="35_n3c1r"]
+[ext_resource type="PackedScene" uid="uid://bn6v8adlwcxdg" path="res://scenes/possessables/possessable_lamp_b.tscn" id="36_ssicb"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="36_wekdr"]
+[ext_resource type="Resource" uid="uid://c3txb8t1mujsp" path="res://audio/music/Chased (RT 2.194)/chased.tres" id="37_s806d"]
+[ext_resource type="PackedScene" uid="uid://bkjad4ddepkfv" path="res://scenes/props/memory_fragment.tscn" id="38_12hfj"]
+[ext_resource type="PackedScene" uid="uid://onah3lyvfg1x" path="res://scenes/possessables/possessable_chair_d.tscn" id="45_k265q"]
+[ext_resource type="PackedScene" uid="uid://0yi1fe7wi7fu" path="res://scenes/possessables/possessable_chair_b.tscn" id="46_xmqum"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4ssih"]
+vertices = PackedVector2Array(-21, -1671, 151, -1671, 151, -1515, 71, -1515, -21, -1607, 71, -1223, 151, -1223, 151, -1159, 491, -1159, 491, -1223, 663, -1223, 663, -1067, 491, -1067, 491, -1131, 327, -1131, 327, -935, 407, -935, 407, -779, 235, -779, 235, -843, -233, -843, -233, -779, -313, -779, -313, -519, -233, -519, -233, -455, -85, -455, -85, -519, 87, -519, 87, -455, 235, -455, 235, -519, 407, -519, 407, -363, 327, -363, 327, -263, 567, -263, 567, -235, 327, -235, 327, -103, 407, -103, 407, 53, 235, 53, 235, -103, 315, -103, 315, -363, 235, -427, 235, -363, 87, -427, 7, -363, -5, -363, -85, -427, 87, -363, 7, 53, -5, 53, -85, -363, -233, -427, -233, -363, -405, -363, -405, -519, -325, -519, -325, -651, -645, -651, -645, -679, -325, -679, -325, -779, -405, -779, -405, -935, -233, -935, -233, -871, 235, -871, 315, -935, 235, -935, 315, -1131, 151, -1131, 151, -1067, -21, -1067, -21, -1223, 59, -1223, 59, -1515, -21, -1579, -21, -1515, -245, -1579, -245, -1607)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(11, 12, 13), PackedInt32Array(8, 11, 13), PackedInt32Array(7, 8, 13, 14), PackedInt32Array(15, 16, 17, 18, 19), PackedInt32Array(20, 21, 22), PackedInt32Array(23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 31, 32, 33, 34), PackedInt32Array(35, 36, 37, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(42, 43, 44), PackedInt32Array(39, 42, 44), PackedInt32Array(38, 39, 44, 45), PackedInt32Array(35, 38, 45), PackedInt32Array(34, 35, 45), PackedInt32Array(30, 34, 45, 46), PackedInt32Array(45, 47, 46), PackedInt32Array(29, 30, 46, 48), PackedInt32Array(26, 29, 48, 49, 50, 51), PackedInt32Array(48, 52, 49), PackedInt32Array(49, 53, 54, 50), PackedInt32Array(50, 55, 51), PackedInt32Array(25, 26, 51, 56), PackedInt32Array(56, 57, 58, 59, 60), PackedInt32Array(25, 56, 60, 23), PackedInt32Array(22, 23, 60, 61), PackedInt32Array(61, 62, 63, 64), PackedInt32Array(22, 61, 64), PackedInt32Array(22, 64, 65), PackedInt32Array(65, 66, 67, 68, 69), PackedInt32Array(22, 65, 69, 20), PackedInt32Array(19, 20, 69, 70), PackedInt32Array(15, 19, 70, 71), PackedInt32Array(70, 72, 71), PackedInt32Array(14, 15, 71, 73), PackedInt32Array(7, 14, 73), PackedInt32Array(7, 73, 74), PackedInt32Array(74, 75, 76, 77, 78), PackedInt32Array(7, 74, 78, 5), PackedInt32Array(3, 5, 78, 79), PackedInt32Array(4, 3, 79, 80), PackedInt32Array(79, 81, 80), PackedInt32Array(4, 80, 82, 83)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(17, 63, -15, 63, -15, -353, 17, -353), PackedVector2Array(97, -417, 97, -353, -95, -353, -95, -529, 97, -529, 97, -465, 225, -465, 225, -529, 417, -529, 417, -353, 337, -353, 337, -273, 577, -273, 577, -225, 337, -225, 337, -113, 417, -113, 417, 63, 225, 63, 225, -113, 305, -113, 305, -353, 225, -353, 225, -417), PackedVector2Array(-223, -417, -95, -417, -95, -465, -223, -465, -223, -529, -303, -529, -303, -641, -303, -689, -303, -769, -223, -769, -223, -833, 225, -833, 225, -769, 417, -769, 417, -945, 337, -945, 337, -1121, 481, -1121, 481, -1057, 673, -1057, 673, -1233, 481, -1233, 481, -1169, 161, -1169, 161, -1233, 81, -1233, 81, -1505, 161, -1505, 161, -1681, -31, -1681, -31, -1617, -255, -1617, -255, -1569, -31, -1569, -31, -1505, 49, -1505, 49, -1233, -31, -1233, -31, -1057, 161, -1057, 161, -1121, 305, -1121, 305, -945, 225, -945, 225, -881, -223, -881, -223, -945, -415, -945, -415, -769, -335, -769, -335, -529, -415, -529, -415, -353, -223, -353), PackedVector2Array(-335, -689, -655, -689, -655, -641, -335, -641)])
+
+[node name="Floor3" type="Node2D" unique_id=2081371710]
+script = ExtResource("1_s806d")
+items_required_for_exit = 5
+next_scene_path = "res://scenes/credits.tscn"
+base_find_chance = -0.1
+floor_name = "Floor 3"
+level_title = "Isolated In the Void"
+level_index = 2
+
+[node name="FollowCamera" type="Camera2D" parent="." unique_id=2037777736 node_paths=PackedStringArray("target")]
+zoom = Vector2(4, 4)
+script = ExtResource("2_c2v8j")
+follow_offset = Vector2(0, -16)
+target = NodePath("../YSort/PlayerTheGirl")
+
+[node name="Rooms" type="Node2D" parent="." unique_id=108064787]
+
+[node name="RoomStart" parent="Rooms" unique_id=1817066731 instance=ExtResource("3_4308k")]
+
+[node name="Room_A_West" parent="Rooms" unique_id=953215176 instance=ExtResource("5_ssicb")]
+position = Vector2(576, -1280)
+
+[node name="Room_A_North_West" parent="Rooms" unique_id=575161556 instance=ExtResource("7_12hfj")]
+position = Vector2(320, -992)
+
+[node name="Hallway_Horizontal_x3" parent="Rooms" unique_id=1775222166 instance=ExtResource("11_2c0mp")]
+position = Vector2(-160, -480)
+
+[node name="Room_A_South_West" parent="Rooms" unique_id=2115061779 instance=ExtResource("12_nwjxa")]
+position = Vector2(320, -576)
+
+[node name="Room_A_South_West3" parent="Rooms" unique_id=982567058 instance=ExtResource("12_nwjxa")]
+position = Vector2(64, -1728)
+
+[node name="Hallway_I_5x" parent="Rooms" unique_id=648858787 instance=ExtResource("17_c2v8j")]
+position = Vector2(0, -64)
+
+[node name="Hallway_I_5x2" parent="Rooms" unique_id=1909054538 instance=ExtResource("17_c2v8j")]
+position = Vector2(0, -224)
+
+[node name="Room_A_South_West2" parent="Rooms" unique_id=386849394 instance=ExtResource("18_4308k")]
+position = Vector2(0, -576)
+
+[node name="Hallway_Horizontal_3x" parent="Rooms" unique_id=1563737416 instance=ExtResource("11_2c0mp")]
+position = Vector2(160, -480)
+
+[node name="Room_A_North" parent="Rooms" unique_id=2010321508 instance=ExtResource("19_4ssih")]
+position = Vector2(320, -160)
+
+[node name="Hallway_T_90_Connector" parent="Rooms" unique_id=1208942439 instance=ExtResource("20_ssicb")]
+position = Vector2(320, -288)
+
+[node name="Hallway_I_1x" parent="Rooms" unique_id=1124817713 instance=ExtResource("8_k265q")]
+position = Vector2(320, -224)
+
+[node name="Hallway_I_1x2" parent="Rooms" unique_id=287553763 instance=ExtResource("8_k265q")]
+position = Vector2(-320, -640)
+
+[node name="Hallway_DeadEnd_East" parent="Rooms" unique_id=1377515233 instance=ExtResource("21_ssicb")]
+position = Vector2(576, -288)
+
+[node name="Room_A_North_East" parent="Rooms" unique_id=1611182758 instance=ExtResource("22_xye1l")]
+position = Vector2(-320, -576)
+has_no_light = true
+
+[node name="Room_A_North_East2" parent="Rooms" unique_id=164944598 instance=ExtResource("22_xye1l")]
+position = Vector2(64, -1280)
+has_no_light = true
+
+[node name="Hallway_Horizontal_5x" parent="Rooms" unique_id=1143353940 instance=ExtResource("23_12hfj")]
+position = Vector2(480, -288)
+
+[node name="Hallway_Horizontal_5x2" parent="Rooms" unique_id=1201828108 instance=ExtResource("23_12hfj")]
+position = Vector2(-96, -1632)
+
+[node name="Hallway_Horizontal_5x3" parent="Rooms" unique_id=2112761485 instance=ExtResource("23_12hfj")]
+position = Vector2(160, -896)
+
+[node name="Room_A_East_South" parent="Rooms" unique_id=762107247 instance=ExtResource("21_xye1l")]
+position = Vector2(-320, -992)
+has_no_light = true
+
+[node name="Hallway_Horizontal_8x2" parent="Rooms" unique_id=2088010947 instance=ExtResource("16_krtyf")]
+position = Vector2(-64, -896)
+
+[node name="Hallway_T_Connector" parent="Rooms" unique_id=202254855 instance=ExtResource("20_xye1l")]
+position = Vector2(320, -1184)
+
+[node name="Hallway_I_3x" parent="Rooms" unique_id=1829061306 instance=ExtResource("21_12hfj")]
+position = Vector2(320, -1056)
+
+[node name="Hallway_Horizontal_3x2" parent="Rooms" unique_id=1462179890 instance=ExtResource("11_2c0mp")]
+position = Vector2(416, -1184)
+
+[node name="Hallway_Horizontal_3x3" parent="Rooms" unique_id=480885794 instance=ExtResource("11_2c0mp")]
+position = Vector2(224, -1184)
+
+[node name="Hallway_I_3x2" parent="Rooms" unique_id=1835084839 instance=ExtResource("21_12hfj")]
+position = Vector2(64, -1344)
+
+[node name="Hallway_I_3x3" parent="Rooms" unique_id=1956345460 instance=ExtResource("21_12hfj")]
+position = Vector2(64, -1440)
+
+[node name="Hallway_DeadEnd_West" parent="Rooms" unique_id=462290176 instance=ExtResource("21_k265q")]
+position = Vector2(-224, -1632)
+
+[node name="Hallway_DeadEnd_West2" parent="Rooms" unique_id=1163504644 instance=ExtResource("21_k265q")]
+position = Vector2(-624, -704)
+
+[node name="Hallway_T_Negative_90_Connector" parent="Rooms" unique_id=993270772 instance=ExtResource("21_xmqum")]
+position = Vector2(-320, -704)
+
+[node name="Hallway_Horizontal_8x" parent="Rooms" unique_id=479612193 instance=ExtResource("16_krtyf")]
+position = Vector2(-464, -704)
+
+[node name="ExitDoor" parent="Rooms/Hallway_Horizontal_8x" unique_id=471537759 instance=ExtResource("17_qwrr0")]
+position = Vector2(-112, -32)
+
+[node name="YSort" type="Node2D" parent="." unique_id=1988748181]
+y_sort_enabled = true
+
+[node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("18_m6fcx")]
+position = Vector2(16, 72)
+
+[node name="PossessableLampA" parent="YSort" unique_id=1282559479 instance=ExtResource("19_c46ov")]
+position = Vector2(416, -107)
+
+[node name="SearchableDeskClutter" parent="YSort" unique_id=202116977 instance=ExtResource("20_kps30")]
+position = Vector2(400, -172)
+
+[node name="SearchableDeskClutter2" parent="YSort" unique_id=791709441 instance=ExtResource("20_kps30")]
+position = Vector2(272, -544)
+
+[node name="SearchableDesk" parent="YSort" unique_id=2142153812 instance=ExtResource("21_r22hy")]
+position = Vector2(400, -112)
+
+[node name="SearchableDesk2" parent="YSort" unique_id=2110882082 instance=ExtResource("21_r22hy")]
+position = Vector2(368, -544)
+
+[node name="SearchableDesk3" parent="YSort" unique_id=490983772 instance=ExtResource("21_r22hy")]
+position = Vector2(400, -1008)
+
+[node name="SearchableDesk4" parent="YSort" unique_id=963792488 instance=ExtResource("21_r22hy")]
+position = Vector2(592, -1296)
+
+[node name="SearchableDesk6" parent="YSort" unique_id=279232094 instance=ExtResource("21_r22hy")]
+position = Vector2(16, -1623)
+
+[node name="SearchableDesk5" parent="YSort" unique_id=197917154 instance=ExtResource("21_r22hy")]
+position = Vector2(528, -1168)
+
+[node name="SearchableNightstandSmashed" parent="YSort" unique_id=1290168329 instance=ExtResource("22_qef23")]
+position = Vector2(304, -144)
+
+[node name="SearchableNightstandSmashed2" parent="YSort" unique_id=251993843 instance=ExtResource("22_qef23")]
+position = Vector2(416, -439)
+
+[node name="PossessablePhoneD" parent="YSort" unique_id=1750445243 instance=ExtResource("23_y72qg")]
+position = Vector2(393, -110)
+
+[node name="SearchableDresserSmashed" parent="YSort" unique_id=1500617173 instance=ExtResource("24_e76p0")]
+position = Vector2(-55, -464)
+
+[node name="SearchableDresserSmashed2" parent="YSort" unique_id=1137578150 instance=ExtResource("24_e76p0")]
+position = Vector2(265, -960)
+
+[node name="SearchableDresserSmashed5" parent="YSort" unique_id=1954931794 instance=ExtResource("24_e76p0")]
+position = Vector2(672, -1248)
+
+[node name="SearchableDresserSmashed4" parent="YSort" unique_id=1258592106 instance=ExtResource("24_e76p0")]
+position = Vector2(297, -886)
+
+[node name="SearchableDresserSmashed3" parent="YSort" unique_id=1220572295 instance=ExtResource("24_e76p0")]
+position = Vector2(48, -544)
+
+[node name="PossessableGlobe" parent="YSort" unique_id=1390795821 instance=ExtResource("25_kw5rs")]
+position = Vector2(386, -1005)
+
+[node name="PossessableChairA2" parent="YSort" unique_id=2067650161 instance=ExtResource("26_2a1af")]
+position = Vector2(-384, -560)
+
+[node name="PossessableChairA4" parent="YSort" unique_id=1283455905 instance=ExtResource("26_2a1af")]
+position = Vector2(-224, -432)
+scale = Vector2(-1, 1)
+
+[node name="PossessableChairA6" parent="YSort" unique_id=1815073313 instance=ExtResource("26_2a1af")]
+position = Vector2(416, -560)
+scale = Vector2(-1, 1)
+
+[node name="PossessablePhoneA" parent="YSort" unique_id=1465402999 instance=ExtResource("27_hi3qb")]
+position = Vector2(416, -1008)
+
+[node name="SearchableDresser" parent="YSort" unique_id=393343094 instance=ExtResource("28_ckck5")]
+position = Vector2(265, -81)
+
+[node name="PossessableLampC" parent="YSort" unique_id=922405991 instance=ExtResource("29_o76s1")]
+position = Vector2(385, -539)
+
+[node name="SearchableNightstand" parent="YSort" unique_id=1183315544 instance=ExtResource("30_g28fc")]
+position = Vector2(308, -960)
+
+[node name="SearchableNightstand4" parent="YSort" unique_id=1654874844 instance=ExtResource("30_g28fc")]
+position = Vector2(256, -443)
+
+[node name="SearchableNightstand2" parent="YSort" unique_id=517173897 instance=ExtResource("30_g28fc")]
+position = Vector2(-64, -592)
+
+[node name="SearchableNightstand3" parent="YSort" unique_id=1398272621 instance=ExtResource("30_g28fc")]
+position = Vector2(7, -544)
+
+[node name="SearchableNightstand5" parent="YSort" unique_id=1311738604 instance=ExtResource("30_g28fc")]
+position = Vector2(160, -1680)
+
+[node name="SearchableNightstand6" parent="YSort" unique_id=1460936317 instance=ExtResource("30_g28fc")]
+position = Vector2(0, -1696)
+
+[node name="SearchableNightstand7" parent="YSort" unique_id=1575878781 instance=ExtResource("30_g28fc")]
+position = Vector2(160, -1744)
+
+[node name="PossessableLampD" parent="YSort" unique_id=1607759554 instance=ExtResource("31_boujr")]
+position = Vector2(28, -1616)
+
+[node name="PossessableLampB" parent="YSort" unique_id=174688608 instance=ExtResource("36_ssicb")]
+position = Vector2(160, -1674)
+
+[node name="MemoryFragment" parent="YSort" unique_id=1175381629 instance=ExtResource("38_12hfj")]
+position = Vector2(576, -304)
+
+[node name="MemoryFragment2" parent="YSort" unique_id=1019073653 instance=ExtResource("38_12hfj")]
+position = Vector2(-624, -720)
+
+[node name="MemoryFragment3" parent="YSort" unique_id=1772763319 instance=ExtResource("38_12hfj")]
+position = Vector2(-224, -1648)
+
+[node name="MemoryFragment4" parent="YSort" unique_id=1052509988 instance=ExtResource("38_12hfj")]
+position = Vector2(512, -1120)
+
+[node name="MemoryFragment5" parent="YSort" unique_id=1437970403 instance=ExtResource("38_12hfj")]
+position = Vector2(-384, -432)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" unique_id=1089169851]
+visible = false
+position = Vector2(15, -63)
+navigation_polygon = SubResource("NavigationPolygon_4ssih")
+
+[node name="PossessableChairD" parent="YSort" unique_id=113569074 instance=ExtResource("45_k265q")]
+position = Vector2(88, -441)
+scale = Vector2(-1, 1)
+
+[node name="PossessableChairB" parent="YSort" unique_id=1708752339 instance=ExtResource("46_xmqum")]
+position = Vector2(8, -1262)
+
+[node name="PossessableChairD2" parent="YSort" unique_id=1786493042 instance=ExtResource("45_k265q")]
+position = Vector2(579, -1150)
+
+[node name="PossessableChairB2" parent="YSort" unique_id=705981334 instance=ExtResource("46_xmqum")]
+position = Vector2(-233, -853)
+scale = Vector2(-1, 1)
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=1876181830]
+visible = false
+color = Color(0.09366939, 0.09366938, 0.09366938, 1)
+script = ExtResource("32_lw2wg")
+
+[node name="HUD" parent="." unique_id=158779456 instance=ExtResource("33_kdhmd")]
+
+[node name="Possessor" type="Node" parent="." unique_id=454970398 node_paths=PackedStringArray("ovani_player")]
+script = ExtResource("34_q22ew")
+max_dist = 160.0
+ovani_player = NodePath("../OvaniPlayer")
+dist_increase_at_high_threat = 48.0
+
+[node name="Possessor2" type="Node" parent="." unique_id=161797668 node_paths=PackedStringArray("ovani_player")]
+script = ExtResource("34_q22ew")
+max_dist = 160.0
+ovani_player = NodePath("../OvaniPlayer")
+dist_increase_at_high_threat = 48.0
+
+[node name="OvaniPlayer" type="Node" parent="." unique_id=870246820]
+process_mode = 3
+script = ExtResource("35_n3c1r")
+QueuedSongs = Array[ExtResource("36_wekdr")]([ExtResource("37_s806d")])
+Volume = -10.0
+Bus = &"Music"

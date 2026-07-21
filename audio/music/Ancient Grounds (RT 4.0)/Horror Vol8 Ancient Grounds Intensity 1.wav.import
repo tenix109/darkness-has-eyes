@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbe3oc72uu2le"
+path="res://.godot/imported/Horror Vol8 Ancient Grounds Intensity 1.wav-19add30452620a055a32c7236eb4b230.sample"
+
+[deps]
+
+source_file="res://audio/music/Ancient Grounds (RT 4.0)/Horror Vol8 Ancient Grounds Intensity 1.wav"
+dest_files=["res://.godot/imported/Horror Vol8 Ancient Grounds Intensity 1.wav-19add30452620a055a32c7236eb4b230.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

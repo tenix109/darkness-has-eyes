@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://i1lf0iirrd58"]
+
+[ext_resource type="Theme" uid="uid://cdnfrlclc77jv" path="res://resources/main_theme.tres" id="1_mhswj"]
+[ext_resource type="Script" uid="uid://b3lo73dupfhaf" path="res://scenes/ui/settings_menu.gd" id="1_x3vyp"]
+[ext_resource type="FontFile" uid="uid://hm5lqiqlhdie" path="res://fonts/LibertinusMono-Regular.ttf" id="2_x3vyp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.101960786, 0.7019608, 0.30980393, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.627451, 0.60784316, 0.65882355, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.101960786, 0.7019608, 0.30980393, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.627451, 0.60784316, 0.65882355, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.26666668, 0.105882354, 0.3137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49019608, 0.23921569, 0.7019608, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.49019608, 0.23921569, 0.7019608, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.101960786, 0.7019608, 0.30980393, 1)
+
+[sub_resource type="Theme" id="Theme_jk1qb"]
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("2_x3vyp")
+Button/styles/focus = SubResource("StyleBoxFlat_wu84c")
+Button/styles/hover = SubResource("StyleBoxFlat_8ln24")
+Button/styles/normal = SubResource("StyleBoxFlat_rtw2f")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_oa1go")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_tbmy8")
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("2_x3vyp")
+
+[node name="SettingsMenu" type="VBoxContainer" unique_id=824274218]
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.0
+offset_top = 492.0
+offset_right = 127.0
+offset_bottom = 596.0
+grow_horizontal = 2
+script = ExtResource("1_x3vyp")
+
+[node name="MusicVolume" type="HBoxContainer" parent="." unique_id=99518367]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MusicVolume" unique_id=1394472700]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_mhswj")
+text = "Music "
+
+[node name="MusicSlider" type="HSlider" parent="MusicVolume" unique_id=417141272]
+custom_minimum_size = Vector2(200, 36)
+layout_mode = 2
+theme = SubResource("Theme_jk1qb")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="SoundVolume" type="HBoxContainer" parent="." unique_id=1038151188]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SoundVolume" unique_id=1693048770]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_mhswj")
+text = "Sound "
+
+[node name="SoundSlider" type="HSlider" parent="SoundVolume" unique_id=1384388142]
+custom_minimum_size = Vector2(200, 36)
+layout_mode = 2
+theme = SubResource("Theme_jk1qb")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="FullScreenButton" type="CheckButton" parent="." unique_id=1835304423]
+layout_mode = 2
+theme = ExtResource("1_mhswj")
+text = "  Fullscreen"
+
+[node name="BackButton" type="Button" parent="." unique_id=2079627094]
+layout_mode = 2
+theme = ExtResource("1_mhswj")
+text = "Back"

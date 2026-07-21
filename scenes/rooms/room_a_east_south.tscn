@@ -1,0 +1,81 @@
+[gd_scene format=4 uid="uid://b8cjmdhmcsq8t"]
+
+[ext_resource type="Script" uid="uid://dw3nlfnvrknwj" path="res://scenes/rooms/room.gd" id="1_43nj7"]
+[ext_resource type="TileSet" uid="uid://kdhqiha7hpu3" path="res://resources/main_tile_set.tres" id="2_4q5vr"]
+[ext_resource type="PackedScene" uid="uid://ct7cd00d3le8" path="res://scenes/props/doorway_vertical.tscn" id="3_e3xio"]
+[ext_resource type="Texture2D" uid="uid://0mxftwg3pywp" path="res://art/images/lights/cone_256x256_1.png" id="4_wthau"]
+[ext_resource type="Texture2D" uid="uid://fo75ocf38xsp" path="res://art/images/lights/cone_128x128_2.png" id="5_t66wd"]
+[ext_resource type="PackedScene" uid="uid://dwljdud1aqw74" path="res://scenes/props/light_switch.tscn" id="6_ik08b"]
+[ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="7_67ypi"]
+
+[sub_resource type="Gradient" id="Gradient_3xqj6"]
+offsets = PackedFloat32Array(0.868, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4uciv"]
+gradient = SubResource("Gradient_3xqj6")
+width = 224
+height = 236
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpvuy"]
+size = Vector2(210, 233)
+
+[node name="Room_A_East_South" type="Node2D" unique_id=575161556]
+script = ExtResource("1_43nj7")
+
+[node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=459951464]
+tile_map_data = PackedByteArray("AAD9////AwAAAAkAAAD9//7/AwAAAAgAAAD+//7/AwABAAgAAAD+////AwABAAkAAAADAP7/AwACAAgAAAADAP//AwACAAkAAAACAP7/AwABAAgAAAACAP//AwABAAkAAAABAP7/AwABAAgAAAD///7/AwABAAgAAAD/////AwABAAkAAAD+/wEAAAAnAAwAAAD9/wAAAAAnAAwAAAD+/wAAAAAnAAwAAAD//wAAAAAnAAwAAAADAAAAAAAnAAwAAAABAAAAAAAnAAwAAAACAAAAAAAnAAwAAAAAAAAAAAAnAAwAAAD//wEAAAAnAAwAAAD//wIAAAAnAAwAAAAAAAEAAAAnAAwAAAAAAAIAAAAnAAwAAAABAAEAAAAnAAwAAAABAAIAAAAnAAwAAAACAAEAAAAnAAwAAAACAAIAAAAnAAwAAAADAAEAAAAnAAwAAAADAAIAAAAnAAwAAAD+/wMAAAAnAAwAAAD//wMAAAAnAAwAAAAAAAMAAAAnAAwAAAABAAMAAAAnAAwAAAACAAMAAAAnAAwAAAADAAMAAAAnAAwAAAD+/wQAAAAnAAwAAAD//wQAAAAnAAwAAAAAAAQAAAAnAAwAAAABAAQAAAAnAAwAAAACAAQAAAAnAAwAAAADAAQAAAAnAAwAAAD+/wIAAAAnAAwAAAD9/wQAAAAnAAwAAAD9/wEAAAAnAAwAAAD9/wIAAAAnAAwAAAD9/wMAAAAnAAwAAAABAP//AwABAAkAAAAAAP//AwABAAkAAAAAAP7/AwABAAgAAAAAAAUAAAAnAAwAAAA=")
+tile_set = ExtResource("2_4q5vr")
+
+[node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=971630836]
+z_index = 10
+tile_map_data = PackedByteArray("AAD+//7/BAAHAAYAAAACAP7/BAAHAAYAAAADAP7/BAAAAAcAAAADAAQABAACAAUAAAD9////BAADAAUAAAD9//7/BAABAAcAAAADAAUABAAAAAYAAAD9/wQABAADAAUAAAD9/wUABAABAAYAAAD+/wUABAAHAAgAAAABAAUABAAFAAYAAAACAAUABAAHAAgAAAD9/wMABAADAAAAAAD//wUABAAEAAYAAAD///7/BAAHAAYAAAABAP7/BAAHAAYAAAAAAP7/BAAHAAYAAAADAP//BAACAAUAAAD9/wAABAADAAUAAAD9/wEABAADAAUAAAD9/wIABAADAAUAAAA=")
+tile_set = ExtResource("2_4q5vr")
+
+[node name="Doorway_Vertical" parent="." unique_id=877637155 instance=ExtResource("3_e3xio")]
+position = Vector2(128, 64)
+scale = Vector2(-1, 1)
+
+[node name="Lights" type="Node2D" parent="." unique_id=1956659067]
+visible = false
+
+[node name="RoomLight" type="PointLight2D" parent="Lights" unique_id=1381336793]
+energy = 0.9
+range_z_min = -512
+range_z_max = 512
+texture = SubResource("GradientTexture2D_4uciv")
+offset = Vector2(16, 54)
+
+[node name="SpillLightE" type="PointLight2D" parent="Lights" unique_id=1851155937]
+position = Vector2(145, 55)
+rotation = 1.5707964
+scale = Vector2(1.3, 0.2)
+texture = ExtResource("4_wthau")
+
+[node name="SpillLightS" type="PointLight2D" parent="Lights" unique_id=292012707]
+position = Vector2(16, 197)
+rotation = 3.1415927
+scale = Vector2(1, 0.4)
+texture = ExtResource("5_t66wd")
+
+[node name="LightSwitch" parent="." unique_id=1997813369 node_paths=PackedStringArray("room", "lights") instance=ExtResource("6_ik08b")]
+position = Vector2(74, 0)
+room = NodePath("..")
+lights = NodePath("../Lights")
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=762571810]
+visible = false
+color = Color(0.12103007, 0.12103007, 0.12103007, 1)
+script = ExtResource("7_67ypi")
+visible_on_runtime = false
+
+[node name="RoomArea" type="Area2D" parent="." unique_id=135066953]
+visible = false
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomArea" unique_id=1757284966]
+position = Vector2(9, 52.5)
+shape = SubResource("RectangleShape2D_mpvuy")
