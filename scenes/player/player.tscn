@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bx1akjat33m5g" path="res://art/images/lights/radial_lights_128/radial_128_4.png" id="14_3j4b4"]
 [ext_resource type="PackedScene" uid="uid://c20ir7jfdy7wm" path="res://scenes/player/action_bar.tscn" id="16_myrg7"]
 [ext_resource type="Script" uid="uid://6jt3sntoubre" path="res://scenes/player/threat_meter.gd" id="17_kvlxm"]
+[ext_resource type="Script" uid="uid://bjfvlqduen21x" path="res://scenes/player/states/push.gd" id="20_8ydkj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7obkq"]
 atlas = ExtResource("1_8afob")
@@ -535,6 +536,9 @@ script = ExtResource("3_p47bc")
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=905909419]
 script = ExtResource("3_lvxji")
+
+[node name="Push" type="Node" parent="StateMachine" unique_id=1540307565]
+script = ExtResource("20_8ydkj")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=864308673]
 position = Vector2(0, 1)

@@ -2,6 +2,7 @@ class_name Player
 extends Actor
 
 @export var base_speed := 50.0
+@export var push_speed_modifier := 0.5 
 @export var run_speed_modifier := 1.5
 @export var target_offset: Vector2
 @export var searching_sounds: Array[AudioStream]
@@ -24,6 +25,10 @@ var current_search_object: Searchable = null
 var search_timer: float = 0.0
 var total_search_time: float = 0.0
 
+var current_pushable: Pushable = null
+var pushable_grab_offset: Vector2
+var pushable_grab_side: Vector2
+
 const YOU_LOSE = preload("uid://bqtvhiwkgqon0")
 
 func _ready() -> void:
@@ -41,14 +46,21 @@ func _process(delta: float) -> void:
     else:
       stop_searching()
       
-  if Input.is_action_just_pressed("interact") and current_interactable and not is_dead:
-    if not is_searching:
+  if Input.is_action_just_pressed("interact"):
+    if current_pushable:
+      stop_pushing()
+    elif can_interact() and not is_searching:
       current_interactable.interact(self)
-    else:
+    elif is_searching:
       stop_searching()
+
+func can_interact() -> bool:
+  return current_interactable and not is_dead
 
 func _physics_process(_delta):
   move_and_slide()
+  if current_pushable:
+    current_pushable.sync_from_player_delta(get_position_delta())
 
 func play_directional_anim(base: String) -> String:
   var dir_name = get_facing_string()
@@ -106,6 +118,8 @@ func _on_interaction_area_exited(area):
 func _on_damage_body_enter(body):
   if body is Possessable and not is_dead and not is_winning:
     if body.is_possessed:
+      if current_pushable:
+        stop_pushing()
       is_dead = true
       AudioManager.play_sfx(YOU_LOSE)
       state_machine.request_state("Idle", true)
@@ -159,3 +173,29 @@ func finish_search():
     current_search_object.complete_search()
   
   current_search_object = null
+
+func start_pushing(pushable: Pushable, side: Vector2):
+  current_pushable = pushable
+  pushable_grab_offset = global_position - pushable.global_position
+  pushable_grab_side = side
+  pushable.begin_grab(self, side)
+  state_machine.request_state("Push", true)
+  GameManager.show_context_message("{interact}Let go")
+
+func stop_pushing():
+  pushable_grab_offset = Vector2.ZERO
+  pushable_grab_side = Vector2.ZERO
+  current_pushable.end_grab()
+  current_pushable = null
+  state_machine.request_state("Idle", true)
+  
+  if current_interactable:
+    GameManager.show_context_message("{interact}" + current_interactable.interaction_prompt)
+  else:
+    GameManager.hide_context_message()
+
+func get_input_vector():
+  return Vector2(
+    Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+    Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+  )

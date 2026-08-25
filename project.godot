@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Darkness Has Eyes"
-run/main_scene="uid://1c3nflycxpk2"
+run/main_scene="uid://b5jvdkcbsl4p7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.ico"
 config/windows_native_icon="res://icon.ico"

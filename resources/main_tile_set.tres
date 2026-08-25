@@ -5261,6 +5261,7 @@ texture_region_size = Vector2i(32, 32)
 4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:6/0 = 0
 5:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qbw17")
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:6/0 = 0
 6:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_5r3ht")
 6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
