@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b71uk53i85sa2" path="res://scenes/props/handle.gd" id="3_lpex5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2aji"]
-size = Vector2(20, 27)
+size = Vector2(20, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqj3r"]
 size = Vector2(8, 1)
@@ -22,15 +22,17 @@ region_enabled = true
 region_rect = Rect2(64, 0, 34, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1837979125]
-position = Vector2(0, -20.5)
+position = Vector2(0, -18.5)
 shape = SubResource("RectangleShape2D_w2aji")
+debug_color = Color(0.98060185, 0, 0.3822659, 0.41960785)
 
 [node name="HandleTop" type="Area2D" parent="." unique_id=417823894]
-position = Vector2(0, -40)
+position = Vector2(0, -38)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("3_lpex5")
 side = Vector2(0, -1)
+side_margin = 2.0
 interaction_prompt = "Grab and Push"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandleTop" unique_id=1600959515]
@@ -38,11 +40,12 @@ shape = SubResource("RectangleShape2D_eqj3r")
 debug_color = Color(0.94500965, 7.412136e-06, 0.59671676, 0.41960785)
 
 [node name="HandleBottom" type="Area2D" parent="." unique_id=2091210836]
-position = Vector2(0, -17)
+position = Vector2(0, -18)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("3_lpex5")
 side = Vector2(0, 1)
+side_margin = 2.0
 interaction_prompt = "Grab and Push"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandleBottom" unique_id=2106741032]

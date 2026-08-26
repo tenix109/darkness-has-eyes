@@ -107,9 +107,18 @@ func get_target_position() -> Vector2:
 
 func _on_interaction_area_entered(area):
   current_interactable = area
-  var context: String = "{interact}" + current_interactable.interaction_prompt
-  GameManager.show_context_message(context)
- 
+  refresh_context_prompt()
+
+func refresh_context_prompt() -> void:
+  if current_pushable:
+    GameManager.show_context_message("{interact}Let go")
+  elif current_interactable is PushHandle and not current_interactable.can_interact(self):
+    GameManager.hide_context_message()
+  elif current_interactable:
+    GameManager.show_context_message("{interact}" + current_interactable.interaction_prompt)
+  else:
+    GameManager.hide_context_message()
+
 func _on_interaction_area_exited(area):
   if area == current_interactable:
     current_interactable = null

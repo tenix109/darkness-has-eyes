@@ -1,8 +1,6 @@
 class_name Pushable
 extends AnimatableBody2D
 
-# @export_enum("Horizontal", "Vertical") var move_axis = 0
-
 var is_grabbed: bool = false
 var grabbed_side_axis: Vector2 = Vector2.ZERO
 var grabbing_player: Player = null

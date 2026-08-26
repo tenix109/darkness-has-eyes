@@ -56,7 +56,7 @@ position = Vector2(32, -408)
 y_sort_enabled = true
 
 [node name="CartVertical" parent="YSort/Pushables" unique_id=2093506797 instance=ExtResource("4_bwwaw")]
-position = Vector2(48, -480)
+position = Vector2(56, -480)
 
 [node name="CartVertical2" parent="YSort/Pushables" unique_id=1529701838 instance=ExtResource("4_bwwaw")]
 position = Vector2(-272, -224)
@@ -65,7 +65,7 @@ position = Vector2(-272, -224)
 position = Vector2(-272, -184)
 
 [node name="CartHorizontal" parent="YSort/Pushables" unique_id=1469706130 instance=ExtResource("5_wdxux")]
-position = Vector2(16, -488)
+position = Vector2(18, -488)
 
 [node name="CartHorizontal2" parent="YSort/Pushables" unique_id=1959694439 instance=ExtResource("5_wdxux")]
 position = Vector2(-304, -208)
@@ -77,10 +77,10 @@ position = Vector2(-288, -152)
 y_sort_enabled = true
 
 [node name="SearchableDresser" parent="YSort/Searchable" unique_id=202116977 instance=ExtResource("10_uwyqe")]
-position = Vector2(-48, -520)
+position = Vector2(-40, -520)
 
 [node name="SearchableNightstandSmashed" parent="YSort/Searchable" unique_id=539976846 instance=ExtResource("16_1ualq")]
-position = Vector2(96, -520)
+position = Vector2(80, -520)
 
 [node name="SearchableDresser2" parent="YSort/Searchable" unique_id=2086504685 instance=ExtResource("10_uwyqe")]
 position = Vector2(-344, -272)
