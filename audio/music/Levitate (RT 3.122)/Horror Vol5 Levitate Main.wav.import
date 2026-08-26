@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d4cmbweh8cb0r"
+path="res://.godot/imported/Horror Vol5 Levitate Main.wav-c1af9a106c3bf1b04ca043e5672e1ba4.sample"
+
+[deps]
+
+source_file="res://audio/music/Levitate (RT 3.122)/Horror Vol5 Levitate Main.wav"
+dest_files=["res://.godot/imported/Horror Vol5 Levitate Main.wav-c1af9a106c3bf1b04ca043e5672e1ba4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

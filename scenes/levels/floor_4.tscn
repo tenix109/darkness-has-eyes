@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfuypy6oavd2u" path="res://scenes/rooms/hallway_x.tscn" id="6_r0xmg"]
 [ext_resource type="Script" uid="uid://d2wp6hi6dfh77" path="res://scenes/follow_camera.gd" id="6_u5j7v"]
 [ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="7_j3qb0"]
+[ext_resource type="PackedScene" uid="uid://daewq46xvceaa" path="res://scenes/rooms/room_a_east.tscn" id="7_uwyqe"]
 [ext_resource type="PackedScene" uid="uid://bjfjopxpmnlfd" path="res://scenes/hud.tscn" id="8_r0xmg"]
 [ext_resource type="Script" uid="uid://bytj751rstygx" path="res://scenes/props/possessor.gd" id="9_dhdhe"]
 [ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="10_igwm4"]
@@ -42,6 +43,9 @@ position = Vector2(0, -512)
 [node name="Hallway_X" parent="Rooms" unique_id=648858787 instance=ExtResource("6_r0xmg")]
 position = Vector2(0, -64)
 
+[node name="Room_A_East" parent="Rooms" unique_id=813133507 instance=ExtResource("7_uwyqe")]
+position = Vector2(-288, -256)
+
 [node name="YSort" type="Node2D" parent="." unique_id=1814523132]
 y_sort_enabled = true
 
@@ -54,8 +58,20 @@ y_sort_enabled = true
 [node name="CartVertical" parent="YSort/Pushables" unique_id=2093506797 instance=ExtResource("4_bwwaw")]
 position = Vector2(48, -480)
 
+[node name="CartVertical2" parent="YSort/Pushables" unique_id=1529701838 instance=ExtResource("4_bwwaw")]
+position = Vector2(-272, -224)
+
+[node name="CartVertical3" parent="YSort/Pushables" unique_id=1095188195 instance=ExtResource("4_bwwaw")]
+position = Vector2(-272, -184)
+
 [node name="CartHorizontal" parent="YSort/Pushables" unique_id=1469706130 instance=ExtResource("5_wdxux")]
 position = Vector2(16, -488)
+
+[node name="CartHorizontal2" parent="YSort/Pushables" unique_id=1959694439 instance=ExtResource("5_wdxux")]
+position = Vector2(-304, -208)
+
+[node name="CartHorizontal3" parent="YSort/Pushables" unique_id=1864764195 instance=ExtResource("5_wdxux")]
+position = Vector2(-288, -152)
 
 [node name="Searchable" type="Node2D" parent="YSort" unique_id=1879952885]
 y_sort_enabled = true
@@ -65,6 +81,18 @@ position = Vector2(-48, -520)
 
 [node name="SearchableNightstandSmashed" parent="YSort/Searchable" unique_id=539976846 instance=ExtResource("16_1ualq")]
 position = Vector2(96, -520)
+
+[node name="SearchableDresser2" parent="YSort/Searchable" unique_id=2086504685 instance=ExtResource("10_uwyqe")]
+position = Vector2(-344, -272)
+
+[node name="SearchableDresser3" parent="YSort/Searchable" unique_id=359705308 instance=ExtResource("10_uwyqe")]
+position = Vector2(-336, -184)
+
+[node name="SearchableNightstandSmashed3" parent="YSort/Searchable" unique_id=2053995675 instance=ExtResource("16_1ualq")]
+position = Vector2(-339, -224)
+
+[node name="SearchableNightstandSmashed4" parent="YSort/Searchable" unique_id=1604387890 instance=ExtResource("16_1ualq")]
+position = Vector2(-301, -272)
 
 [node name="PossessedProps" type="Node2D" parent="YSort" unique_id=944234385]
 y_sort_enabled = true
