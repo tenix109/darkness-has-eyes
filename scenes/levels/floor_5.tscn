@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://c4eadwf0r7b1h"]
+
+[ext_resource type="Script" uid="uid://cr64xba2ufexq" path="res://scenes/levels/floor.gd" id="1_lyubn"]
+[ext_resource type="PackedScene" uid="uid://bjfjopxpmnlfd" path="res://scenes/hud.tscn" id="2_h33mn"]
+[ext_resource type="Script" uid="uid://d2wp6hi6dfh77" path="res://scenes/follow_camera.gd" id="3_e07x4"]
+[ext_resource type="PackedScene" uid="uid://cwni0vkycy7ma" path="res://scenes/rooms/room_start.tscn" id="4_8gvr1"]
+[ext_resource type="PackedScene" uid="uid://bp5ril2potsdi" path="res://scenes/rooms/room_a_east_south_west.tscn" id="5_bekww"]
+[ext_resource type="PackedScene" uid="uid://dfuypy6oavd2u" path="res://scenes/rooms/hallway_x.tscn" id="6_havbx"]
+[ext_resource type="PackedScene" uid="uid://daewq46xvceaa" path="res://scenes/rooms/room_a_east.tscn" id="7_wbu4x"]
+[ext_resource type="PackedScene" uid="uid://b48727n3mrxi0" path="res://scenes/player/player.tscn" id="8_k26pd"]
+[ext_resource type="PackedScene" uid="uid://rervtd4m140v" path="res://scenes/props/cart_vertical.tscn" id="9_jn06f"]
+[ext_resource type="PackedScene" uid="uid://diokk8q0r0xbc" path="res://scenes/props/cart_horizontal.tscn" id="10_hw53f"]
+[ext_resource type="PackedScene" uid="uid://dm2assh8eg7d5" path="res://scenes/props/searchable/searchable_dresser.tscn" id="11_5xaf2"]
+[ext_resource type="PackedScene" uid="uid://17m0jecxr38a" path="res://scenes/props/searchable/searchable_nightstand_smashed.tscn" id="12_xladv"]
+[ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="13_j3tn6"]
+[ext_resource type="Script" uid="uid://bytj751rstygx" path="res://scenes/props/possessor.gd" id="14_srkhg"]
+[ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="15_afnsp"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="16_ii3vy"]
+[ext_resource type="Resource" uid="uid://c3txb8t1mujsp" path="res://audio/music/Chased (RT 2.194)/chased.tres" id="17_v6u4r"]
+
+[node name="Floor4" type="Node2D" unique_id=554474155]
+script = ExtResource("1_lyubn")
+floor_name = "Floor ???"
+level_title = "Push It Real Good"
+level_index = 3
+metadata/_custom_type_script = "uid://cr64xba2ufexq"
+
+[node name="HUD" parent="." unique_id=158779456 instance=ExtResource("2_h33mn")]
+
+[node name="FollowCamera" type="Camera2D" parent="." unique_id=1779290735 node_paths=PackedStringArray("target")]
+zoom = Vector2(4, 4)
+script = ExtResource("3_e07x4")
+follow_offset = Vector2(0, -16)
+target = NodePath("../YSort/PlayerTheGirl")
+
+[node name="Rooms" type="Node2D" parent="." unique_id=1403313818]
+
+[node name="RoomStart" parent="Rooms" unique_id=1817066731 instance=ExtResource("4_8gvr1")]
+
+[node name="Room_A_South_West2" parent="Rooms" unique_id=575161556 instance=ExtResource("5_bekww")]
+position = Vector2(0, -512)
+
+[node name="Hallway_X" parent="Rooms" unique_id=648858787 instance=ExtResource("6_havbx")]
+position = Vector2(0, -64)
+
+[node name="Room_A_East" parent="Rooms" unique_id=813133507 instance=ExtResource("7_wbu4x")]
+position = Vector2(-288, -256)
+
+[node name="YSort" type="Node2D" parent="." unique_id=1814523132]
+y_sort_enabled = true
+
+[node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("8_k26pd")]
+position = Vector2(32, -408)
+
+[node name="Pushables" type="Node2D" parent="YSort" unique_id=1815342450]
+y_sort_enabled = true
+
+[node name="CartVertical" parent="YSort/Pushables" unique_id=2093506797 instance=ExtResource("9_jn06f")]
+position = Vector2(56, -480)
+
+[node name="CartVertical2" parent="YSort/Pushables" unique_id=1529701838 instance=ExtResource("9_jn06f")]
+position = Vector2(-272, -224)
+
+[node name="CartVertical3" parent="YSort/Pushables" unique_id=1095188195 instance=ExtResource("9_jn06f")]
+position = Vector2(-272, -184)
+
+[node name="CartHorizontal" parent="YSort/Pushables" unique_id=1469706130 instance=ExtResource("10_hw53f")]
+position = Vector2(18, -488)
+
+[node name="CartHorizontal2" parent="YSort/Pushables" unique_id=1959694439 instance=ExtResource("10_hw53f")]
+position = Vector2(-304, -208)
+
+[node name="CartHorizontal3" parent="YSort/Pushables" unique_id=1864764195 instance=ExtResource("10_hw53f")]
+position = Vector2(-288, -152)
+
+[node name="Searchable" type="Node2D" parent="YSort" unique_id=1879952885]
+y_sort_enabled = true
+
+[node name="SearchableDresser" parent="YSort/Searchable" unique_id=202116977 instance=ExtResource("11_5xaf2")]
+position = Vector2(-40, -520)
+
+[node name="SearchableNightstandSmashed" parent="YSort/Searchable" unique_id=539976846 instance=ExtResource("12_xladv")]
+position = Vector2(80, -520)
+
+[node name="SearchableDresser2" parent="YSort/Searchable" unique_id=2086504685 instance=ExtResource("11_5xaf2")]
+position = Vector2(-344, -272)
+
+[node name="SearchableDresser3" parent="YSort/Searchable" unique_id=359705308 instance=ExtResource("11_5xaf2")]
+position = Vector2(-336, -184)
+
+[node name="SearchableNightstandSmashed3" parent="YSort/Searchable" unique_id=2053995675 instance=ExtResource("12_xladv")]
+position = Vector2(-339, -224)
+
+[node name="SearchableNightstandSmashed4" parent="YSort/Searchable" unique_id=1604387890 instance=ExtResource("12_xladv")]
+position = Vector2(-301, -272)
+
+[node name="PossessedProps" type="Node2D" parent="YSort" unique_id=944234385]
+y_sort_enabled = true
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
+visible = false
+color = Color(0.09366939, 0.09366938, 0.09366938, 1)
+script = ExtResource("13_j3tn6")
+
+[node name="Possessor" type="Node" parent="." unique_id=22718676 node_paths=PackedStringArray("ovani_player")]
+script = ExtResource("14_srkhg")
+max_dist = 160.0
+ovani_player = NodePath("../OvaniPlayer")
+dist_increase_at_high_threat = 48.0
+
+[node name="OvaniPlayer" type="Node" parent="." unique_id=576658255]
+process_mode = 3
+script = ExtResource("15_afnsp")
+QueuedSongs = Array[ExtResource("16_ii3vy")]([ExtResource("17_v6u4r")])
+Volume = -10.0
+Bus = &"Music"
