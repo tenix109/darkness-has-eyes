@@ -50,7 +50,7 @@ position = Vector2(-288, -256)
 y_sort_enabled = true
 
 [node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("3_bwwaw")]
-position = Vector2(32, -408)
+position = Vector2(8, -408)
 
 [node name="Pushables" type="Node2D" parent="YSort" unique_id=1815342450]
 y_sort_enabled = true
@@ -79,6 +79,9 @@ y_sort_enabled = true
 [node name="SearchableDresser" parent="YSort/Searchable" unique_id=202116977 instance=ExtResource("10_uwyqe")]
 position = Vector2(-40, -520)
 
+[node name="SearchableDresser4" parent="YSort/Searchable" unique_id=1084954108 instance=ExtResource("10_uwyqe")]
+position = Vector2(48, -448)
+
 [node name="SearchableNightstandSmashed" parent="YSort/Searchable" unique_id=539976846 instance=ExtResource("16_1ualq")]
 position = Vector2(80, -520)
 
@@ -90,6 +93,9 @@ position = Vector2(-336, -184)
 
 [node name="SearchableNightstandSmashed3" parent="YSort/Searchable" unique_id=2053995675 instance=ExtResource("16_1ualq")]
 position = Vector2(-339, -224)
+
+[node name="SearchableNightstandSmashed5" parent="YSort/Searchable" unique_id=1794566181 instance=ExtResource("16_1ualq")]
+position = Vector2(-24, -400)
 
 [node name="SearchableNightstandSmashed4" parent="YSort/Searchable" unique_id=1604387890 instance=ExtResource("16_1ualq")]
 position = Vector2(-301, -272)

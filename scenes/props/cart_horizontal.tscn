@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b71uk53i85sa2" path="res://scenes/props/handle.gd" id="3_7hnvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knyln"]
-size = Vector2(35, 18)
+size = Vector2(35, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hnvp"]
 size = Vector2(1, 8)
@@ -34,6 +34,7 @@ side = Vector2(-1, 0)
 interaction_prompt = "Grab and Push"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandleLeft" unique_id=1600959515]
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_7hnvp")
 debug_color = Color(0.93710715, 1.6942024e-05, 0.6314924, 0.41960785)
 
@@ -46,5 +47,6 @@ side = Vector2(1, 0)
 interaction_prompt = "Grab"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandleRight" unique_id=914506145]
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_7hnvp")
 debug_color = Color(0.93710715, 1.6942024e-05, 0.6314924, 0.41960785)

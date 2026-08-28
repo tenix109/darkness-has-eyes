@@ -8,7 +8,7 @@
 size = Vector2(20, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqj3r"]
-size = Vector2(8, 1)
+size = Vector2(2, 1)
 
 [node name="CartVertical" type="AnimatableBody2D" unique_id=2093506797]
 collision_mask = 9
@@ -32,7 +32,6 @@ collision_layer = 8
 collision_mask = 0
 script = ExtResource("3_lpex5")
 side = Vector2(0, -1)
-side_margin = 2.0
 interaction_prompt = "Grab and Push"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandleTop" unique_id=1600959515]
@@ -45,7 +44,6 @@ collision_layer = 8
 collision_mask = 0
 script = ExtResource("3_lpex5")
 side = Vector2(0, 1)
-side_margin = 2.0
 interaction_prompt = "Grab and Push"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandleBottom" unique_id=2106741032]

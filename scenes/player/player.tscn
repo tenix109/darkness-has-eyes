@@ -431,7 +431,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myrg7"]
-size = Vector2(12, 16)
+size = Vector2(10, 10)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_myrg7"]
 blend_mode = 1
@@ -460,6 +460,7 @@ autoplay = "idle_up"
 offset = Vector2(0, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=815721482]
+visible = false
 position = Vector2(0, -7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_p47bc")
@@ -507,13 +508,12 @@ libraries/ = SubResource("AnimationLibrary_h17s1")
 autoplay = &"radial_pulse"
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=725208157]
-visible = false
-position = Vector2(4, 0)
+position = Vector2(0, 4)
 collision_layer = 2
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1389224867]
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_myrg7")
 debug_color = Color(0.9360692, 0.25443864, 0, 0.41960785)
 
@@ -541,6 +541,7 @@ script = ExtResource("3_lvxji")
 script = ExtResource("20_8ydkj")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=864308673]
+visible = false
 position = Vector2(0, 1)
 collision_layer = 2
 collision_mask = 4

@@ -7,7 +7,7 @@
 size = Vector2(32, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b21jy"]
-size = Vector2(32, 30)
+size = Vector2(32, 32)
 
 [node name="SearchableNightstandSmashed" type="Area2D" unique_id=202116977]
 collision_layer = 8
@@ -29,10 +29,9 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_j6fou")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=562456029]
-position = Vector2(-8, -14)
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=772803854]
-position = Vector2(8, 22)
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_b21jy")

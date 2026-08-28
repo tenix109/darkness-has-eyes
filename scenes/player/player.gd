@@ -94,13 +94,13 @@ func get_facing_string() -> String:
 func position_interaction_area():
   match get_facing_string():
     "up":
-      interaction_area.position = Vector2(0, -10)
+      interaction_area.position = Vector2(0, -18)
     "down":
-      interaction_area.position = Vector2(0, 10)
+      interaction_area.position = Vector2(0, 4)
     "left":
-      interaction_area.position = Vector2(-8, 0)
+      interaction_area.position = Vector2(-8, -8)
     "right":
-      interaction_area.position = Vector2(8, 0)
+      interaction_area.position = Vector2(8, -8)
 
 func get_target_position() -> Vector2:
   return global_position + target_offset
