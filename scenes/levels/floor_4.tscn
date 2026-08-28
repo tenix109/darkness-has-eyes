@@ -94,9 +94,6 @@ position = Vector2(-336, -184)
 [node name="SearchableNightstandSmashed3" parent="YSort/Searchable" unique_id=2053995675 instance=ExtResource("16_1ualq")]
 position = Vector2(-339, -224)
 
-[node name="SearchableNightstandSmashed5" parent="YSort/Searchable" unique_id=1794566181 instance=ExtResource("16_1ualq")]
-position = Vector2(-24, -400)
-
 [node name="SearchableNightstandSmashed4" parent="YSort/Searchable" unique_id=1604387890 instance=ExtResource("16_1ualq")]
 position = Vector2(-301, -272)
 

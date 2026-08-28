@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bcuycph8icn3p" path="res://art/tilesets/props_and_objects.png" id="2_0ouas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6fou"]
-size = Vector2(60, 22)
+size = Vector2(60, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b21jy"]
 size = Vector2(60, 30)
@@ -25,7 +25,7 @@ region_enabled = true
 region_rect = Rect2(119, 2, 64, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=918843970]
-position = Vector2(0, 5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_j6fou")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=562456029]
@@ -34,5 +34,5 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=772803854]
-position = Vector2(8, 22)
+position = Vector2(8, 24)
 shape = SubResource("RectangleShape2D_b21jy")

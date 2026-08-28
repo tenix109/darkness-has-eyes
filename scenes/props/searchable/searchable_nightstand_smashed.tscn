@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bcuycph8icn3p" path="res://art/tilesets/props_and_objects.png" id="2_e54o2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6fou"]
-size = Vector2(32, 22)
+size = Vector2(28, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b21jy"]
-size = Vector2(32, 32)
+size = Vector2(32, 28)
 
 [node name="SearchableNightstandSmashed" type="Area2D" unique_id=202116977]
 collision_layer = 8
@@ -25,7 +25,7 @@ region_enabled = true
 region_rect = Rect2(256, 19, 32, 42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=918843970]
-position = Vector2(0, 5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_j6fou")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=562456029]
@@ -33,5 +33,5 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=772803854]
-position = Vector2(0, 12)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_b21jy")

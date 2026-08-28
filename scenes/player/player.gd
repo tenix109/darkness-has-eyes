@@ -14,6 +14,7 @@ extends Actor
 @onready var state_machine: StateMachine = $StateMachine
 @onready var threat_meter: Node = $ThreatMeter
 
+var nearby_interactables: Array[Interactable] = []
 var current_interactable: Interactable = null
 var facing: Vector2 = Vector2.UP
 
@@ -106,7 +107,25 @@ func get_target_position() -> Vector2:
   return global_position + target_offset
 
 func _on_interaction_area_entered(area):
-  current_interactable = area
+  if area is Interactable and area not in nearby_interactables:
+    nearby_interactables.append(area)
+    update_current_interactable()
+
+func update_current_interactable() -> void:
+  var best: Interactable = null
+  var best_dist := INF
+  var origin := interaction_area.global_position
+  for interactable in nearby_interactables:
+    if not is_instance_valid(interactable):
+      continue
+    var dist := origin.distance_squared_to(interactable.global_position)
+    if dist < best_dist:
+      best_dist = dist
+      best = interactable
+  nearby_interactables = nearby_interactables.filter(
+    func(a): return is_instance_valid(a)
+  )
+  current_interactable = best
   refresh_context_prompt()
 
 func refresh_context_prompt() -> void:
@@ -119,10 +138,9 @@ func refresh_context_prompt() -> void:
   else:
     GameManager.hide_context_message()
 
-func _on_interaction_area_exited(area):
-  if area == current_interactable:
-    current_interactable = null
-    GameManager.hide_context_message()
+func _on_interaction_area_exited(area) -> void:
+  nearby_interactables.erase(area)
+  update_current_interactable()
 
 func _on_damage_body_enter(body):
   if body is Possessable and not is_dead and not is_winning:
