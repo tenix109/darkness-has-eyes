@@ -11,11 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://daewq46xvceaa" path="res://scenes/rooms/room_a_east.tscn" id="7_uwyqe"]
 [ext_resource type="PackedScene" uid="uid://bjfjopxpmnlfd" path="res://scenes/hud.tscn" id="8_r0xmg"]
 [ext_resource type="Script" uid="uid://bytj751rstygx" path="res://scenes/props/possessor.gd" id="9_dhdhe"]
+[ext_resource type="PackedScene" uid="uid://bxtlahomjt2sv" path="res://scenes/rooms/hallway_l_180_connector.tscn" id="9_ferhq"]
+[ext_resource type="PackedScene" uid="uid://da32n38v7jtng" path="res://scenes/rooms/hallway_t_180_connector.tscn" id="10_hvacf"]
 [ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="10_igwm4"]
 [ext_resource type="PackedScene" uid="uid://dm2assh8eg7d5" path="res://scenes/props/searchable/searchable_dresser.tscn" id="10_uwyqe"]
 [ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="11_uwyqe"]
+[ext_resource type="PackedScene" uid="uid://crh1qq60asiis" path="res://scenes/rooms/hallway_i_3x.tscn" id="12_1p7hm"]
 [ext_resource type="Resource" uid="uid://c3txb8t1mujsp" path="res://audio/music/Chased (RT 2.194)/chased.tres" id="12_1ualq"]
+[ext_resource type="PackedScene" uid="uid://bvgjw8mrnk15d" path="res://scenes/rooms/hallway_horizontal_2x.tscn" id="12_ferhq"]
+[ext_resource type="PackedScene" uid="uid://i3jo2b85fvf" path="res://scenes/rooms/hallway_dead_end_east.tscn" id="13_ferhq"]
 [ext_resource type="PackedScene" uid="uid://bp5ril2potsdi" path="res://scenes/rooms/room_a_east_south_west.tscn" id="13_j3qb0"]
+[ext_resource type="PackedScene" uid="uid://berp1akae1vmm" path="res://scenes/props/exit_door.tscn" id="14_hvacf"]
 [ext_resource type="PackedScene" uid="uid://17m0jecxr38a" path="res://scenes/props/searchable/searchable_nightstand_smashed.tscn" id="16_1ualq"]
 
 [node name="Floor4" type="Node2D" unique_id=554474155]
@@ -46,11 +52,39 @@ position = Vector2(0, -64)
 [node name="Room_A_East" parent="Rooms" unique_id=813133507 instance=ExtResource("7_uwyqe")]
 position = Vector2(-288, -256)
 
+[node name="Room_A_East2" parent="Rooms" unique_id=677403496 instance=ExtResource("7_uwyqe")]
+position = Vector2(-288, -512)
+
+[node name="Hallway_L_180_Connector" parent="Rooms" unique_id=1864699446 instance=ExtResource("9_ferhq")]
+position = Vector2(224, -352)
+
+[node name="Hallway_T_180_Connector" parent="Rooms" unique_id=1413790222 instance=ExtResource("10_hvacf")]
+position = Vector2(224, -160)
+
+[node name="Hallway_I_3x" parent="Rooms" unique_id=2002261981 instance=ExtResource("12_1p7hm")]
+position = Vector2(224, -256)
+
+[node name="Hallway_DeadEnd_East" parent="Rooms" unique_id=577906056 instance=ExtResource("13_ferhq")]
+position = Vector2(384, -160)
+
+[node name="Hallway_Horizontal_2x" parent="Rooms" unique_id=1608731701 instance=ExtResource("12_ferhq")]
+position = Vector2(288, -160)
+
+[node name="Hallway_Horizontal_2x2" parent="Rooms" unique_id=1014136834 instance=ExtResource("12_ferhq")]
+position = Vector2(128, -416)
+
+[node name="Hallway_Horizontal_2x3" parent="Rooms" unique_id=910028411 instance=ExtResource("12_ferhq")]
+position = Vector2(-160, -416)
+
+[node name="ExitDoor" parent="Rooms" unique_id=471537759 instance=ExtResource("14_hvacf")]
+position = Vector2(293, -192)
+metadata/_edit_lock_ = true
+
 [node name="YSort" type="Node2D" parent="." unique_id=1814523132]
 y_sort_enabled = true
 
 [node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("3_bwwaw")]
-position = Vector2(-214, -173)
+position = Vector2(-40, -424)
 
 [node name="Pushables" type="Node2D" parent="YSort" unique_id=1815342450]
 y_sort_enabled = true
@@ -58,14 +92,29 @@ y_sort_enabled = true
 [node name="CartVertical" parent="YSort/Pushables" unique_id=2093506797 instance=ExtResource("4_bwwaw")]
 position = Vector2(56, -480)
 
+[node name="CartVertical4" parent="YSort/Pushables" unique_id=1359501206 instance=ExtResource("4_bwwaw")]
+position = Vector2(368, -160)
+
 [node name="CartVertical2" parent="YSort/Pushables" unique_id=1529701838 instance=ExtResource("4_bwwaw")]
 position = Vector2(-272, -224)
 
 [node name="CartVertical3" parent="YSort/Pushables" unique_id=1095188195 instance=ExtResource("4_bwwaw")]
 position = Vector2(-272, -193)
 
+[node name="CartVertical5" parent="YSort/Pushables" unique_id=1562131525 instance=ExtResource("4_bwwaw")]
+position = Vector2(16, -16)
+
 [node name="CartHorizontal" parent="YSort/Pushables" unique_id=1469706130 instance=ExtResource("5_wdxux")]
 position = Vector2(18, -488)
+
+[node name="CartHorizontal4" parent="YSort/Pushables" unique_id=1163501298 instance=ExtResource("5_wdxux")]
+position = Vector2(16, -344)
+
+[node name="CartHorizontal6" parent="YSort/Pushables" unique_id=38150525 instance=ExtResource("5_wdxux")]
+position = Vector2(-152, -415)
+
+[node name="CartHorizontal5" parent="YSort/Pushables" unique_id=1468312036 instance=ExtResource("5_wdxux")]
+position = Vector2(174, -159)
 
 [node name="CartHorizontal2" parent="YSort/Pushables" unique_id=1959694439 instance=ExtResource("5_wdxux")]
 position = Vector2(-302, -213)
@@ -79,8 +128,14 @@ y_sort_enabled = true
 [node name="SearchableDresser" parent="YSort/Searchable" unique_id=202116977 instance=ExtResource("10_uwyqe")]
 position = Vector2(-40, -520)
 
+[node name="SearchableDresser6" parent="YSort/Searchable" unique_id=878611981 instance=ExtResource("10_uwyqe")]
+position = Vector2(-264, -528)
+
 [node name="SearchableDresser4" parent="YSort/Searchable" unique_id=1084954108 instance=ExtResource("10_uwyqe")]
 position = Vector2(48, -448)
+
+[node name="SearchableDresser5" parent="YSort/Searchable" unique_id=843080065 instance=ExtResource("10_uwyqe")]
+position = Vector2(-240, -448)
 
 [node name="SearchableNightstandSmashed" parent="YSort/Searchable" unique_id=539976846 instance=ExtResource("16_1ualq")]
 position = Vector2(80, -520)
@@ -93,6 +148,9 @@ position = Vector2(-336, -184)
 
 [node name="SearchableNightstandSmashed3" parent="YSort/Searchable" unique_id=2053995675 instance=ExtResource("16_1ualq")]
 position = Vector2(-339, -213)
+
+[node name="SearchableNightstandSmashed5" parent="YSort/Searchable" unique_id=1098810089 instance=ExtResource("16_1ualq")]
+position = Vector2(-352, -528)
 
 [node name="SearchableNightstandSmashed4" parent="YSort/Searchable" unique_id=1604387890 instance=ExtResource("16_1ualq")]
 position = Vector2(-301, -272)
