@@ -30,7 +30,6 @@ func physics_update(delta):
   else: # moving
     player.velocity = axis_input.normalized() * move_speed
     player.animated_sprite.speed_scale = player.push_speed_modifier * signf(axis_input.dot(player.facing))
-    print(signf(axis_input.dot(player.facing)))
     player.play_directional_anim("walk")
     footstep_timer -= delta
     if footstep_timer <= 0.0:

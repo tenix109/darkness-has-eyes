@@ -24,10 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://berp1akae1vmm" path="res://scenes/props/exit_door.tscn" id="14_hvacf"]
 [ext_resource type="PackedScene" uid="uid://17m0jecxr38a" path="res://scenes/props/searchable/searchable_nightstand_smashed.tscn" id="16_1ualq"]
 [ext_resource type="PackedScene" uid="uid://cm7sad3js2rbg" path="res://scenes/props/searchable/searchable_cabinet.tscn" id="19_hvacf"]
+[ext_resource type="PackedScene" uid="uid://0h6tmhh2fy2l" path="res://scenes/possessables/possessable_doll_a.tscn" id="20_6iwcs"]
 
 [node name="Floor4" type="Node2D" unique_id=554474155]
 script = ExtResource("1_kexwx")
-floor_name = "Floor ???"
+base_find_chance = -0.3
+floor_name = "Floor 4"
 level_title = "Push It Real Good"
 level_index = 3
 metadata/_custom_type_script = "uid://cr64xba2ufexq"
@@ -85,13 +87,22 @@ metadata/_edit_lock_ = true
 y_sort_enabled = true
 
 [node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("3_bwwaw")]
-position = Vector2(-32, -376)
+position = Vector2(24, 80)
 
 [node name="Pushables" type="Node2D" parent="YSort" unique_id=1815342450]
 y_sort_enabled = true
 
 [node name="CartVertical" parent="YSort/Pushables" unique_id=2093506797 instance=ExtResource("4_bwwaw")]
 position = Vector2(56, -480)
+
+[node name="CartVertical6" parent="YSort/Pushables" unique_id=1723085631 instance=ExtResource("4_bwwaw")]
+position = Vector2(-280, -464)
+
+[node name="CartVertical7" parent="YSort/Pushables" unique_id=1363576978 instance=ExtResource("4_bwwaw")]
+position = Vector2(-280, -392)
+
+[node name="CartVertical8" parent="YSort/Pushables" unique_id=200732640 instance=ExtResource("4_bwwaw")]
+position = Vector2(-280, -344)
 
 [node name="CartVertical4" parent="YSort/Pushables" unique_id=1359501206 instance=ExtResource("4_bwwaw")]
 position = Vector2(368, -160)
@@ -103,10 +114,13 @@ position = Vector2(-272, -224)
 position = Vector2(-272, -193)
 
 [node name="CartVertical5" parent="YSort/Pushables" unique_id=1562131525 instance=ExtResource("4_bwwaw")]
-position = Vector2(16, -16)
+position = Vector2(16, 16)
 
 [node name="CartHorizontal" parent="YSort/Pushables" unique_id=1469706130 instance=ExtResource("5_wdxux")]
 position = Vector2(18, -488)
+
+[node name="CartHorizontal7" parent="YSort/Pushables" unique_id=493328361 instance=ExtResource("5_wdxux")]
+position = Vector2(-288, -440)
 
 [node name="CartHorizontal4" parent="YSort/Pushables" unique_id=1163501298 instance=ExtResource("5_wdxux")]
 position = Vector2(16, -344)
@@ -133,7 +147,7 @@ position = Vector2(-240, -400)
 position = Vector2(-264, -528)
 
 [node name="SearchableDresser4" parent="YSort/Searchable" unique_id=1084954108 instance=ExtResource("10_uwyqe")]
-position = Vector2(48, -448)
+position = Vector2(48, -441)
 
 [node name="SearchableDresser5" parent="YSort/Searchable" unique_id=843080065 instance=ExtResource("10_uwyqe")]
 position = Vector2(-240, -448)
@@ -153,14 +167,21 @@ position = Vector2(-339, -213)
 [node name="SearchableNightstandSmashed5" parent="YSort/Searchable" unique_id=1098810089 instance=ExtResource("16_1ualq")]
 position = Vector2(-352, -528)
 
+[node name="SearchableNightstandSmashed6" parent="YSort/Searchable" unique_id=1192183159 instance=ExtResource("16_1ualq")]
+position = Vector2(-352, -472)
+
 [node name="SearchableNightstandSmashed4" parent="YSort/Searchable" unique_id=1604387890 instance=ExtResource("16_1ualq")]
 position = Vector2(-301, -272)
 
 [node name="SearchableCabinet" parent="YSort/Searchable" unique_id=1098249315 instance=ExtResource("19_hvacf")]
 position = Vector2(-32, -496)
 
-[node name="PossessedProps" type="Node2D" parent="YSort" unique_id=944234385]
+[node name="Possessables" type="Node2D" parent="YSort" unique_id=944234385]
 y_sort_enabled = true
+position = Vector2(40, -80)
+
+[node name="PossessableDollA" parent="YSort/Possessables" unique_id=1282559479 instance=ExtResource("20_6iwcs")]
+position = Vector2(40, -440)
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
 visible = false

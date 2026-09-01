@@ -3,6 +3,7 @@ extends Actor
 
 @export var max_speed: float = 110.0
 @export var acceleration_rate: float = 0.6
+@export var awaken_max_dist: float = -1.0  
 
 @onready var sprite: Sprite2D = $Visuals/Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -38,7 +39,11 @@ func cooldown() -> void:
   on_cooldown = false
 
 func can_awaken() -> bool:
-  return state_machine.get_current_state_name() == "Idle" and not is_in_light() and not on_cooldown
+  if state_machine.get_current_state_name() != "Idle" or is_in_light() or on_cooldown:
+    return false
+  if awaken_max_dist < 0.0:
+    return true
+  return global_position.distance_to(GameManager.player.global_position) <= awaken_max_dist
 
 func awaken():
   state_machine.request_state("Awakening", true)

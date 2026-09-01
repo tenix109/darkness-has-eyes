@@ -3,6 +3,20 @@ extends Node
 var ui_focus_sound = preload("uid://khitqwv4rb7o")
 var ui_press_sound = preload("uid://dbgv2xcq8ont8")
 
+var awaken_sounds: Array[AudioStream] = [
+  preload("res://audio/sounds/scares/Cosmic Hit.wav"),
+  preload("res://audio/sounds/scares/Dark Hit.wav"),
+  preload("res://audio/sounds/scares/Galactic One-Shot.wav"),
+  preload("res://audio/sounds/scares/Galaxy Reverse.wav"),
+  preload("uid://bpcw0sqd12u8v"),
+  preload("uid://oc7lga56vf58"),
+  preload("uid://cct6uqy4bf1f4"),
+  preload("uid://dus76tcgq7l52"),
+  preload("uid://8v1yqncyh7kp"),
+  preload("uid://bagcyafuh3pfx"),
+]
+
+
 var music_player: AudioStreamPlayer
 var current_music: AudioStream
 
@@ -207,3 +221,8 @@ func hook_up_buttons(root_node: Node) -> void:
 
     if child.get_child_count() > 0:
       hook_up_buttons(child)
+
+func play_awaken_scare(pos: Vector2, volume_db: float = 8.0) -> void:
+  if awaken_sounds.is_empty():
+    return
+  play_sfx_positional(awaken_sounds.pick_random(), pos, volume_db)
