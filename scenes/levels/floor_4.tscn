@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dm2assh8eg7d5" path="res://scenes/props/searchable/searchable_dresser.tscn" id="10_uwyqe"]
 [ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="11_uwyqe"]
 [ext_resource type="PackedScene" uid="uid://crh1qq60asiis" path="res://scenes/rooms/hallway_i_3x.tscn" id="12_1p7hm"]
-[ext_resource type="Resource" uid="uid://c3txb8t1mujsp" path="res://audio/music/Chased (RT 2.194)/chased.tres" id="12_1ualq"]
 [ext_resource type="PackedScene" uid="uid://bvgjw8mrnk15d" path="res://scenes/rooms/hallway_horizontal_2x.tscn" id="12_ferhq"]
 [ext_resource type="PackedScene" uid="uid://i3jo2b85fvf" path="res://scenes/rooms/hallway_dead_end_east.tscn" id="13_ferhq"]
 [ext_resource type="PackedScene" uid="uid://bp5ril2potsdi" path="res://scenes/rooms/room_a_east_south_west.tscn" id="13_j3qb0"]
@@ -25,6 +24,17 @@
 [ext_resource type="PackedScene" uid="uid://17m0jecxr38a" path="res://scenes/props/searchable/searchable_nightstand_smashed.tscn" id="16_1ualq"]
 [ext_resource type="PackedScene" uid="uid://cm7sad3js2rbg" path="res://scenes/props/searchable/searchable_cabinet.tscn" id="19_hvacf"]
 [ext_resource type="PackedScene" uid="uid://0h6tmhh2fy2l" path="res://scenes/possessables/possessable_doll_a.tscn" id="20_6iwcs"]
+[ext_resource type="PackedScene" uid="uid://onah3lyvfg1x" path="res://scenes/possessables/possessable_chair_d.tscn" id="21_1p7hm"]
+[ext_resource type="PackedScene" uid="uid://bufs1fh5aq3o6" path="res://scenes/possessables/possessable_doll_d.tscn" id="22_knpv5"]
+[ext_resource type="PackedScene" uid="uid://e7bqfp4ew82i" path="res://scenes/possessables/possessable_doll_b.tscn" id="23_e3h2w"]
+[ext_resource type="PackedScene" uid="uid://c57m1t2xe5ojn" path="res://scenes/possessables/possessable_doll_e.tscn" id="24_hjuth"]
+[ext_resource type="PackedScene" uid="uid://bn6v8adlwcxdg" path="res://scenes/possessables/possessable_lamp_b.tscn" id="25_hjuth"]
+[ext_resource type="Resource" uid="uid://cscft4bhgcbmm" path="res://audio/music/Stalked (RT 3.18)/stalked.tres" id="30_hjuth"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1p7hm"]
+vertices = PackedVector2Array(375, -107, 7, -107, 219, -135, 231, -135, 7, -135, -5, -107, -85, -391, -85, -455, 87, -455, 87, -391, 375, -135, 231, -391, 219, -363, 87, -363, 7, -299, -5, -299, -85, -363, 87, -299, 7, 53, -5, 53, -201, -107, -201, -43, -373, -43, -373, -199, -201, -199, -201, -135, -5, -135, -85, -299, -201, -391, -201, -363, -201, -299, -373, -299, -373, -455, -201, -455)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(3, 10, 0), PackedInt32Array(11, 3, 2, 12), PackedInt32Array(9, 11, 12, 13), PackedInt32Array(6, 9, 13, 14, 15, 16), PackedInt32Array(13, 17, 14), PackedInt32Array(1, 18, 19, 5), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(23, 24, 25), PackedInt32Array(20, 23, 25), PackedInt32Array(5, 20, 25, 26), PackedInt32Array(4, 5, 26, 14), PackedInt32Array(14, 26, 15), PackedInt32Array(15, 27, 16), PackedInt32Array(28, 6, 16, 29), PackedInt32Array(29, 30, 31, 32), PackedInt32Array(28, 29, 32), PackedInt32Array(33, 28, 32)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(17, 63, -15, 63, -15, -97, -191, -97, -191, -33, -383, -33, -383, -209, -191, -209, -191, -145, -15, -145, -15, -289, 17, -289, 17, -145, 209, -145, 209, -353, 97, -353, 97, -401, 241, -401, 241, -145, 385, -145, 385, -97, 17, -97), PackedVector2Array(-191, -353, -191, -289, -383, -289, -383, -465, -191, -465, -191, -401, -111, -401, -95, -401, -95, -465, 97, -465, 97, -289, -95, -289, -95, -353)])
 
 [node name="Floor4" type="Node2D" unique_id=554474155]
 script = ExtResource("1_kexwx")
@@ -45,6 +55,7 @@ target = NodePath("../YSort/PlayerTheGirl")
 [node name="Rooms" type="Node2D" parent="." unique_id=1403313818]
 
 [node name="RoomStart" parent="Rooms" unique_id=1817066731 instance=ExtResource("2_65cu5")]
+metadata/_edit_lock_ = true
 
 [node name="Room_A_South_West2" parent="Rooms" unique_id=575161556 instance=ExtResource("13_j3qb0")]
 position = Vector2(0, -512)
@@ -87,7 +98,7 @@ metadata/_edit_lock_ = true
 y_sort_enabled = true
 
 [node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("3_bwwaw")]
-position = Vector2(24, 80)
+position = Vector2(16, 88)
 
 [node name="Pushables" type="Node2D" parent="YSort" unique_id=1815342450]
 y_sort_enabled = true
@@ -112,9 +123,6 @@ position = Vector2(-272, -224)
 
 [node name="CartVertical3" parent="YSort/Pushables" unique_id=1095188195 instance=ExtResource("4_bwwaw")]
 position = Vector2(-272, -193)
-
-[node name="CartVertical5" parent="YSort/Pushables" unique_id=1562131525 instance=ExtResource("4_bwwaw")]
-position = Vector2(16, 16)
 
 [node name="CartHorizontal" parent="YSort/Pushables" unique_id=1469706130 instance=ExtResource("5_wdxux")]
 position = Vector2(18, -488)
@@ -183,6 +191,29 @@ position = Vector2(40, -80)
 [node name="PossessableDollA" parent="YSort/Possessables" unique_id=1282559479 instance=ExtResource("20_6iwcs")]
 position = Vector2(40, -440)
 
+[node name="PossessableDollA2" parent="YSort/Possessables" unique_id=293249889 instance=ExtResource("20_6iwcs")]
+position = Vector2(-396, -447)
+
+[node name="PossessableChairD" parent="YSort/Possessables" unique_id=1238214043 instance=ExtResource("21_1p7hm")]
+position = Vector2(-376, -32)
+scale = Vector2(-1, 1)
+
+[node name="PossessableDollD" parent="YSort/Possessables" unique_id=398981990 instance=ExtResource("22_knpv5")]
+position = Vector2(-339, -191)
+
+[node name="PossessableDollB" parent="YSort/Possessables" unique_id=1966630049 instance=ExtResource("23_e3h2w")]
+position = Vector2(-392, -389)
+
+[node name="PossessableDollB2" parent="YSort/Possessables" unique_id=611740434 instance=ExtResource("23_e3h2w")]
+position = Vector2(351, -96)
+scale = Vector2(-1, 1)
+
+[node name="PossessableDollE" parent="YSort/Possessables" unique_id=2125711705 instance=ExtResource("24_hjuth")]
+position = Vector2(-302, -448)
+
+[node name="PossessableLampB" parent="YSort/Possessables" unique_id=652949621 instance=ExtResource("25_hjuth")]
+position = Vector2(-291, -365)
+
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
 visible = false
 color = Color(0.09366939, 0.09366938, 0.09366938, 1)
@@ -192,11 +223,16 @@ script = ExtResource("7_j3qb0")
 script = ExtResource("9_dhdhe")
 max_dist = 160.0
 ovani_player = NodePath("../OvaniPlayer")
-dist_increase_at_high_threat = 48.0
+max_possessed = 2
 
 [node name="OvaniPlayer" type="Node" parent="." unique_id=576658255]
 process_mode = 3
 script = ExtResource("10_igwm4")
-QueuedSongs = Array[ExtResource("11_uwyqe")]([ExtResource("12_1ualq")])
+QueuedSongs = Array[ExtResource("11_uwyqe")]([ExtResource("30_hjuth")])
 Volume = -10.0
 Bus = &"Music"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=134091081]
+visible = false
+position = Vector2(15, -63)
+navigation_polygon = SubResource("NavigationPolygon_1p7hm")

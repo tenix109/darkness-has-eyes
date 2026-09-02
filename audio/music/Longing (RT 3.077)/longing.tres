@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OvaniSong" format=3 uid="uid://c4md415vavjcs"]
+
+[ext_resource type="AudioStream" uid="uid://cp4esxgoqr56s" path="res://audio/music/Longing (RT 3.077)/Horror Vol5 Longing Intensity 1.wav" id="1_cvrbr"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="1_qurdf"]
+[ext_resource type="AudioStream" uid="uid://dcm7yherf80ov" path="res://audio/music/Longing (RT 3.077)/Horror Vol5 Longing Intensity 2.wav" id="2_h6xcf"]
+[ext_resource type="AudioStream" uid="uid://cyoqyqfupyol7" path="res://audio/music/Longing (RT 3.077)/Horror Vol5 Longing Main.wav" id="3_in0se"]
+
+[resource]
+script = ExtResource("1_qurdf")
+Intensity1 = ExtResource("1_cvrbr")
+Intensity2 = ExtResource("2_h6xcf")
+Intensity3 = ExtResource("3_in0se")
+ReverbTail = 3.077
+metadata/_custom_type_script = "uid://b6hl5qjc8221s"

@@ -23,7 +23,7 @@ func enter(_prev):
     state_machine.request_state("Idle", true)
     return
 
-  var aim := player.get_target_position()
+  var aim: Vector2 = player.get_target_position()
   flight_dir = actor.global_position.direction_to(aim)
   target = aim + flight_dir * overshoot_distance
 

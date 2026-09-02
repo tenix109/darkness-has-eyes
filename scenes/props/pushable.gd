@@ -1,6 +1,8 @@
 class_name Pushable
 extends AnimatableBody2D
 
+@export var pull_clearance: float = 10.0
+
 var is_grabbed: bool = false
 var grabbed_side_axis: Vector2 = Vector2.ZERO
 var grabbing_player: Player = null
@@ -29,6 +31,11 @@ func sync_from_player_delta(delta_pos: Vector2) -> void:
   if motion.is_zero_approx():
     return
 
-  if test_move(global_transform, motion):
+  var check := motion
+  var grab_side := grabbing_player.pushable_grab_side
+  if motion.dot(grab_side) > 0.0:
+    check += grab_side * pull_clearance
+
+  if test_move(global_transform, check):
     return
   global_position += motion
