@@ -150,7 +150,7 @@ func next_level():
     1: unlock_achievement("ACH_SECOND_FLOOR")
     2: unlock_achievement("ACH_THIRD_FLOOR")
   
-  SaveManager.unlock_level(current_floor.level_index + 1)
+  SaveManager.mark_cleared(current_floor.level_index)
   change_scene(current_floor.next_scene_path)
 
 func change_scene(target_scene_path: String) -> void:

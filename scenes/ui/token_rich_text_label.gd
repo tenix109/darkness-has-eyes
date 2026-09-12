@@ -21,5 +21,4 @@ func _update_text_display() -> void:
   text = GameManager.parse_text_tokens(current_raw_text)
 
 func _on_device_changed(_new_device: String) -> void:
-  print("device_changed")
   _update_text_display()

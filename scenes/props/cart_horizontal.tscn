@@ -26,6 +26,7 @@ region_rect = Rect2(0, 9, 50, 55)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1837979125]
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_knyln")
+debug_color = Color(0.9747439, 0, 0.4280039, 0.41960785)
 
 [node name="HandleLeft" type="Area2D" parent="." unique_id=417823894]
 position = Vector2(-14, -26)

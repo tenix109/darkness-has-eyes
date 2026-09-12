@@ -34,9 +34,6 @@ fill_to = Vector2(0, 1)
 
 [node name="MainMenu" type="Node2D" unique_id=439334268]
 script = ExtResource("1_rtw2f")
-floor1_path = "res://scenes/levels/floor_1.tscn"
-floor2_path = "res://scenes/levels/floor_2.tscn"
-floor3_path = "res://scenes/levels/floor_3.tscn"
 
 [node name="MainLayer" type="CanvasLayer" parent="." unique_id=1595737560]
 
@@ -80,6 +77,26 @@ scale = Vector2(1.7, 1.7)
 position = Vector2(97, 90)
 scale = Vector2(2.1, 2.1)
 
+[node name="BreadcrumbsLabel" type="Label" parent="MainLayer" unique_id=882632702]
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = 93.5
+offset_right = 126.0
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 28
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MainButtons" type="VBoxContainer" parent="MainLayer" unique_id=868304635]
 visible = false
 custom_minimum_size = Vector2(256, 0)
@@ -112,6 +129,47 @@ text = "Settings"
 layout_mode = 2
 theme = ExtResource("4_wu84c")
 text = "Quit"
+
+[node name="ChapterSelect" type="VBoxContainer" parent="MainLayer" unique_id=273389400]
+visible = false
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.0
+offset_top = 492.0
+offset_right = 127.0
+offset_bottom = 596.0
+grow_horizontal = 2
+
+[node name="Chapter1Button" type="Button" parent="MainLayer/ChapterSelect" unique_id=509872225]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Chapter 1"
+metadata/ignore_ui_press = true
+
+[node name="Chapter2Button" type="Button" parent="MainLayer/ChapterSelect" unique_id=607950204]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Chapter 2"
+metadata/ignore_ui_press = true
+
+[node name="Chapter3Button" type="Button" parent="MainLayer/ChapterSelect" unique_id=1858547449]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Chapter 3"
+metadata/ignore_ui_press = true
+
+[node name="Chapter4Button" type="Button" parent="MainLayer/ChapterSelect" unique_id=2057757650]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Chapter 4"
+metadata/ignore_ui_press = true
+
+[node name="ChapterSelectBackButton" type="Button" parent="MainLayer/ChapterSelect" unique_id=424604378]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Back"
 
 [node name="LevelSelect" type="VBoxContainer" parent="MainLayer" unique_id=852200338]
 custom_minimum_size = Vector2(256, 0)
@@ -520,6 +578,7 @@ vertical_alignment = 1
 script = ExtResource("9_rcqid")
 
 [node name="SplashScreen" type="ColorRect" parent="MainLayer" unique_id=1054359111]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

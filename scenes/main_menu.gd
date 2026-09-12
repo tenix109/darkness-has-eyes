@@ -1,10 +1,8 @@
 extends Node2D
 
-@export var floor1_path: String
-@export var floor2_path: String
-@export var floor3_path: String
-
+@onready var breadcrumbs_label: Label = $MainLayer/BreadcrumbsLabel
 @onready var main_buttons: VBoxContainer = $MainLayer/MainButtons
+@onready var chapter_select: VBoxContainer = $MainLayer/ChapterSelect
 @onready var level_select: VBoxContainer = $MainLayer/LevelSelect
 @onready var memories_screen: TextureRect = $MainLayer/MemoriesScreen
 @onready var settings_menu: SettingsMenu = $MainLayer/SettingsMenu
@@ -14,9 +12,19 @@ extends Node2D
 @onready var settings_button: Button = $MainLayer/MainButtons/SettingsButton
 @onready var quit_button: Button = $MainLayer/MainButtons/QuitButton
 
-@onready var floor_1_button: Button = $MainLayer/LevelSelect/Floor1Button
-@onready var floor_2_button: Button = $MainLayer/LevelSelect/Floor2Button
-@onready var floor_3_button: Button = $MainLayer/LevelSelect/Floor3Button
+@onready var chapter_buttons: Array[Button] = [
+  $MainLayer/ChapterSelect/Chapter1Button,
+  $MainLayer/ChapterSelect/Chapter2Button,
+  $MainLayer/ChapterSelect/Chapter3Button,
+  $MainLayer/ChapterSelect/Chapter4Button,
+]
+@onready var chapter_select_back_button: Button = $MainLayer/ChapterSelect/ChapterSelectBackButton
+
+@onready var floor_buttons: Array[Button] = [
+  $MainLayer/LevelSelect/Floor1Button,
+  $MainLayer/LevelSelect/Floor2Button,
+  $MainLayer/LevelSelect/Floor3Button,
+]
 @onready var level_select_back_button: Button = $MainLayer/LevelSelect/LevelSelectBackButton
 
 @onready var splash_screen: ColorRect = $MainLayer/SplashScreen
@@ -26,6 +34,27 @@ var splash_timer: SceneTreeTimer
 var splash_tween: Tween
 var is_skipping: bool = false
 var level_buttons_connected: bool = false
+var _bound_pressed: Dictionary = {}
+var current_chapter_title: String = ""
+
+const CHAPTERS := [
+  {
+    "title": "Chapter 1",
+    "levels": [
+      {"title": "Floor 1", "path": "res://scenes/levels/floor_1.tscn", "index": 0},
+      {"title": "Floor 2", "path": "res://scenes/levels/floor_2.tscn", "index": 1},
+      {"title": "Floor 3", "path": "res://scenes/levels/floor_3.tscn", "index": 2},
+    ],
+  },
+  {
+    "title": "Chapter 2",
+    "levels": [
+      {"title": "Floor 4", "path": "res://scenes/levels/floor_4.tscn", "index": 3},
+      {"title": "Floor 5", "path": "res://scenes/levels/floor_5.tscn", "index": 4},
+      {"title": "Floor 6", "path": "res://scenes/levels/floor_6.tscn", "index": 5},
+    ],
+  },
+]
 
 const GONG = preload("uid://iyw5breqiatr")
 
@@ -39,8 +68,8 @@ func _ready() -> void:
   quit_button.pressed.connect(_on_quit_button_pressed)
   
   settings_menu.back_button.pressed.connect(_on_settings_back_button_pressed)
-  
-  level_select_back_button.pressed.connect(_on_back_button_pressed)
+  chapter_select_back_button.pressed.connect(_on_chapter_select_back_button_pressed)
+  level_select_back_button.pressed.connect(_on_level_select_back_button_pressed)
   
   Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
   AudioManager.hook_up_buttons(self)
@@ -81,40 +110,83 @@ func _input(event: InputEvent) -> void:
   if event.is_action_pressed("ui_cancel") and not main_buttons.visible:
     if settings_menu.visible:
       SaveManager.save_game()
-    show_screen(main_buttons)
+      show_screen(main_buttons)
+    elif level_select.visible:
+      _on_level_select_back_button_pressed()
+    else:
+      show_screen(main_buttons)
 
 func show_screen(screen_to_show: Control) -> void:
   main_buttons.visible = false
+  chapter_select.visible = false
   level_select.visible = false
   settings_menu.visible = false
   memories_screen.visible = false
   
   screen_to_show.visible = true
   
+  if screen_to_show == chapter_select:
+    set_breadcrumb("Play")
+  elif screen_to_show == level_select:
+    set_breadcrumb("Play › " + current_chapter_title)
+  elif screen_to_show == settings_menu:
+    set_breadcrumb("Settings")
+  else:
+    set_breadcrumb("")
+  
   for child in screen_to_show.get_children():
+    if child is Control and not child.visible:
+      continue
     if GameManager.find_and_grab_focus(child):
       break
 
 func _on_play_button_pressed() -> void:
-  if SaveManager.unlocked_levels[1]:
+  var chapters := get_unlocked_chapters()
+  if chapters.size() <= 1:
+    open_chapter(chapters[0])
+  else:
     AudioManager.play_sfx(AudioManager.ui_press_sound, 2.0, "SFX2")
-    if not level_buttons_connected:
-      floor_1_button.pressed.connect(_on_level_button_pressed.bind(floor1_path))
-      floor_2_button.pressed.connect(_on_level_button_pressed.bind(floor2_path))
-      floor_3_button.pressed.connect(_on_level_button_pressed.bind(floor3_path))
-      floor_3_button.visible = SaveManager.unlocked_levels[2]
-      level_buttons_connected = true
-    show_screen(level_select)
-  else:
-    _on_level_button_pressed(floor1_path)
+    populate_select(chapter_buttons, chapters, open_chapter)
+    show_screen(chapter_select)
 
-func _on_level_button_pressed(level_path: String):
-  if level_select.visible:
-    for btn in level_select.get_children():
-      btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
+func open_chapter(chapter: Dictionary) -> void:
+  current_chapter_title = chapter.title
+  var levels := get_unlocked_levels(chapter)
+  if levels.size() <= 1:
+    _on_level_button_pressed(levels[0].path)
   else:
-    for btn in main_buttons.get_children():
-      btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    AudioManager.play_sfx(AudioManager.ui_press_sound, 2.0, "SFX2")
+    populate_select(floor_buttons, levels, _on_level_entry_pressed)
+    show_screen(level_select)
+
+func populate_select(buttons: Array[Button], entries: Array, on_pressed: Callable) -> void:
+  for i in buttons.size():
+    var btn := buttons[i]
+    if _bound_pressed.has(btn):
+      btn.pressed.disconnect(_bound_pressed[btn])
+      _bound_pressed.erase(btn)
+    
+    if i < entries.size():
+      var bound := on_pressed.bind(entries[i])
+      btn.text = entries[i].title
+      btn.visible = true
+      btn.pressed.connect(bound)
+      _bound_pressed[btn] = bound
+    else:
+      btn.visible = false
+
+func _on_level_entry_pressed(level: Dictionary) -> void:
+  _on_level_button_pressed(level.path)
+
+func _on_level_button_pressed(level_path: String) -> void:
+  var active_screen: Control = main_buttons
+  if chapter_select.visible:
+    active_screen = chapter_select
+  elif level_select.visible:
+    active_screen = level_select
+  
+  for btn in active_screen.get_children():
+    btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
   get_viewport().gui_release_focus()
   
   AudioManager.play_sfx(GONG, 4.0, "SFX2")
@@ -129,9 +201,41 @@ func _on_settings_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
   get_tree().quit()
 
-func _on_back_button_pressed() -> void:
+func _on_chapter_select_back_button_pressed() -> void:
   show_screen(main_buttons)
+
+func _on_level_select_back_button_pressed() -> void:
+  var chapters := get_unlocked_chapters()
+  if chapters.size() > 1:
+    populate_select(chapter_buttons, chapters, open_chapter)
+    show_screen(chapter_select)
+  else:
+    show_screen(main_buttons)
 
 func _on_settings_back_button_pressed() -> void:
   SaveManager.save_game()
   show_screen(main_buttons)
+
+func get_unlocked_chapters() -> Array:
+  var unlocked: Array = []
+  for chapter in CHAPTERS:
+    if is_chapter_unlocked(chapter):
+      unlocked.append(chapter)
+  return unlocked
+
+func is_chapter_unlocked(chapter: Dictionary) -> bool:
+  return is_level_unlocked(chapter.levels[0].index)
+
+func get_unlocked_levels(chapter: Dictionary) -> Array:
+  var unlocked: Array = []
+  for level in chapter.levels:
+    if is_level_unlocked(level.index):
+      unlocked.append(level)
+  return unlocked
+
+func is_level_unlocked(index: int) -> bool:
+  return index <= SaveManager.highest_cleared_index + 1
+
+func set_breadcrumb(text: String) -> void:
+  breadcrumbs_label.text = text
+  breadcrumbs_label.visible = not text.is_empty()

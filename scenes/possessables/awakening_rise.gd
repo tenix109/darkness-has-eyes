@@ -34,7 +34,7 @@ func exit(next):
   if tween:
     tween.kill()
     tween = null
-  # Keep the risen Y if we're about to rush. Drop only if lights interrupted.
+  # Keep the Y from rise if about to rush
   if next != "Possessed":
     actor.sprite.position = Vector2.ZERO
     actor.sprite.rotation = 0.0
