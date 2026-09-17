@@ -12,6 +12,8 @@ extends Node2D
 @onready var settings_button: Button = $MainLayer/MainButtons/SettingsButton
 @onready var quit_button: Button = $MainLayer/MainButtons/QuitButton
 
+@onready var chapter_heading: ChapterHeading = $MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/HBoxChapter
+
 @onready var chapter_buttons: Array[Button] = [
   $MainLayer/ChapterSelect/Chapter1Button,
   $MainLayer/ChapterSelect/Chapter2Button,
@@ -107,6 +109,14 @@ func _input(event: InputEvent) -> void:
         skip_splash()
         get_viewport().set_input_as_handled()
         return
+  if memories_screen.visible:
+    if event.is_action_pressed("ui_left") and chapter_heading.can_go_to_chapter(-1):
+      chapter_heading.next_chapter(-1)
+      get_viewport().set_input_as_handled()
+    if event.is_action_pressed("ui_right") and chapter_heading.can_go_to_chapter(1):
+      chapter_heading.next_chapter(1)
+      get_viewport().set_input_as_handled()
+      
   if event.is_action_pressed("ui_cancel") and not main_buttons.visible:
     if settings_menu.visible:
       SaveManager.save_game()
@@ -193,6 +203,8 @@ func _on_level_button_pressed(level_path: String) -> void:
   GameManager.change_scene(level_path)
 
 func _on_memories_button_pressed():
+  chapter_heading.memory_set_index = 0
+  chapter_heading.refresh_memories_screen()
   show_screen(memories_screen)
   
 func _on_settings_button_pressed() -> void:
@@ -239,3 +251,4 @@ func is_level_unlocked(index: int) -> bool:
 func set_breadcrumb(text: String) -> void:
   breadcrumbs_label.text = text
   breadcrumbs_label.visible = not text.is_empty()
+  

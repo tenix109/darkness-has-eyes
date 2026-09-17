@@ -8,7 +8,7 @@ var sfx_volume: float = 0.5
 var is_fullscreen: bool = true
 
 var memories_unlocked: bool = false
-var unlocked_memories_counts: Array[int] = [0, 0, 0, 0]
+var unlocked_memories_counts: Array[int] = [-1, -1, -1, -1]
 var collected_fragment_ids: Array[String] = []
 
 var highest_cleared_index: int = -1
@@ -37,15 +37,48 @@ const MEMORY_SETS: Array = [
   },
   {
     "title": "Chapter 2",
-    "entries": []
+    "entries": [
+      "Juan",
+      "Too",
+      "Tree",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+    ]
   },
   {
     "title": "Chapter 3",
-    "entries": []
+    "entries": [
+      "Coming this Holiday Season.",
+      "Too",
+      "Tree",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+    ]
   },
   {
     "title": "Chapter 4",
-    "entries": []
+    "entries": [
+      "Won",
+      "To",
+      "Try",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+    ]
   },
 ]
 
@@ -57,7 +90,9 @@ const repels_required = 30
 
 func _ready() -> void:
   load_game()
-
+  #dump_save_plaintext()
+  
+  
 func save_game() -> void:
   var config = ConfigFile.new()
   
@@ -78,11 +113,28 @@ func save_game() -> void:
   # config.save(SAVE_PATH)
   config.save_encrypted_pass(SAVE_PATH, SECURITY_KEY)
 
+func dump_save_plaintext(from_path: String = "user://save_data_backup.cfg", to_path: String = "user://save_data_dump.cfg") -> void:
+  var config = ConfigFile.new()
+  var error = config.load_encrypted_pass(from_path, SECURITY_KEY)
+  if error != OK:
+    push_error("Dump failed: %s" % error)
+    return
+  config.save(to_path)
+  print("Wrote plaintext to ", to_path)
+  
+func encrypt_save_plaintext(from_path: String = "user://save_data_dump.cfg", to_path: String = "user://save_data_reencrypted.cfg") -> void:
+  var config = ConfigFile.new()
+  var error = config.load(from_path)
+  if error != OK:
+    push_error("Encrypt failed: %s" % error)
+    return
+  config.save_encrypted_pass(to_path, SECURITY_KEY)
+  print("Wrote encrypted to ", to_path)
+
 func load_game() -> void:
   var config = ConfigFile.new()
-  #var error = config.load(SAVE_PATH)
   var error = config.load_encrypted_pass(SAVE_PATH, SECURITY_KEY)
-  
+    
   if error != OK:
     save_game()
     return
@@ -102,10 +154,10 @@ func load_game() -> void:
   highest_cleared_index = maxi(highest_cleared_index, highest_unlocked - 1)
   var loaded_counts = config.get_value("Progression", "unlocked_memories_counts", [])
   if loaded_counts.is_empty():
-    unlocked_memories_counts[0] = config.get_value("Progression", "unlocked_memories_count", 0)
+    unlocked_memories_counts[0] = config.get_value("Progression", "unlocked_memories_count", -1)
   else:
     while loaded_counts.size() < unlocked_memories_counts.size():
-      loaded_counts.append(0)
+      loaded_counts.append(-1)
     unlocked_memories_counts.assign(loaded_counts)
   
   collected_fragment_ids.assign(config.get_value("Progression", "collected_fragment_ids", []))

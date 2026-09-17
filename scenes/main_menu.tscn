@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="8_5dd4i"]
 [ext_resource type="FontFile" uid="uid://hm5lqiqlhdie" path="res://fonts/LibertinusMono-Regular.ttf" id="8_flqon"]
 [ext_resource type="FontFile" uid="uid://wbyxpn0d8v1e" path="res://fonts/AlmendraSC-Regular.ttf" id="8_rcqid"]
+[ext_resource type="Script" uid="uid://cdrv47v8xosj5" path="res://scenes/ui/chapter_heading.gd" id="9_5pajh"]
 [ext_resource type="Resource" uid="uid://cvg3eu6vanglc" path="res://audio/music/Anguish (RT 4.091)/anguish.tres" id="9_lgwnu"]
 [ext_resource type="Script" uid="uid://cofqrvmtwebgu" path="res://scenes/ui/token_rich_text_label.gd" id="9_rcqid"]
 [ext_resource type="Script" uid="uid://c6rn5ahy2y4c6" path="res://scenes/ui/memory_container.gd" id="10_1ajci"]
@@ -249,6 +250,56 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_rcqid")
 
+[node name="HBoxChapter" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer" unique_id=282643528 node_paths=PackedStringArray("memory_containers", "focused_scroll")]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("9_5pajh")
+memory_containers = [NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer0"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer1"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer2"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer3"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer4"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer5"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer6"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer7"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer8"), NodePath("../ScrollContainer/MemoriesContainer/MemoryContainer9")]
+focused_scroll = NodePath("../ScrollContainer")
+
+[node name="LeftLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/HBoxChapter" unique_id=883463953]
+custom_minimum_size = Vector2(25, 45)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.5058824, 0.58431375, 0.7607843, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_rcqid")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "<"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChapterLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/HBoxChapter" unique_id=354953366]
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.5058824, 0.58431375, 0.7607843, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_rcqid")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Chapter"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/HBoxChapter" unique_id=410600035]
+custom_minimum_size = Vector2(25, 45)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.5058824, 0.58431375, 0.7607843, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("8_rcqid")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = ">"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ScrollContainer" type="ScrollContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer" unique_id=1652434222]
 custom_minimum_size = Vector2(1080, 400)
 layout_mode = 2
@@ -295,7 +346,7 @@ scroll_active = false
 [node name="MemoryContainer1" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=447685730]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 1
+number = 2
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer1" unique_id=666828745]
 custom_minimum_size = Vector2(180, 64)
@@ -325,7 +376,7 @@ scroll_active = false
 [node name="MemoryContainer2" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=79619854]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 2
+number = 3
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer2" unique_id=1854045498]
 custom_minimum_size = Vector2(180, 64)
@@ -355,7 +406,7 @@ scroll_active = false
 [node name="MemoryContainer3" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1735246608]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 3
+number = 4
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer3" unique_id=1488692751]
 custom_minimum_size = Vector2(180, 64)
@@ -385,7 +436,7 @@ scroll_active = false
 [node name="MemoryContainer4" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1395986448]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 4
+number = 5
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer4" unique_id=146062650]
 custom_minimum_size = Vector2(180, 64)
@@ -415,7 +466,7 @@ scroll_active = false
 [node name="MemoryContainer5" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=2132516832]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 5
+number = 6
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer5" unique_id=1197058610]
 custom_minimum_size = Vector2(180, 64)
@@ -445,7 +496,7 @@ scroll_active = false
 [node name="MemoryContainer6" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=842326158]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 6
+number = 7
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer6" unique_id=94691454]
 custom_minimum_size = Vector2(180, 64)
@@ -475,7 +526,7 @@ scroll_active = false
 [node name="MemoryContainer7" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1125670743]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 7
+number = 8
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer7" unique_id=352185541]
 custom_minimum_size = Vector2(180, 64)
@@ -505,7 +556,7 @@ scroll_active = false
 [node name="MemoryContainer8" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1877841348]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 8
+number = 9
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer8" unique_id=229320827]
 custom_minimum_size = Vector2(180, 64)
@@ -535,7 +586,7 @@ scroll_active = false
 [node name="MemoryContainer9" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=120634319]
 layout_mode = 2
 script = ExtResource("10_1ajci")
-index = 9
+number = 10
 
 [node name="TitleLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer/MemoryContainer9" unique_id=828608528]
 custom_minimum_size = Vector2(180, 64)
