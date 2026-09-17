@@ -2,20 +2,6 @@ extends State
 
 @export var awaken_duration: float = 1.5
 
-var awaken_sounds: Array[AudioStream] = [
-  preload("res://audio/sounds/scares/Cosmic Hit.wav"),
-  preload("res://audio/sounds/scares/Dark Hit.wav"),
-  preload("res://audio/sounds/scares/Galactic One-Shot.wav"),
-  preload("res://audio/sounds/scares/Galaxy Reverse.wav"),
-  preload("uid://bpcw0sqd12u8v"),
-  preload("uid://oc7lga56vf58"),
-  preload("uid://cct6uqy4bf1f4"),
-  preload("uid://dus76tcgq7l52"),
-  preload("uid://8v1yqncyh7kp"),
-  preload("uid://bagcyafuh3pfx"),
-]
-
-
 var awaken_timer: float = 0.0
 
 var tween: Tween 
@@ -29,7 +15,7 @@ func enter(_prev):
   tween = create_tween()
   _start_awaken_tween()
   
-  AudioManager.play_sfx_positional(awaken_sounds.pick_random(), actor.global_position, 8.0)
+  AudioManager.play_awaken_scare(actor.global_position)
 
 func update(delta: float) -> void:
   if actor.is_in_light():

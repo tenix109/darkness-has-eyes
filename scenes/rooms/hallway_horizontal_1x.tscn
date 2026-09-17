@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bu6s7wx18ncgm"]
+
+[ext_resource type="Script" uid="uid://dw3nlfnvrknwj" path="res://scenes/rooms/room.gd" id="1_epy85"]
+[ext_resource type="TileSet" uid="uid://kdhqiha7hpu3" path="res://resources/main_tile_set.tres" id="2_hagp0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5ekk"]
+size = Vector2(32, 32)
+
+[node name="Hallway_Horizontal_1x" type="Node2D" unique_id=648858787]
+script = ExtResource("1_epy85")
+is_hallway = true
+has_no_light = true
+
+[node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=1889537290]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 253, 255, 3, 0, 1, 0, 8, 0, 0, 0, 0, 0, 254, 255, 3, 0, 1, 0, 9, 0, 0, 0, 0, 0, 255, 255, 1, 0, 5, 0, 3, 0, 0, 0)
+tile_set = ExtResource("2_hagp0")
+
+[node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=1543524968]
+z_index = 10
+tile_map_data = PackedByteArray(0, 0, 0, 0, 253, 255, 4, 0, 7, 0, 6, 0, 0, 0, 0, 0, 0, 0, 4, 0, 7, 0, 8, 0, 0, 0)
+tile_set = ExtResource("2_hagp0")
+
+[node name="RoomArea" type="Area2D" parent="." unique_id=991061633]
+visible = false
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomArea" unique_id=1855552708]
+position = Vector2(16, -16)
+shape = SubResource("RectangleShape2D_m5ekk")

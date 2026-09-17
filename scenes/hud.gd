@@ -1,6 +1,9 @@
 class_name HUD
 extends CanvasLayer
 
+## Chapter 1 = 0, Chapter 2 = 1, etc.
+@export var memory_set_index: int = 0
+
 @onready var fuse_ui: Control = $VBoxContainer/FuseUI
 @onready var fuse_count_label: Label = $VBoxContainer/FuseUI/FuseCountLabel
 @onready var context_label: TokenRichTextLabel = $ContextLabel
@@ -15,7 +18,7 @@ extends CanvasLayer
 func _ready() -> void:
   GameManager.hud = self
   fuse_ui.hide()
-  update_memory_count(SaveManager.unlocked_memories_count)
+  update_memory_count(SaveManager.unlocked_memories_counts[memory_set_index])
   context_label.hide()
   toast_label.hide()
 
@@ -45,7 +48,7 @@ func update_fuse_count(count: int):
   fuse_ui.visible = count > 0
 
 func update_memory_count(count: int):
-  memeory_count_label.text = "%d/%d" % [count, SaveManager.memories_database.size()]
+  memeory_count_label.text = "%d/%d" % [count, SaveManager.MEMORY_SETS[memory_set_index].entries.size()]
   memory_count_ui.visible = (count > 0 and count <= 9)
 
 func display_level_title(floor_name: String, subtitle: String) -> void:

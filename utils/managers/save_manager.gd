@@ -6,11 +6,12 @@ const SECURITY_KEY: String = "WalkInDarknessToSeeAGreatLight"
 var music_volume: float = 0.5
 var sfx_volume: float = 0.5
 var is_fullscreen: bool = true
-var unlocked_levels: Array[bool] = [true, false, false]
 
 var memories_unlocked: bool = false
-var unlocked_memories_count: int = 0
+var unlocked_memories_counts: Array[int] = [-1, -1, -1, -1]
 var collected_fragment_ids: Array[String] = []
+
+var highest_cleared_index: int = -1
 
 var searches_completed: int = 0
 var uninterrupted_searches_completed: int = 0
@@ -18,17 +19,67 @@ var interrupted_searches_completed: int = 0
 
 var repel_count: int = 0
 
-var memories_database: Array[String] = [
-  "I woke up frightened. I can't get the images out of my head. Why is the hallway darker than usual?",
-  "I didn't want to be alone. I needed someone to tell me everything would be alright. It was only a bad dream, right?",
-  "I bumped into the desk. A loud piercing crash followed. My heart started pounding.",
-  "Suddenly, a light burst into the room. An angry figure shadowed over me. Am I still dreaming?",
-  "She yelled. I tried to explain, but fear froze me. I didn't mean to knock the lamp over.",
-  "In a rush I was carried off. Back in my room again. Still in the dark. Is it darker in here now? This is worse.",
-  "I felt more alone and no one was around to tell me everything would be alright. Will it be? I cried myself to sleep.",
-  "The sunlight woke me. My head hurt and I was afraid to face her after last night. I still wanted comfort.",
-  "Maybe she was just tired. Maybe she didn't mean to scare me. Maybe I scared her.",   
-  "My bedroom door slowly swung open and her face filled the void. I forgot she smiled. I don't think she was mad. She was just my mom.\nNow that I remember, now that I understand, I can face this."
+const MEMORY_SETS: Array = [
+  {
+    "title": "Chapter 1",
+    "entries": [
+      "I woke up frightened. I can't get the images out of my head. Why is the hallway darker than usual?",
+      "I didn't want to be alone. I needed someone to tell me everything would be alright. It was only a bad dream, right?",
+      "I bumped into the desk. A loud piercing crash followed. My heart started pounding.",
+      "Suddenly, a light burst into the room. An angry figure shadowed over me. Am I still dreaming?",
+      "She yelled. I tried to explain, but fear froze me. I didn't mean to knock the lamp over.",
+      "In a rush I was carried off. Back in my room again. Still in the dark. Is it darker in here now? This is worse.",
+      "I felt more alone and no one was around to tell me everything would be alright. Will it be? I cried myself to sleep.",
+      "The sunlight woke me. My head hurt and I was afraid to face her after last night. I still wanted comfort.",
+      "Maybe she was just tired. Maybe she didn't mean to scare me. Maybe I scared her.",   
+      "My bedroom door slowly swung open and her face filled the void. I forgot she smiled. I don't think she was mad. She was just my mom.\nNow that I remember, now that I understand, I can face this."
+    ],
+  },
+  {
+    "title": "Chapter 2",
+    "entries": [
+      "Juan",
+      "Too",
+      "Tree",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+    ]
+  },
+  {
+    "title": "Chapter 3",
+    "entries": [
+      "Coming this Holiday Season.",
+      "Too",
+      "Tree",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+    ]
+  },
+  {
+    "title": "Chapter 4",
+    "entries": [
+      "Won",
+      "To",
+      "Try",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+    ]
+  },
 ]
 
 const searches_required = 30
@@ -39,7 +90,9 @@ const repels_required = 30
 
 func _ready() -> void:
   load_game()
-
+  #dump_save_plaintext()
+  
+  
 func save_game() -> void:
   var config = ConfigFile.new()
   
@@ -47,25 +100,41 @@ func save_game() -> void:
   config.set_value("Settings", "sfx_volume", sfx_volume)
   config.set_value("Settings", "is_fullscreen", is_fullscreen)
   
-  config.set_value("Progression", "unlocked_levels", unlocked_levels)
+  config.set_value("Progression", "highest_cleared_index", highest_cleared_index)
   config.set_value("Progression", "memories_unlocked", memories_unlocked)
-  config.set_value("Progression", "unlocked_memories_count", unlocked_memories_count)
+  config.set_value("Progression", "unlocked_memories_counts", unlocked_memories_counts)
   config.set_value("Progression", "collected_fragment_ids", collected_fragment_ids)
   
   config.set_value("Progression", "uninterrupted_searches_completed", uninterrupted_searches_completed)
   config.set_value("Progression", "interrupted_searches_completed", interrupted_searches_completed)
   config.set_value("Progression", "searches_completed", searches_completed)
-  
   config.set_value("Progression", "repel_count", repel_count)
   
   # config.save(SAVE_PATH)
   config.save_encrypted_pass(SAVE_PATH, SECURITY_KEY)
 
+func dump_save_plaintext(from_path: String = "user://save_data_backup.cfg", to_path: String = "user://save_data_dump.cfg") -> void:
+  var config = ConfigFile.new()
+  var error = config.load_encrypted_pass(from_path, SECURITY_KEY)
+  if error != OK:
+    push_error("Dump failed: %s" % error)
+    return
+  config.save(to_path)
+  print("Wrote plaintext to ", to_path)
+  
+func encrypt_save_plaintext(from_path: String = "user://save_data_dump.cfg", to_path: String = "user://save_data_reencrypted.cfg") -> void:
+  var config = ConfigFile.new()
+  var error = config.load(from_path)
+  if error != OK:
+    push_error("Encrypt failed: %s" % error)
+    return
+  config.save_encrypted_pass(to_path, SECURITY_KEY)
+  print("Wrote encrypted to ", to_path)
+
 func load_game() -> void:
   var config = ConfigFile.new()
-  #var error = config.load(SAVE_PATH)
   var error = config.load_encrypted_pass(SAVE_PATH, SECURITY_KEY)
-  
+    
   if error != OK:
     save_game()
     return
@@ -74,13 +143,23 @@ func load_game() -> void:
   sfx_volume = config.get_value("Settings", "sfx_volume", 1.0)
   is_fullscreen = config.get_value("Settings", "is_fullscreen", false)
   
-  var loaded_levels = config.get_value("Progression", "unlocked_levels", [])
-  while loaded_levels.size() < unlocked_levels.size():
-    loaded_levels.append(false)
-  unlocked_levels = loaded_levels
-  
+
+  highest_cleared_index = config.get_value("Progression", "highest_cleared_index", -1)
   memories_unlocked = config.get_value("Progression", "memories_unlocked", false)
-  unlocked_memories_count = config.get_value("Progression", "unlocked_memories_count", 0)
+  var loaded_levels: Array = config.get_value("Progression", "unlocked_levels", [])
+  var highest_unlocked := -1
+  for i in loaded_levels.size():
+    if loaded_levels[i]:
+      highest_unlocked = i
+  highest_cleared_index = maxi(highest_cleared_index, highest_unlocked - 1)
+  var loaded_counts = config.get_value("Progression", "unlocked_memories_counts", [])
+  if loaded_counts.is_empty():
+    unlocked_memories_counts[0] = config.get_value("Progression", "unlocked_memories_count", -1)
+  else:
+    while loaded_counts.size() < unlocked_memories_counts.size():
+      loaded_counts.append(-1)
+    unlocked_memories_counts.assign(loaded_counts)
+  
   collected_fragment_ids.assign(config.get_value("Progression", "collected_fragment_ids", []))
   
   searches_completed = config.get_value("Progression", "searches_completed", 0)
@@ -102,20 +181,19 @@ func set_bus_volume(bus_name: String, value: float) -> void:
     AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
     AudioServer.set_bus_mute(bus_index, value <= 0.0)
 
-func unlock_level(index: int):
-  if index < unlocked_levels.size():
-    unlocked_levels[index] = true
-    save_game()
+func mark_cleared(index: int) -> void:
+  highest_cleared_index = maxi(highest_cleared_index, index)
+  save_game()
   
-func collect_memory() -> void:
-  if unlocked_memories_count < 10:
-    unlocked_memories_count += 1
+func collect_memory(index: int) -> void:
+  if unlocked_memories_counts[index] < MEMORY_SETS[index].entries.size():
+    unlocked_memories_counts[index] += 1
     save_game()
-  GameManager.hud.update_memory_count(unlocked_memories_count)
+  GameManager.hud.update_memory_count(unlocked_memories_counts[index])
 
-  if unlocked_memories_count >= 1:
+  if unlocked_memories_counts[index] >= 1:
     GameManager.unlock_achievement("ACH_FIRST_MEMORY")
-  if unlocked_memories_count >= 10:
+  if unlocked_memories_counts[0] >= 10:
     GameManager.unlock_achievement("ACH_ALL_MEMORIES")
 
 func interrupted_Search_completed():

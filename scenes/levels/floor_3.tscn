@@ -324,12 +324,6 @@ max_dist = 160.0
 ovani_player = NodePath("../OvaniPlayer")
 dist_increase_at_high_threat = 48.0
 
-[node name="Possessor2" type="Node" parent="." unique_id=161797668 node_paths=PackedStringArray("ovani_player")]
-script = ExtResource("34_q22ew")
-max_dist = 160.0
-ovani_player = NodePath("../OvaniPlayer")
-dist_increase_at_high_threat = 48.0
-
 [node name="OvaniPlayer" type="Node" parent="." unique_id=870246820]
 process_mode = 3
 script = ExtResource("35_n3c1r")

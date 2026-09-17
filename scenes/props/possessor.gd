@@ -6,11 +6,15 @@ extends Node
 @export var ovani_player: OvaniPlayer
 
 var possessables: Array[Possessable]
-var max_possessed: int = 1
+@export var max_possessed: int = 1
 var possessed_count: int = 0
 
-var check_timer := 0.0
-var check_interval := 1.0
+var check_timer: float = 0.0
+var check_interval: float = 1.0
+
+# Used for multiple possessables
+var possess_cooldown: float = 3.0
+var possess_cooldown_timer: float = 0.0
 
 var current_possessable: Possessable
 
@@ -20,9 +24,15 @@ func _ready() -> void:
 
 func _process(delta):
   check_timer += delta
+  possess_cooldown_timer += delta
 
   _update_music_intensity()
-
+  
+  if possess_cooldown_timer < possess_cooldown:
+    return
+    
+  possess_cooldown_timer = 0.0
+  
   if check_timer < check_interval:
       return
 

@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bx1akjat33m5g" path="res://art/images/lights/radial_lights_128/radial_128_4.png" id="14_3j4b4"]
 [ext_resource type="PackedScene" uid="uid://c20ir7jfdy7wm" path="res://scenes/player/action_bar.tscn" id="16_myrg7"]
 [ext_resource type="Script" uid="uid://6jt3sntoubre" path="res://scenes/player/threat_meter.gd" id="17_kvlxm"]
+[ext_resource type="Script" uid="uid://bjfvlqduen21x" path="res://scenes/player/states/push.gd" id="20_8ydkj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7obkq"]
 atlas = ExtResource("1_8afob")
@@ -430,7 +431,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myrg7"]
-size = Vector2(12, 16)
+size = Vector2(10, 10)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_myrg7"]
 blend_mode = 1
@@ -459,6 +460,7 @@ autoplay = "idle_up"
 offset = Vector2(0, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=815721482]
+visible = false
 position = Vector2(0, -7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_p47bc")
@@ -506,13 +508,12 @@ libraries/ = SubResource("AnimationLibrary_h17s1")
 autoplay = &"radial_pulse"
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=725208157]
-visible = false
-position = Vector2(4, 0)
+position = Vector2(0, 4)
 collision_layer = 2
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1389224867]
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_myrg7")
 debug_color = Color(0.9360692, 0.25443864, 0, 0.41960785)
 
@@ -536,7 +537,11 @@ script = ExtResource("3_p47bc")
 [node name="Walk" type="Node" parent="StateMachine" unique_id=905909419]
 script = ExtResource("3_lvxji")
 
+[node name="Push" type="Node" parent="StateMachine" unique_id=1540307565]
+script = ExtResource("20_8ydkj")
+
 [node name="DamageArea" type="Area2D" parent="." unique_id=864308673]
+visible = false
 position = Vector2(0, 1)
 collision_layer = 2
 collision_mask = 4

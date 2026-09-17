@@ -11,7 +11,7 @@ script = ExtResource("1_3ouyf")
 is_hallway = true
 
 [node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=1889537290]
-tile_map_data = PackedByteArray("AAD+//7/AwAAAAkAAAACAP7/AwACAAkAAAACAP//AAAnAAwAAAABAP7/AwABAAkAAAABAP//AAAnAAwAAAD///7/AwABAAkAAAAAAP7/AwABAAkAAAD///3/AwABAAgAAAAAAP3/AwABAAgAAAABAP3/AwABAAgAAAACAP3/AwACAAgAAAD+//3/AwAAAAgAAAAAAP//AAAnAAwAAAD/////AAAnAAwAAAD+////AAAnAAwAAAA=")
+tile_map_data = PackedByteArray("AAD+//7/AwAAAAkAAAACAP7/AwACAAkAAAACAP//AQAFAAMAAAABAP7/AwABAAkAAAABAP//AQAFAAMAAAD///7/AwABAAkAAAAAAP7/AwABAAkAAAD///3/AwABAAgAAAAAAP3/AwABAAgAAAABAP3/AwABAAgAAAACAP3/AwACAAgAAAD+//3/AwAAAAgAAAAAAP//AQAFAAMAAAD/////AQAFAAMAAAD+////AQAFAAMAAAA=")
 tile_set = ExtResource("2_wlro1")
 
 [node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=1543524968]
