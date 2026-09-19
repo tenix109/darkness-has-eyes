@@ -9,6 +9,9 @@ extends Node2D
 @export var level_title: String = "The Beginning"
 ## used for unlocked_levels array in SaveManager
 @export var level_index: int = 0
+@export var chapter_index: int = 0
+@export var is_chapter_finale: bool = false
+
 
 @onready var darkness: CanvasModulate = $Darkness
 

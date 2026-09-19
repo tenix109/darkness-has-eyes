@@ -23,6 +23,7 @@ shader_parameter/softness = 0.3150000149625
 
 [node name="HUD" type="CanvasLayer" unique_id=158779456]
 script = ExtResource("1_5ysmq")
+metadata/_edit_vertical_guides_ = [638.0]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1904194130]
 offset_left = 30.0
@@ -245,3 +246,80 @@ bbcode_enabled = true
 text = "You Died"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ChapterCompleteLayer" type="CanvasLayer" parent="." unique_id=424176274]
+
+[node name="ChapterCompleteBG" type="ColorRect" parent="ChapterCompleteLayer" unique_id=54140067]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ChapterCompleteLabel" type="RichTextLabel" parent="ChapterCompleteLayer/ChapterCompleteBG" unique_id=770092109]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -228.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.49019608, 0.23921569, 0.7019608, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("5_047uy")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "Chapter Complete"
+horizontal_alignment = 1
+
+[node name="MemoryFragmentsLabel" type="RichTextLabel" parent="ChapterCompleteLayer/ChapterCompleteBG" unique_id=939897231]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -30.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.49019608, 0.23921569, 0.7019608, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("5_047uy")
+theme_override_font_sizes/normal_font_size = 44
+bbcode_enabled = true
+text = "Memory scattered across
+previous floors."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueLabel" type="RichTextLabel" parent="ChapterCompleteLayer/ChapterCompleteBG" unique_id=1563040233]
+visible = false
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -107.0
+offset_right = 256.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("2_oo0fn")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "{interact} Continue"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_6fi6k")

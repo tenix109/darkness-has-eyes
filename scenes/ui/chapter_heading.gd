@@ -10,9 +10,9 @@ class_name ChapterHeading extends HBoxContainer
 var memory_set_index: int = 0
 
 func _ready() -> void:
-  SaveManager.unlocked_memories_counts[0] = 1
-  SaveManager.unlocked_memories_counts[1] = 3
-  SaveManager.unlocked_memories_counts[2] = -1
+  #SaveManager.unlocked_memories_counts[0] = 1
+  #SaveManager.unlocked_memories_counts[1] = 3
+  #SaveManager.unlocked_memories_counts[2] = -1
   left_label.text = ""
   right_label.text = ""
 

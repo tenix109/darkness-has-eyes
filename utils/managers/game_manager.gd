@@ -27,7 +27,7 @@ enum DeviceType { KEYBOARD, XBOX, PLAYSTATION }
 var current_device: DeviceType = DeviceType.KEYBOARD
 
 func _ready() -> void:
-  Steam.steamInitEx()  
+  Steam.steamInitEx()
   
   process_mode = Node.PROCESS_MODE_ALWAYS
   setup_transistion_layer()
@@ -115,6 +115,10 @@ func use_items_on_exit() -> bool:
     await get_tree().create_timer(0.5, false).timeout
     possessor.repel_current_possessable()
     await get_tree().create_timer(1.5, false).timeout
+    if current_floor.is_chapter_finale:
+      print("Is Chapter Finale")
+      hud.chapter_complete(current_floor.chapter_index)
+      return true
     next_level()
     return true
   return false
@@ -177,19 +181,18 @@ func find_and_grab_focus(node: Node) -> bool:
   return false
 
 func _input(event: InputEvent) -> void:
-  # Ignore mouse movement or echo (held down) events to prevent spam
+  if event.is_action_pressed("ui_end"):
+    grant_item_to_player()
+  
   if event is InputEventMouseMotion or event.is_echo():
     return
     
   var new_device = current_device
   
-  # ONLY track when a keyboard key is actively pressed down
   if event is InputEventKey:
     if not event.pressed: 
-      return # Ignore key releases
+      return
     new_device = DeviceType.KEYBOARD
-    
-  # ONLY track when a controller button or joystick is actively moved/pressed
   elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
     if event is InputEventJoypadButton and not event.pressed:
       return # Ignore button releases
@@ -284,3 +287,5 @@ func unlock_achievement(api_name: String) -> void:
     var success: bool = Steam.setAchievement(api_name)
     if success:
       Steam.storeStats()
+      
+    

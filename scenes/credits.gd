@@ -3,29 +3,20 @@ extends Control
 
 @export var scroll_speed: float = 140.0
 @export var fast_scroll_speed: float = 450.0
+@export var end_offset: float = 50.0
 
 @onready var vbox: VBoxContainer = $CreditsVBox
-@onready var lore_unlocked_label: RichTextLabel = $CreditsVBox/LoreUnlockedLabel
 @onready var ovani_player: OvaniPlayer = $OvaniPlayer
 
 var scroll_position: float = 0.0
 var is_finished: bool = false
-
 
 func _ready() -> void:
   await get_tree().process_frame
   await get_tree().process_frame
   
   Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-  
   vbox.position.y = get_viewport_rect().size.y + 150
-  
-  if SaveManager.memories_unlocked:
-    lore_unlocked_label.queue_free()
-  else:
-    SaveManager.memories_unlocked = true
-    SaveManager.save_game()
-
   ovani_player.FadeIntensity(1.0, 5.0)
 
 func _process(delta: float) -> void:
@@ -41,8 +32,8 @@ func _process(delta: float) -> void:
   var middle_of_screen = get_viewport_rect().size.y / 2
   var vbox_bottom = vbox.position.y + vbox.size.y
     
-  if vbox_bottom <= middle_of_screen + 200:
-    vbox.position.y = middle_of_screen - vbox.size.y + 200
+  if vbox_bottom <= middle_of_screen + end_offset:
+    vbox.position.y = middle_of_screen - vbox.size.y + end_offset
     is_finished = true
     _end_credits()
 

@@ -55,11 +55,12 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(17, 63, -15, 63, -15, -
 [node name="Floor3" type="Node2D" unique_id=2081371710]
 script = ExtResource("1_s806d")
 items_required_for_exit = 5
-next_scene_path = "res://scenes/credits.tscn"
+next_scene_path = "res://scenes/levels/floor_4.tscn"
 base_find_chance = -0.1
 floor_name = "Floor 3"
 level_title = "Isolated In the Void"
 level_index = 2
+is_chapter_finale = true
 
 [node name="FollowCamera" type="Camera2D" parent="." unique_id=2037777736 node_paths=PackedStringArray("target")]
 zoom = Vector2(4, 4)

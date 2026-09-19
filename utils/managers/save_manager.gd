@@ -184,7 +184,12 @@ func set_bus_volume(bus_name: String, value: float) -> void:
 func mark_cleared(index: int) -> void:
   highest_cleared_index = maxi(highest_cleared_index, index)
   save_game()
-  
+
+func unlock_chapter_memories(chapter_index: int):
+  memories_unlocked = true
+  unlocked_memories_counts[chapter_index] = 0
+  save_game()
+
 func collect_memory(index: int) -> void:
   if unlocked_memories_counts[index] < MEMORY_SETS[index].entries.size():
     unlocked_memories_counts[index] += 1
