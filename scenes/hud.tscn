@@ -250,6 +250,7 @@ vertical_alignment = 1
 [node name="ChapterCompleteLayer" type="CanvasLayer" parent="." unique_id=424176274]
 
 [node name="ChapterCompleteBG" type="ColorRect" parent="ChapterCompleteLayer" unique_id=54140067]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

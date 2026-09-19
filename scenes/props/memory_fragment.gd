@@ -5,8 +5,9 @@ extends Interactable
 @onready var unique_id: String = owner.name + "_" + name
 
 func _ready() -> void:
-  if SaveManager.collected_fragment_ids.has(unique_id) or not SaveManager.memories_unlocked:
+  if SaveManager.collected_fragment_ids.has(unique_id) or not SaveManager.unlocked_memories_counts[memory_set_index] > -1:
     queue_free()
+  
 
 func interact(_player: Player) -> void:
   SaveManager.collected_fragment_ids.append(unique_id)

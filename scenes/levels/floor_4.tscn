@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://e7bqfp4ew82i" path="res://scenes/possessables/possessable_doll_b.tscn" id="23_e3h2w"]
 [ext_resource type="PackedScene" uid="uid://c57m1t2xe5ojn" path="res://scenes/possessables/possessable_doll_e.tscn" id="24_hjuth"]
 [ext_resource type="PackedScene" uid="uid://bn6v8adlwcxdg" path="res://scenes/possessables/possessable_lamp_b.tscn" id="25_hjuth"]
+[ext_resource type="PackedScene" uid="uid://bkjad4ddepkfv" path="res://scenes/props/memory_fragment.tscn" id="26_hd2wb"]
 [ext_resource type="Resource" uid="uid://cscft4bhgcbmm" path="res://audio/music/Stalked (RT 3.18)/stalked.tres" id="30_hjuth"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1p7hm"]
@@ -218,6 +219,16 @@ position = Vector2(-262, -528)
 
 [node name="PossessableLampB" parent="YSort" unique_id=652949621 instance=ExtResource("25_hjuth")]
 position = Vector2(-251, -445)
+
+[node name="MemoryFragment" parent="YSort" unique_id=1175381629 instance=ExtResource("26_hd2wb")]
+position = Vector2(-362, -219)
+memory_set_index = 1
+interaction_prompt = "Touch"
+
+[node name="MemoryFragment2" parent="YSort" unique_id=215780003 instance=ExtResource("26_hd2wb")]
+position = Vector2(-352, -423)
+memory_set_index = 1
+interaction_prompt = "Touch"
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
 visible = false
