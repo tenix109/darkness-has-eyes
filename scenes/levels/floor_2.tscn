@@ -22,8 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://rlg1eiqhvj0q" path="res://scenes/rooms/room_a_south_west.tscn" id="13_m0u54"]
 [ext_resource type="PackedScene" uid="uid://bxtlahomjt2sv" path="res://scenes/rooms/hallway_l_180_connector.tscn" id="13_n0og7"]
 [ext_resource type="PackedScene" uid="uid://dbhd7u8d1ijmu" path="res://scenes/rooms/hallway_i_2x.tscn" id="14_l6cdw"]
-[ext_resource type="PackedScene" uid="uid://d3n0bq5jcqplj" path="res://scenes/rooms/hallway_l_270_connector.tscn" id="15_rqobb"]
 [ext_resource type="PackedScene" uid="uid://dim66y5ny00gp" path="res://scenes/rooms/hallway_horizontal_8x.tscn" id="16_22hfo"]
+[ext_resource type="PackedScene" uid="uid://buecwqrmj1sx1" path="res://scenes/rooms/hallway_l_90_connector.tscn" id="17_byvov"]
 [ext_resource type="PackedScene" uid="uid://bd575fdwwn5hd" path="res://scenes/props/searchable/searchable_desk_clutter.tscn" id="20_l4gcn"]
 [ext_resource type="PackedScene" uid="uid://dmwiv3hufywue" path="res://scenes/props/searchable/searchable_desk.tscn" id="21_h0gtf"]
 [ext_resource type="PackedScene" uid="uid://17m0jecxr38a" path="res://scenes/props/searchable/searchable_nightstand_smashed.tscn" id="22_h0gtf"]
@@ -116,14 +116,14 @@ position = Vector2(128, -896)
 [node name="Hallway_I_2x" parent="Rooms" unique_id=203993497 instance=ExtResource("14_l6cdw")]
 position = Vector2(128, -832)
 
-[node name="Hallway_L_270_Connector" parent="Rooms" unique_id=694193316 instance=ExtResource("15_rqobb")]
-position = Vector2(-224, -896)
-
 [node name="Hallway_Horizontal_8x" parent="Rooms" unique_id=479612193 instance=ExtResource("16_22hfo")]
 position = Vector2(-32, -960)
 
 [node name="ExitDoor" parent="Rooms/Hallway_Horizontal_8x" unique_id=471537759 instance=ExtResource("3_db6ju")]
 position = Vector2(-16, -32)
+
+[node name="Hallway_L_90_Connector" parent="Rooms" unique_id=867260329 instance=ExtResource("17_byvov")]
+position = Vector2(-224, -896)
 
 [node name="YSort" type="Node2D" parent="." unique_id=1988748181]
 y_sort_enabled = true

@@ -223,12 +223,10 @@ position = Vector2(-251, -445)
 [node name="MemoryFragment" parent="YSort" unique_id=1175381629 instance=ExtResource("26_hd2wb")]
 position = Vector2(-362, -219)
 memory_set_index = 1
-interaction_prompt = "Touch"
 
 [node name="MemoryFragment2" parent="YSort" unique_id=215780003 instance=ExtResource("26_hd2wb")]
 position = Vector2(-352, -423)
 memory_set_index = 1
-interaction_prompt = "Touch"
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
 visible = false
@@ -237,9 +235,9 @@ script = ExtResource("7_j3qb0")
 
 [node name="Possessor" type="Node" parent="." unique_id=22718676 node_paths=PackedStringArray("ovani_player")]
 script = ExtResource("9_dhdhe")
-max_dist = 160.0
 ovani_player = NodePath("../OvaniPlayer")
 max_possessed = 2
+dist_increase_at_high_threat = 16.0
 
 [node name="OvaniPlayer" type="Node" parent="." unique_id=576658255]
 process_mode = 3

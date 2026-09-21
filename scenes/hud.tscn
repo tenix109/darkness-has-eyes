@@ -248,9 +248,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ChapterCompleteLayer" type="CanvasLayer" parent="." unique_id=424176274]
+visible = false
 
 [node name="ChapterCompleteBG" type="ColorRect" parent="ChapterCompleteLayer" unique_id=54140067]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -259,7 +259,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ChapterCompleteLabel" type="RichTextLabel" parent="ChapterCompleteLayer/ChapterCompleteBG" unique_id=770092109]
-visible = false
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 1
 anchors_preset = 14

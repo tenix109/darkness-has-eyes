@@ -30,6 +30,7 @@ func _ready() -> void:
   context_label.hide()
   toast_label.hide()
   chapter_complete_label.hide()
+  memory_fragments_label.hide()
 
 func show_context_message(text: String):
   context_label.set_raw_text(text)
@@ -88,6 +89,7 @@ func chapter_complete(chapter_index: int):
   chapter_complete_layer.show()
   chapter_complete_bg.modulate.a = 0.0
   chapter_complete_label.show()
+  
   
   chapter_complete_label.modulate.a = 0.0
   chapter_complete_label.show()
