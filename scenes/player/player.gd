@@ -92,16 +92,40 @@ func get_facing_string() -> String:
       return "left"
   return "down"
 
+@onready var interaction_shape: CollisionShape2D = $InteractionArea/InteractionShape
+const shape_data: Dictionary = {
+  "up": {
+      "pos": Vector2(0.0, -18.0),
+      "size": Vector2(10.0, 28.0)
+  },
+  "down": {
+      "pos": Vector2(0.0, -12.0),
+      "size": Vector2(10.0, 28.0)
+  },
+  "left": {
+      "pos": Vector2(-8.0, -13.0),
+      "size": Vector2(10.0, 10.0)
+  },
+  "right": {
+      "pos": Vector2(8.0, -13.0),
+      "size": Vector2(10.0, 10.0)
+  },
+}
 func position_interaction_area():
-  match get_facing_string():
-    "up":
-      interaction_area.position = Vector2(0, -18)
-    "down":
-      interaction_area.position = Vector2(0, 4)
-    "left":
-      interaction_area.position = Vector2(-8, -8)
-    "right":
-      interaction_area.position = Vector2(8, -8)
+  var data = shape_data[get_facing_string()]
+  interaction_shape.shape.set_deferred("size", data.size)
+  interaction_shape.position = data.pos
+  
+  #match get_facing_string():
+    #"up":
+      #interaction_shape.shape.shape.size = data.size
+      #interaction_shape.position = data.pos
+    #"down":
+      #interaction_area.position = Vector2(0, 4)
+    #"left":
+      #interaction_area.position = Vector2(-8, -8)
+    #"right":
+      #interaction_area.position = Vector2(8, -8)
 
 func get_target_position() -> Vector2:
   return global_position + target_offset

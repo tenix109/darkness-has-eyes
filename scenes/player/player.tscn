@@ -455,7 +455,7 @@ footstep_sounds = Array[AudioStream]([ExtResource("2_uf5tr")])
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1222839652]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_8ydkj")
-animation = &"walk_down"
+animation = &"idle_left"
 autoplay = "idle_up"
 offset = Vector2(0, -18)
 
@@ -508,14 +508,13 @@ libraries/ = SubResource("AnimationLibrary_h17s1")
 autoplay = &"radial_pulse"
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=725208157]
-position = Vector2(0, 4)
 collision_layer = 2
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1389224867]
-position = Vector2(0, -8)
+[node name="InteractionShape" type="CollisionShape2D" parent="InteractionArea" unique_id=1389224867]
+position = Vector2(-4, -13)
 shape = SubResource("RectangleShape2D_myrg7")
-debug_color = Color(0.9360692, 0.25443864, 0, 0.41960785)
+debug_color = Color(1, 0.015079894, 0.1273424, 0.41960785)
 
 [node name="ThreatMeter" type="Node" parent="." unique_id=67884896 node_paths=PackedStringArray("player")]
 script = ExtResource("17_kvlxm")

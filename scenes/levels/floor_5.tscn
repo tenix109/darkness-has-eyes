@@ -40,6 +40,7 @@
 [ext_resource type="Resource" uid="uid://ej5l14sbbiop" path="res://audio/music/Levitate (RT 3.122)/levitate.tres" id="35_ycaw2"]
 [ext_resource type="PackedScene" uid="uid://c57m1t2xe5ojn" path="res://scenes/possessables/possessable_doll_e.tscn" id="36_dn1x0"]
 [ext_resource type="PackedScene" uid="uid://e7bqfp4ew82i" path="res://scenes/possessables/possessable_doll_b.tscn" id="37_6ognr"]
+[ext_resource type="PackedScene" uid="uid://bkjad4ddepkfv" path="res://scenes/props/memory_fragment.tscn" id="37_g3aha"]
 [ext_resource type="PackedScene" uid="uid://0h6tmhh2fy2l" path="res://scenes/possessables/possessable_doll_a.tscn" id="38_5urvk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5urvk"]
@@ -296,6 +297,15 @@ scale = Vector2(-1, 1)
 
 [node name="PossessableDollB2" parent="YSort/PossessedProps" unique_id=1730293137 instance=ExtResource("37_6ognr")]
 position = Vector2(186, -157)
+
+[node name="MemoryFragmentX" parent="YSort" unique_id=1175381629 instance=ExtResource("37_g3aha")]
+position = Vector2(-288, -24)
+
+[node name="MemoryFragment2" parent="YSort" unique_id=801155773 instance=ExtResource("37_g3aha")]
+position = Vector2(360, -144)
+
+[node name="MemoryFragment3" parent="YSort" unique_id=1512772739 instance=ExtResource("37_g3aha")]
+position = Vector2(184, -532)
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
 visible = false
