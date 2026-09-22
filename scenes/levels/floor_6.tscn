@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://dtmy8edn1d5io"]
+
+[ext_resource type="Script" uid="uid://cr64xba2ufexq" path="res://scenes/levels/floor.gd" id="1_5u3e5"]
+[ext_resource type="PackedScene" uid="uid://bjfjopxpmnlfd" path="res://scenes/hud.tscn" id="2_muj3d"]
+[ext_resource type="Script" uid="uid://d2wp6hi6dfh77" path="res://scenes/follow_camera.gd" id="3_jaxou"]
+[ext_resource type="PackedScene" uid="uid://cwni0vkycy7ma" path="res://scenes/rooms/room_start.tscn" id="4_hu4no"]
+[ext_resource type="PackedScene" uid="uid://bp5ril2potsdi" path="res://scenes/rooms/room_a_east_south_west.tscn" id="5_pvg2u"]
+[ext_resource type="PackedScene" uid="uid://daewq46xvceaa" path="res://scenes/rooms/room_a_east.tscn" id="6_ps0oq"]
+[ext_resource type="PackedScene" uid="uid://px7ouepj0yv4" path="res://scenes/rooms/room_a_north_west.tscn" id="7_yrjjl"]
+[ext_resource type="PackedScene" uid="uid://c2ybk2fqr5n3m" path="res://scenes/rooms/room_a_north_east.tscn" id="10_h2i6e"]
+[ext_resource type="PackedScene" uid="uid://rlg1eiqhvj0q" path="res://scenes/rooms/room_a_south_west.tscn" id="11_60fwq"]
+[ext_resource type="PackedScene" uid="uid://osepgevs6qlp" path="res://scenes/rooms/room_a_north_south.tscn" id="12_wbmy1"]
+[ext_resource type="PackedScene" uid="uid://bu6s7wx18ncgm" path="res://scenes/rooms/hallway_horizontal_1x.tscn" id="13_arcri"]
+[ext_resource type="PackedScene" uid="uid://b8cjmdhmcsq8t" path="res://scenes/rooms/room_a_east_south.tscn" id="14_wbmy1"]
+[ext_resource type="PackedScene" uid="uid://dim66y5ny00gp" path="res://scenes/rooms/hallway_horizontal_8x.tscn" id="21_2o1rh"]
+[ext_resource type="PackedScene" uid="uid://berp1akae1vmm" path="res://scenes/props/exit_door.tscn" id="22_uerh5"]
+[ext_resource type="PackedScene" uid="uid://b48727n3mrxi0" path="res://scenes/player/player.tscn" id="25_xpdqh"]
+[ext_resource type="PackedScene" uid="uid://rervtd4m140v" path="res://scenes/props/cart_vertical.tscn" id="26_cxsci"]
+[ext_resource type="PackedScene" uid="uid://diokk8q0r0xbc" path="res://scenes/props/cart_horizontal.tscn" id="27_rd470"]
+[ext_resource type="PackedScene" uid="uid://dm2assh8eg7d5" path="res://scenes/props/searchable/searchable_dresser.tscn" id="28_qdc33"]
+[ext_resource type="PackedScene" uid="uid://17m0jecxr38a" path="res://scenes/props/searchable/searchable_nightstand_smashed.tscn" id="29_f5t4q"]
+[ext_resource type="PackedScene" uid="uid://bberg6nkc86o2" path="res://scenes/props/searchable/searchable_cabinet_glass.tscn" id="30_hu58u"]
+[ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="31_sk6dd"]
+[ext_resource type="Script" uid="uid://bytj751rstygx" path="res://scenes/props/possessor.gd" id="32_lmto6"]
+[ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="33_8lxhb"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="34_qcg7k"]
+[ext_resource type="Resource" uid="uid://c4md415vavjcs" path="res://audio/music/Longing (RT 3.077)/longing.tres" id="35_5u3e5"]
+
+[node name="Floor6" type="Node2D" unique_id=554474155]
+position = Vector2(40, 80)
+script = ExtResource("1_5u3e5")
+items_required_for_exit = 5
+next_scene_path = "res://scenes/credits.tscn"
+floor_name = "Floor 6"
+level_title = "Push Through"
+level_index = 5
+chapter_index = 1
+is_chapter_finale = true
+metadata/_custom_type_script = "uid://cr64xba2ufexq"
+
+[node name="HUD" parent="." unique_id=158779456 instance=ExtResource("2_muj3d")]
+memory_set_index = 1
+
+[node name="FollowCamera" type="Camera2D" parent="." unique_id=1779290735 node_paths=PackedStringArray("target")]
+zoom = Vector2(4, 4)
+script = ExtResource("3_jaxou")
+follow_offset = Vector2(0, -16)
+target = NodePath("../YSort/PlayerTheGirl")
+
+[node name="Rooms" type="Node2D" parent="." unique_id=1403313818]
+y_sort_enabled = true
+
+[node name="RoomStart" parent="Rooms" unique_id=1817066731 instance=ExtResource("4_hu4no")]
+
+[node name="Room_A_South_West2" parent="Rooms" unique_id=575161556 instance=ExtResource("5_pvg2u")]
+position = Vector2(0, -256)
+
+[node name="Room_A_East" parent="Rooms" unique_id=813133507 instance=ExtResource("6_ps0oq")]
+position = Vector2(-136, -524)
+
+[node name="Room_A_North_West" parent="Rooms" unique_id=900410988 instance=ExtResource("7_yrjjl")]
+position = Vector2(74, -524)
+
+[node name="Hallway_Horizontal_8x" parent="Rooms" unique_id=1099872177 instance=ExtResource("21_2o1rh")]
+position = Vector2(0, 352)
+
+[node name="ExitDoor" parent="Rooms/Hallway_Horizontal_8x" unique_id=471537759 instance=ExtResource("22_uerh5")]
+position = Vector2(8, -32)
+
+[node name="Room_A_North_East" parent="Rooms" unique_id=1996812424 instance=ExtResource("10_h2i6e")]
+position = Vector2(-256, 256)
+has_no_light = true
+
+[node name="Room_A_South_West" parent="Rooms" unique_id=504512303 instance=ExtResource("11_60fwq")]
+position = Vector2(256, -256)
+
+[node name="Room_A_North_South" parent="Rooms" unique_id=1881715907 instance=ExtResource("12_wbmy1")]
+position = Vector2(256, 0)
+
+[node name="Room_A_North_South2" parent="Rooms" unique_id=421335052 instance=ExtResource("12_wbmy1")]
+position = Vector2(-256, 0)
+
+[node name="LightSwitch" parent="Rooms/Room_A_North_South2" index="3" unique_id=1997813369]
+position = Vector2(32, 0)
+
+[node name="Hallway_Horizontal_1x" parent="Rooms" unique_id=648858787 instance=ExtResource("13_arcri")]
+position = Vector2(128, -160)
+
+[node name="Hallway_Horizontal_1x2" parent="Rooms" unique_id=2024219553 instance=ExtResource("13_arcri")]
+position = Vector2(-128, -160)
+
+[node name="Room_A_East_South" parent="Rooms" unique_id=2094043255 instance=ExtResource("14_wbmy1")]
+position = Vector2(-256, -256)
+
+[node name="Room_A_North_West2" parent="Rooms" unique_id=425272943 instance=ExtResource("7_yrjjl")]
+position = Vector2(256, 256)
+
+[node name="Hallway_Horizontal_1x3" parent="Rooms" unique_id=1636451820 instance=ExtResource("13_arcri")]
+position = Vector2(128, 352)
+
+[node name="YSort" type="Node2D" parent="." unique_id=1814523132]
+y_sort_enabled = true
+
+[node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("25_xpdqh")]
+position = Vector2(16, 88)
+
+[node name="Pushables" type="Node2D" parent="YSort" unique_id=1815342450]
+y_sort_enabled = true
+
+[node name="CartVertical3" parent="YSort/Pushables" unique_id=1095188195 instance=ExtResource("26_cxsci")]
+position = Vector2(107, -393)
+
+[node name="CartVertical4" parent="YSort/Pushables" unique_id=753310394 instance=ExtResource("26_cxsci")]
+position = Vector2(-37, -390)
+
+[node name="CartVertical6" parent="YSort/Pushables" unique_id=779086761 instance=ExtResource("26_cxsci")]
+position = Vector2(-169, -397)
+
+[node name="CartHorizontal4" parent="YSort/Pushables" unique_id=593767123 instance=ExtResource("27_rd470")]
+position = Vector2(62, -497)
+
+[node name="CartHorizontal6" parent="YSort/Pushables" unique_id=1201603895 instance=ExtResource("27_rd470")]
+position = Vector2(137, -389)
+
+[node name="CartHorizontal7" parent="YSort/Pushables" unique_id=1986625166 instance=ExtResource("27_rd470")]
+position = Vector2(-69, -395)
+
+[node name="CartHorizontal10" parent="YSort/Pushables" unique_id=1566326754 instance=ExtResource("27_rd470")]
+position = Vector2(-74, -363)
+
+[node name="CartHorizontal8" parent="YSort/Pushables" unique_id=1718524036 instance=ExtResource("27_rd470")]
+position = Vector2(-139, -396)
+
+[node name="CartHorizontal9" parent="YSort/Pushables" unique_id=1536131052 instance=ExtResource("27_rd470")]
+position = Vector2(-200, -396)
+
+[node name="CartHorizontal5" parent="YSort/Pushables" unique_id=795199254 instance=ExtResource("27_rd470")]
+position = Vector2(117, -357)
+
+[node name="Searchable" type="Node2D" parent="YSort" unique_id=1879952885]
+y_sort_enabled = true
+
+[node name="SearchableNightstandSmashed" parent="YSort/Searchable" unique_id=539976846 instance=ExtResource("29_f5t4q")]
+position = Vector2(173, -422)
+
+[node name="SearchableNightstandSmashed5" parent="YSort/Searchable" unique_id=816630768 instance=ExtResource("29_f5t4q")]
+position = Vector2(-41, -492)
+
+[node name="SearchableNightstandSmashed2" parent="YSort/Searchable" unique_id=176985130 instance=ExtResource("29_f5t4q")]
+position = Vector2(83, -385)
+
+[node name="SearchableNightstandSmashed6" parent="YSort/Searchable" unique_id=2030011006 instance=ExtResource("29_f5t4q")]
+position = Vector2(-38, -385)
+
+[node name="SearchableDresser2" parent="YSort/Searchable" unique_id=2086504685 instance=ExtResource("28_qdc33")]
+position = Vector2(161, -387)
+
+[node name="SearchableDresser5" parent="YSort/Searchable" unique_id=1273395337 instance=ExtResource("28_qdc33")]
+position = Vector2(-110, -453)
+
+[node name="SearchableDresser6" parent="YSort/Searchable" unique_id=584442786 instance=ExtResource("28_qdc33")]
+position = Vector2(-182, -392)
+
+[node name="SearchableDresser7" parent="YSort/Searchable" unique_id=268022450 instance=ExtResource("28_qdc33")]
+position = Vector2(-127, -389)
+
+[node name="SearchableDresser4" parent="YSort/Searchable" unique_id=181110381 instance=ExtResource("28_qdc33")]
+position = Vector2(114, -483)
+
+[node name="SearchableNightstandSmashed3" parent="YSort/Searchable" unique_id=2053995675 instance=ExtResource("29_f5t4q")]
+position = Vector2(134, -536)
+
+[node name="SearchableCabinetGlass" parent="YSort/Searchable" unique_id=151393563 instance=ExtResource("30_hu58u")]
+position = Vector2(18, -508)
+
+[node name="PossessedProps" type="Node2D" parent="YSort" unique_id=944234385]
+y_sort_enabled = true
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
+visible = false
+color = Color(0.09366939, 0.09366938, 0.09366938, 1)
+script = ExtResource("31_sk6dd")
+
+[node name="Possessor" type="Node" parent="." unique_id=22718676 node_paths=PackedStringArray("ovani_player")]
+script = ExtResource("32_lmto6")
+max_dist = 160.0
+ovani_player = NodePath("../OvaniPlayer")
+dist_increase_at_high_threat = 48.0
+
+[node name="OvaniPlayer" type="Node" parent="." unique_id=576658255]
+process_mode = 3
+script = ExtResource("33_8lxhb")
+QueuedSongs = Array[ExtResource("34_qcg7k")]([ExtResource("35_5u3e5")])
+Volume = -10.0
+Bus = &"Music"
+
+[editable path="Rooms/Room_A_North_South2"]

@@ -39,7 +39,6 @@ tile_set = ExtResource("2_lo34e")
 position = Vector2(-96, 64)
 
 [node name="Lights" type="Node2D" parent="." unique_id=2028339248]
-visible = false
 
 [node name="RoomLight" type="PointLight2D" parent="Lights" unique_id=1896899898]
 energy = 0.9
