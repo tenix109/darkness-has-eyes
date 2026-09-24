@@ -298,7 +298,7 @@ scale = Vector2(-1, 1)
 [node name="PossessableDollB2" parent="YSort/PossessedProps" unique_id=1730293137 instance=ExtResource("37_6ognr")]
 position = Vector2(186, -157)
 
-[node name="MemoryFragmentX" parent="YSort" unique_id=1175381629 instance=ExtResource("37_g3aha")]
+[node name="MemoryFragment" parent="YSort" unique_id=1175381629 instance=ExtResource("37_g3aha")]
 position = Vector2(-288, -24)
 
 [node name="MemoryFragment2" parent="YSort" unique_id=801155773 instance=ExtResource("37_g3aha")]

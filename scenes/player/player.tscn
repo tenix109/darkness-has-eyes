@@ -455,7 +455,7 @@ footstep_sounds = Array[AudioStream]([ExtResource("2_uf5tr")])
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1222839652]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_8ydkj")
-animation = &"idle_left"
+animation = &"idle_up"
 autoplay = "idle_up"
 offset = Vector2(0, -18)
 
