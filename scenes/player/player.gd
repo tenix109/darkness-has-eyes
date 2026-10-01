@@ -105,11 +105,11 @@ const shape_data: Dictionary = {
       "size": Vector2(10.0, 28.0)
   },
   "left": {
-      "pos": Vector2(-8.0, -13.0),
+      "pos": Vector2(-8.0, -11.0),
       "size": Vector2(10.0, 10.0)
   },
   "right": {
-      "pos": Vector2(8.0, -13.0),
+      "pos": Vector2(8.0, -11.0),
       "size": Vector2(10.0, 10.0)
   },
 }
