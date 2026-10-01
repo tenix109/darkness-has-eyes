@@ -57,6 +57,7 @@ func exit(next):
   actor.velocity = Vector2.ZERO
   actor.sprite.position = Vector2.ZERO
   actor.sprite.rotation = 0.0
+  actor.z_index = 0
 
   if next == "Idle":
     actor.cooldown()

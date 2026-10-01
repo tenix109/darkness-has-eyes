@@ -38,46 +38,22 @@ const MEMORY_SETS: Array = [
   {
     "title": "Chapter 2",
     "entries": [
-      "Juan",
-      "Too",
-      "Tree",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
+      "We packed up all our things to move far away. I hugged my best friend for the last time. Everything felt different; somewhat exciting, but mostly terrifying.",
+      "The drive lasted long into the night. I slept some, but the car was full of boxes! I felt trapped in the backseat.",
+      "My new bedroom was cluttered. Boxes full of all my favorite things were spread out across the room. I had my favorite Dolly in the car, but where did she run off to?",
+      "There she was! On the high shelf next to my closet door. I tried to reach her, but it was too high for me. I went to find something sturdy to climb on.",
+      "As I turned to look for something to climb on, I felt something bonk me on the head. It was Dolly! She hit me... and it wasn't funny.",
+      "First, I left my best friend and hated every moment of it. And now my Dolly was angry with me, too.",
+      "She laid there on the floor with her smile. It really wasn't funny what she did. I kicked her into the closet so I didn't have to see her smiling at me.",
+      "In every room of the new house, I would find her again. I don't know what she was doing, but I didn't like it. I tried to get rid of her.",
+      '"Hey, kiddo, found her in the garage," I heard my dad\'s voice. I turned to see him carrying Dolly. I ran and hid in my room.',
+      "Dad said she missed me, he said he was sure she didn't mean to hurt me. I missed her, too, and I wanted to forget it all ever happened.",
     ]
   },
   {
     "title": "Chapter 3",
     "entries": [
-      "Coming this Holiday Season.",
-      "Too",
-      "Tree",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-    ]
-  },
-  {
-    "title": "Chapter 4",
-    "entries": [
-      "Won",
-      "To",
-      "Try",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
+      "Coming Holiday 2026",
     ]
   },
 ]
@@ -91,6 +67,7 @@ const repels_required = 30
 func _ready() -> void:
   load_game()
   #dump_save_plaintext()
+  #encrypt_save_plaintext()
   
   
 func save_game() -> void:
@@ -154,13 +131,19 @@ func load_game() -> void:
   highest_cleared_index = maxi(highest_cleared_index, highest_unlocked - 1)
   var loaded_counts = config.get_value("Progression", "unlocked_memories_counts", [])
   if loaded_counts.is_empty():
-    unlocked_memories_counts[0] = config.get_value("Progression", "unlocked_memories_count", -1)
+    var old_count: int = config.get_value("Progression", "unlocked_memories_count", -1)
+    # Alpha used 0 as "none collected", not "chapter unlocked".
+    if old_count <= 0 and not memories_unlocked:
+      old_count = -1
+    unlocked_memories_counts[0] = old_count
   else:
     while loaded_counts.size() < unlocked_memories_counts.size():
       loaded_counts.append(-1)
     unlocked_memories_counts.assign(loaded_counts)
-  
+
   collected_fragment_ids.assign(config.get_value("Progression", "collected_fragment_ids", []))
+
+  var needs_save = heal_legacy_memory_unlock()
   
   searches_completed = config.get_value("Progression", "searches_completed", 0)
   uninterrupted_searches_completed = config.get_value("Progression", "uninterrupted_searches_completed", 0)
@@ -169,6 +152,42 @@ func load_game() -> void:
   repel_count = config.get_value("Progression", "repel_count", 0)
   
   apply_audio_settings()
+  
+  if needs_save:
+    save_game()
+
+func heal_legacy_memory_unlock() -> bool:
+  var changed := false
+
+  if highest_cleared_index >= 2:
+    if not memories_unlocked:
+      memories_unlocked = true
+      changed = true
+    if unlocked_memories_counts[0] < 0:
+      unlocked_memories_counts[0] = 0
+      changed = true
+
+  if memories_unlocked and highest_cleared_index < 2:
+    highest_cleared_index = 2
+    changed = true
+
+  var has_progress := not collected_fragment_ids.is_empty()
+  for count in unlocked_memories_counts:
+    if count > 0:
+      has_progress = true
+      break
+
+  if has_progress and not memories_unlocked:
+    memories_unlocked = true
+    changed = true
+
+  if not memories_unlocked:
+    for i in unlocked_memories_counts.size():
+      if unlocked_memories_counts[i] == 0:
+        unlocked_memories_counts[i] = -1
+        changed = true
+
+  return changed
 
 func apply_audio_settings() -> void:
   set_bus_volume("Music", music_volume)
@@ -200,6 +219,8 @@ func collect_memory(index: int) -> void:
     GameManager.unlock_achievement("ACH_FIRST_MEMORY")
   if unlocked_memories_counts[0] >= 10:
     GameManager.unlock_achievement("ACH_ALL_MEMORIES")
+  if unlocked_memories_counts[1] >= 10:
+    GameManager.unlock_achievement("ACH_CH2_MEMORIES")
 
 func interrupted_Search_completed():
   interrupted_searches_completed += 1

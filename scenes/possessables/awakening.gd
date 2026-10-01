@@ -14,6 +14,7 @@ func enter(_prev):
   awaken_timer = 0.0
   tween = create_tween()
   _start_awaken_tween()
+  actor.z_index = 5
   
   AudioManager.play_awaken_scare(actor.global_position)
 

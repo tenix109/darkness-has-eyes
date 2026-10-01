@@ -6,6 +6,7 @@ extends Actor
 @export var run_speed_modifier := 1.5
 @export var target_offset: Vector2
 @export var searching_sounds: Array[AudioStream]
+@export var start_facing: Vector2 = Vector2.UP
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var action_bar: ActionBar = $ActionBar
@@ -34,6 +35,7 @@ const YOU_LOSE = preload("uid://bqtvhiwkgqon0")
 
 func _ready() -> void:
   GameManager.player = self
+  facing = start_facing
   position_interaction_area()
   state_machine.request_state("Idle", true)
   interaction_area.area_entered.connect(_on_interaction_area_entered)

@@ -7,7 +7,6 @@ extends State
 
 var awaken_timer: float = 0.0
 var tween: Tween
-var rest_z_index: int = 0
 
 func enter(_prev):
   actor.set_physics_process(true)
@@ -15,7 +14,6 @@ func enter(_prev):
   GameManager.possessor.possessed_count += 1
   actor.outline_sprite.visible = true
   awaken_timer = 0.0
-  rest_z_index = actor.z_index
   actor.z_index = airborne_z_index
   tween = create_tween()
   tween.tween_property(actor.sprite, "position:y", -rise_height, rise_duration)
@@ -38,4 +36,4 @@ func exit(next):
   if next != "Possessed":
     actor.sprite.position = Vector2.ZERO
     actor.sprite.rotation = 0.0
-    actor.z_index = rest_z_index
+    actor.z_index = 0

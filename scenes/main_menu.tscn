@@ -335,13 +335,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer1" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=447685730]
 layout_mode = 2
@@ -365,13 +370,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer2" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=79619854]
 layout_mode = 2
@@ -395,13 +405,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer3" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1735246608]
 layout_mode = 2
@@ -425,13 +440,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer4" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1395986448]
 layout_mode = 2
@@ -455,13 +475,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer5" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=2132516832]
 layout_mode = 2
@@ -485,13 +510,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer6" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=842326158]
 layout_mode = 2
@@ -515,13 +545,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer7" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1125670743]
 layout_mode = 2
@@ -545,13 +580,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer8" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=1877841348]
 layout_mode = 2
@@ -575,13 +615,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="MemoryContainer9" type="HBoxContainer" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer/ScrollContainer/MemoriesContainer" unique_id=120634319]
 layout_mode = 2
@@ -605,13 +650,18 @@ custom_minimum_size = Vector2(900, 64)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8156863, 0.84313726, 0.87058824, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6117647)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("8_flqon")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "???"
 fit_content = true
 scroll_active = false
+justification_flags = 161
 
 [node name="BackLabel" type="RichTextLabel" parent="MainLayer/MemoriesScreen/MarginContainer/VBoxContainer" unique_id=1044711862]
 custom_minimum_size = Vector2(250, 64)

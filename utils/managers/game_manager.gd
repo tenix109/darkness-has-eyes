@@ -109,6 +109,10 @@ func grant_item_to_player():
 func use_items_on_exit() -> bool:
   if key_items_held >= current_floor.items_required_for_exit:
     player.is_winning = true
+    SaveManager.mark_cleared(current_floor.level_index)
+    
+    check_level_achievement()
+      
     key_items_held = 0
     hud.update_fuse_count(key_items_held)
     current_floor.fade_darkness()
@@ -116,12 +120,20 @@ func use_items_on_exit() -> bool:
     possessor.repel_current_possessable()
     await get_tree().create_timer(1.5, false).timeout
     if current_floor.is_chapter_finale:
-      print("Is Chapter Finale")
       hud.chapter_complete(current_floor.chapter_index)
       return true
     next_level()
     return true
   return false
+
+func check_level_achievement():
+      match current_floor.level_index:
+        0: unlock_achievement("ACH_FIRST_FLOOR")
+        1: unlock_achievement("ACH_SECOND_FLOOR")
+        2: unlock_achievement("ACH_THIRD_FLOOR")
+        5: unlock_achievement("ACH_CHAPTER2")
+        #8: unlock_achievement("ACH_CHAPTER3")
+        #11: unlock_achievement("ACH_CHAPTER4")
 
 func has_all_required_items() -> bool:
   return key_items_held >= current_floor.items_required_for_exit
@@ -148,13 +160,6 @@ func load_title_screen():
 
 func next_level():
   reset_floor()
-  
-  match current_floor.level_index:
-    0: unlock_achievement("ACH_FIRST_FLOOR")
-    1: unlock_achievement("ACH_SECOND_FLOOR")
-    2: unlock_achievement("ACH_THIRD_FLOOR")
-  
-  SaveManager.mark_cleared(current_floor.level_index)
   change_scene(current_floor.next_scene_path)
 
 func change_scene(target_scene_path: String) -> void:
