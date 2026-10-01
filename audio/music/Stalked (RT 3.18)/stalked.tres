@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OvaniSong" format=3 uid="uid://cscft4bhgcbmm"]
+
+[ext_resource type="AudioStream" uid="uid://didimieh24uws" path="res://audio/music/Stalked (RT 3.18)/Horror Vol5 Stalked Intensity 1.wav" id="1_1c547"]
+[ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="1_ayglh"]
+[ext_resource type="AudioStream" uid="uid://bywc7dqaptwr4" path="res://audio/music/Stalked (RT 3.18)/Horror Vol5 Stalked Intensity 2.wav" id="2_ilo4m"]
+[ext_resource type="AudioStream" uid="uid://djjy23kwyn65r" path="res://audio/music/Stalked (RT 3.18)/Horror Vol5 Stalked Main.wav" id="3_mfcpq"]
+
+[resource]
+script = ExtResource("1_ayglh")
+Intensity1 = ExtResource("1_1c547")
+Intensity2 = ExtResource("2_ilo4m")
+Intensity3 = ExtResource("3_mfcpq")
+ReverbTail = 3.18
+metadata/_custom_type_script = "uid://b6hl5qjc8221s"

@@ -13,7 +13,7 @@ has_no_light = true
 
 [node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=1889537290]
 rotation = 0.00036661577
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 39, 0, 12, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 1, 0, 5, 0, 3, 0, 0, 0)
 tile_set = ExtResource("2_mv4sn")
 
 [node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=1543524968]

@@ -1,0 +1,28 @@
+class_name PushHandle
+extends Interactable
+
+@export var side: Vector2
+@export var side_margin: float = 2.0
+#@export var alignment_margin: float = 12.0
+
+@export var pushable: Pushable
+
+func _ready() -> void:
+  if not pushable:
+    pushable = owner
+
+func can_interact(player: Player) -> bool:
+  var to_player: Vector2 = player.global_position - pushable.global_position
+
+  if to_player.dot(side) <= side_margin:
+    return false
+
+  if player.facing != -side:
+    return false
+
+  return true
+  
+func interact(player: Player) -> void:
+  if not can_interact(player):
+    return
+  player.start_pushing(pushable, side)

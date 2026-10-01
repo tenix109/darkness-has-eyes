@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://dm2assh8eg7d5" path="res://scenes/props/searchable/searchable_dresser.tscn" id="24_l1kn8"]
 [ext_resource type="PackedScene" uid="uid://doigfx673jjhv" path="res://scenes/possessables/possessable_chair_c.tscn" id="25_i10nr"]
 [ext_resource type="PackedScene" uid="uid://bkjad4ddepkfv" path="res://scenes/props/memory_fragment.tscn" id="26_l1kn8"]
-[ext_resource type="PackedScene" uid="uid://diokk8q0r0xbc" path="res://scenes/props/cart_horizontal.tscn" id="27_xtt5c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_57w5f"]
 vertices = PackedVector2Array(297, -105, 9, -105, -7, -137, 9, -137, 297, -393, 297, -457, 473, -457, 473, -297, 297, -297, 297, -361, -295, -393, 233, -361, 297, -137, 297, -201, 473, -201, 473, -41, 297, -41, 217, -137, 233, -137, 9, 55, -7, 55, -7, -105, -215, -137, -295, -105, -231, -137, -295, -41, -471, -41, -471, -201, -295, -201, -295, -137, -215, -361, -231, -361, -295, -361, -295, -297, -471, -297, -471, -457, -295, -457, 217, -361, 9, -361, -7, -361)
@@ -160,9 +159,6 @@ position = Vector2(16, -312)
 
 [node name="MemoryFragment2" parent="YSort" unique_id=1736895929 instance=ExtResource("26_l1kn8")]
 position = Vector2(-418, -440)
-
-[node name="CartHorizontal" parent="YSort" unique_id=2093506797 instance=ExtResource("27_xtt5c")]
-position = Vector2(-12, 73)
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1727305468]
 visible = false

@@ -55,11 +55,12 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(17, 63, -15, 63, -15, -
 [node name="Floor3" type="Node2D" unique_id=2081371710]
 script = ExtResource("1_s806d")
 items_required_for_exit = 5
-next_scene_path = "res://scenes/credits.tscn"
+next_scene_path = "res://scenes/levels/floor_4.tscn"
 base_find_chance = -0.1
 floor_name = "Floor 3"
 level_title = "Isolated In the Void"
 level_index = 2
+is_chapter_finale = true
 
 [node name="FollowCamera" type="Camera2D" parent="." unique_id=2037777736 node_paths=PackedStringArray("target")]
 zoom = Vector2(4, 4)
@@ -319,12 +320,6 @@ script = ExtResource("32_lw2wg")
 [node name="HUD" parent="." unique_id=158779456 instance=ExtResource("33_kdhmd")]
 
 [node name="Possessor" type="Node" parent="." unique_id=454970398 node_paths=PackedStringArray("ovani_player")]
-script = ExtResource("34_q22ew")
-max_dist = 160.0
-ovani_player = NodePath("../OvaniPlayer")
-dist_increase_at_high_threat = 48.0
-
-[node name="Possessor2" type="Node" parent="." unique_id=161797668 node_paths=PackedStringArray("ovani_player")]
 script = ExtResource("34_q22ew")
 max_dist = 160.0
 ovani_player = NodePath("../OvaniPlayer")

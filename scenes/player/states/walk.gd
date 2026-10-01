@@ -1,6 +1,7 @@
 extends State
 
 @export var base_footstep_interval: float = 0.5
+@onready var player: Player = get_parent().get_parent()
 var footstep_timer: float = 0.0
 
 func enter(_prev):
@@ -8,7 +9,7 @@ func enter(_prev):
 
 func physics_update(_delta):
   if actor.is_dead: return
-  var input_vec = get_input_vector()
+  var input_vec = player.get_input_vector()
   
   if input_vec == Vector2.ZERO:
     request_state("Idle")
@@ -47,22 +48,9 @@ func dir_to_string(v: Vector2) -> String:
   if v == Vector2.UP: return "up"
   return "down"
 
-func get_input_vector():
-  return Vector2(
-    Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-    Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-  )
 
 func update_animation_speed():
-  #if Input.is_action_just_pressed("switch_weapon"):
-      #actor.switch_weapon()
-  #
-  #if Input.is_action_just_pressed("heal") and actor.can_heal():
-    #request_state("Heal")
-  
   var scale := 1.0
-
-  # scale *= actor.get_health_speed_mod()
 
   if is_running():
     scale *= actor.run_speed_modifier

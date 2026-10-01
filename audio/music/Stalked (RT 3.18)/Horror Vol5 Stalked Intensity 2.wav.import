@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bywc7dqaptwr4"
+path="res://.godot/imported/Horror Vol5 Stalked Intensity 2.wav-0f45d445e90cf8e95989eb9b2230f85f.sample"
+
+[deps]
+
+source_file="res://audio/music/Stalked (RT 3.18)/Horror Vol5 Stalked Intensity 2.wav"
+dest_files=["res://.godot/imported/Horror Vol5 Stalked Intensity 2.wav-0f45d445e90cf8e95989eb9b2230f85f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

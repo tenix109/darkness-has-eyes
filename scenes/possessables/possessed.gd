@@ -6,6 +6,7 @@ extends State
 var time_alive: float = 0.0
 
 func enter(_prev):
+  actor.z_index = 5
   actor.is_possessed = true
   actor.sprite.position = Vector2.ZERO
   actor.sprite.rotation = 0.0
@@ -43,3 +44,4 @@ func physics_update(_delta):
 func exit(_next):
   GameManager.possessor.remove_current_possessable()
   actor.is_possessed = false
+  actor.z_index = 0

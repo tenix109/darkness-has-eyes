@@ -1,11 +1,55 @@
 [gd_scene format=3 uid="uid://diokk8q0r0xbc"]
 
-[ext_resource type="Texture2D" uid="uid://c7m7c8ugvfloc" path="res://art/images/props/carts_test.png" id="1_knyln"]
+[ext_resource type="Script" uid="uid://byywrhtwvn8uc" path="res://scenes/props/pushable.gd" id="1_h5g2s"]
+[ext_resource type="Texture2D" uid="uid://cp068bwancojt" path="res://art/images/props/carts.png" id="1_knyln"]
+[ext_resource type="Script" uid="uid://b71uk53i85sa2" path="res://scenes/props/handle.gd" id="3_7hnvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knyln"]
+size = Vector2(35, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hnvp"]
+size = Vector2(1, 8)
 
 [node name="CartHorizontal" type="AnimatableBody2D" unique_id=2093506797]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_h5g2s")
+pull_clearance = 18.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1594096047]
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_knyln")
-offset = Vector2(0, -13)
+offset = Vector2(0, -27)
 region_enabled = true
-region_rect = Rect2(0, 6, 25, 26)
+region_rect = Rect2(0, 9, 50, 55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1837979125]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_knyln")
+debug_color = Color(0.9747439, 0, 0.4280039, 0.41960785)
+
+[node name="HandleLeft" type="Area2D" parent="." unique_id=417823894]
+position = Vector2(-14, -26)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_7hnvp")
+side = Vector2(-1, 0)
+interaction_prompt = "Grab and Push"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleLeft" unique_id=1600959515]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_7hnvp")
+debug_color = Color(0.93710715, 1.6942024e-05, 0.6314924, 0.41960785)
+
+[node name="HandleRight" type="Area2D" parent="." unique_id=1401861251]
+position = Vector2(14, -26)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_7hnvp")
+side = Vector2(1, 0)
+interaction_prompt = "Grab and Push"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleRight" unique_id=914506145]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_7hnvp")
+debug_color = Color(0.93710715, 1.6942024e-05, 0.6314924, 0.41960785)

@@ -27,7 +27,7 @@ enum DeviceType { KEYBOARD, XBOX, PLAYSTATION }
 var current_device: DeviceType = DeviceType.KEYBOARD
 
 func _ready() -> void:
-  Steam.steamInitEx()  
+  Steam.steamInitEx()
   
   process_mode = Node.PROCESS_MODE_ALWAYS
   setup_transistion_layer()
@@ -109,15 +109,31 @@ func grant_item_to_player():
 func use_items_on_exit() -> bool:
   if key_items_held >= current_floor.items_required_for_exit:
     player.is_winning = true
+    SaveManager.mark_cleared(current_floor.level_index)
+    
+    check_level_achievement()
+      
     key_items_held = 0
     hud.update_fuse_count(key_items_held)
     current_floor.fade_darkness()
     await get_tree().create_timer(0.5, false).timeout
     possessor.repel_current_possessable()
     await get_tree().create_timer(1.5, false).timeout
+    if current_floor.is_chapter_finale:
+      hud.chapter_complete(current_floor.chapter_index)
+      return true
     next_level()
     return true
   return false
+
+func check_level_achievement():
+      match current_floor.level_index:
+        0: unlock_achievement("ACH_FIRST_FLOOR")
+        1: unlock_achievement("ACH_SECOND_FLOOR")
+        2: unlock_achievement("ACH_THIRD_FLOOR")
+        5: unlock_achievement("ACH_CHAPTER2")
+        #8: unlock_achievement("ACH_CHAPTER3")
+        #11: unlock_achievement("ACH_CHAPTER4")
 
 func has_all_required_items() -> bool:
   return key_items_held >= current_floor.items_required_for_exit
@@ -144,13 +160,6 @@ func load_title_screen():
 
 func next_level():
   reset_floor()
-  
-  match current_floor.level_index:
-    0: unlock_achievement("ACH_FIRST_FLOOR")
-    1: unlock_achievement("ACH_SECOND_FLOOR")
-    2: unlock_achievement("ACH_THIRD_FLOOR")
-  
-  SaveManager.unlock_level(current_floor.level_index + 1)
   change_scene(current_floor.next_scene_path)
 
 func change_scene(target_scene_path: String) -> void:
@@ -177,19 +186,18 @@ func find_and_grab_focus(node: Node) -> bool:
   return false
 
 func _input(event: InputEvent) -> void:
-  # Ignore mouse movement or echo (held down) events to prevent spam
+  if event.is_action_pressed("ui_end"):
+    grant_item_to_player()
+  
   if event is InputEventMouseMotion or event.is_echo():
     return
     
   var new_device = current_device
   
-  # ONLY track when a keyboard key is actively pressed down
   if event is InputEventKey:
     if not event.pressed: 
-      return # Ignore key releases
+      return
     new_device = DeviceType.KEYBOARD
-    
-  # ONLY track when a controller button or joystick is actively moved/pressed
   elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
     if event is InputEventJoypadButton and not event.pressed:
       return # Ignore button releases
@@ -284,3 +292,5 @@ func unlock_achievement(api_name: String) -> void:
     var success: bool = Steam.setAchievement(api_name)
     if success:
       Steam.storeStats()
+      
+    

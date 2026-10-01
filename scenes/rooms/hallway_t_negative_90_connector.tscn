@@ -15,7 +15,7 @@ is_hallway = true
 has_no_light = true
 
 [node name="TileMap_Base" type="TileMapLayer" parent="." unique_id=1889537290]
-tile_map_data = PackedByteArray("AAAAAP3/AAAnAAwAAAAAAP7/AAAnAAwAAAAAAP//AAAnAAwAAAAAAAAAAAAnAAwAAAD/////AAAnAAwAAAD///3/AwACAAgAAAD///7/AwACAAkAAAA=")
+tile_map_data = PackedByteArray("AAAAAP3/AQAFAAMAAAAAAP7/AQAFAAMAAAAAAP//AQAFAAMAAAAAAAAAAQAFAAMAAAD/////AQAFAAMAAAD///3/AwACAAgAAAD///7/AwACAAkAAAA=")
 tile_set = ExtResource("2_p0e0v")
 
 [node name="TileMap_Borders" type="TileMapLayer" parent="." unique_id=1543524968]

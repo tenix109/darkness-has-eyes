@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cp4esxgoqr56s"
+path="res://.godot/imported/Horror Vol5 Longing Intensity 1.wav-b81c69469d9e38c0aaff0513c4e7df18.sample"
+
+[deps]
+
+source_file="res://audio/music/Longing (RT 3.077)/Horror Vol5 Longing Intensity 1.wav"
+dest_files=["res://.godot/imported/Horror Vol5 Longing Intensity 1.wav-b81c69469d9e38c0aaff0513c4e7df18.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
