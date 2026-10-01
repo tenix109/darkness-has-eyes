@@ -43,6 +43,7 @@ agent_radius = 8.0
 script = ExtResource("1_yvytt")
 next_scene_path = "res://scenes/levels/floor_2.tscn"
 level_title = "Dark Corridors"
+is_chapter_start = true
 
 [node name="FollowCamera" type="Camera2D" parent="." unique_id=1082060348 node_paths=PackedStringArray("target")]
 zoom = Vector2(4, 4)

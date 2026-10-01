@@ -38,6 +38,7 @@ floor_name = "Floor 4"
 level_title = "Shifting Clutter"
 level_index = 3
 chapter_index = 1
+is_chapter_start = true
 metadata/_custom_type_script = "uid://cr64xba2ufexq"
 
 [node name="HUD" parent="." unique_id=158779456 instance=ExtResource("8_r0xmg")]
@@ -95,11 +96,14 @@ position = Vector2(40, -80)
 [node name="CartVertical3" parent="YSort" unique_id=1095188195 instance=ExtResource("4_bwwaw")]
 position = Vector2(-296, -206)
 
+[node name="CartVertical4" parent="YSort" unique_id=2093506797 instance=ExtResource("4_bwwaw")]
+position = Vector2(100, -159)
+
 [node name="CartHorizontal3" parent="YSort" unique_id=1864764195 instance=ExtResource("5_wdxux")]
 position = Vector2(-192, -159)
 
 [node name="SearchableDresser6" parent="YSort" unique_id=878611981 instance=ExtResource("10_uwyqe")]
-position = Vector2(376, -267)
+position = Vector2(292, -269)
 
 [node name="SearchableDresser2" parent="YSort" unique_id=2086504685 instance=ExtResource("10_uwyqe")]
 position = Vector2(-336, -208)
@@ -111,11 +115,11 @@ position = Vector2(-272, -189)
 position = Vector2(-334, -240)
 
 [node name="PossessableDollA2" parent="YSort" unique_id=293249889 instance=ExtResource("20_6iwcs")]
-position = Vector2(378, -267)
+position = Vector2(282, -268)
 scale = Vector2(-1, 1)
 
 [node name="PossessableDollB" parent="YSort" unique_id=1966630049 instance=ExtResource("23_e3h2w")]
-position = Vector2(276, -263)
+position = Vector2(229, -149)
 
 [node name="MemoryFragment" parent="YSort" unique_id=1175381629 instance=ExtResource("26_hd2wb")]
 position = Vector2(-336, -112)
@@ -126,10 +130,10 @@ position = Vector2(393, -100)
 memory_set_index = 1
 
 [node name="SearchableDresserClutter" parent="YSort" unique_id=202116977 instance=ExtResource("19_6iwcs")]
-position = Vector2(240, -144)
+position = Vector2(372, -268)
 
 [node name="SearchableNightstand" parent="YSort" unique_id=1463610217 instance=ExtResource("20_1p7hm")]
-position = Vector2(276, -264)
+position = Vector2(229, -150)
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
 visible = false
