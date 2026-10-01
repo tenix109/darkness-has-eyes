@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
       stop_searching()
 
 func can_interact() -> bool:
-  return current_interactable and not is_dead
+  return current_interactable and not is_dead and current_interactable.can_interact(self)
 
 func _physics_process(_delta):
   move_and_slide()
@@ -77,12 +77,17 @@ func set_facing_from_input(input_vec: Vector2):
   if input_vec == Vector2.ZERO:
     return
 
+  var old_facing: Vector2 = facing
   if abs(input_vec.x) > abs(input_vec.y):
     facing = Vector2(sign(input_vec.x), 0)
   else:
     facing = Vector2(0, sign(input_vec.y))
-    
+  
+  if facing == old_facing:
+    return
+
   position_interaction_area()
+  refresh_context_prompt()
 
 func get_facing_string() -> String:
   match facing:
