@@ -127,13 +127,13 @@ func use_items_on_exit() -> bool:
   return false
 
 func check_level_achievement():
-      match current_floor.level_index:
-        0: unlock_achievement("ACH_FIRST_FLOOR")
-        1: unlock_achievement("ACH_SECOND_FLOOR")
-        2: unlock_achievement("ACH_THIRD_FLOOR")
-        5: unlock_achievement("ACH_CHAPTER2")
-        #8: unlock_achievement("ACH_CHAPTER3")
-        #11: unlock_achievement("ACH_CHAPTER4")
+    match current_floor.level_index:
+      0: unlock_achievement("ACH_FIRST_FLOOR")
+      1: unlock_achievement("ACH_SECOND_FLOOR")
+      2: unlock_achievement("ACH_THIRD_FLOOR")
+      5: unlock_achievement("ACH_CHAPTER2")
+      #8: unlock_achievement("ACH_CHAPTER3")
+      #11: unlock_achievement("ACH_CHAPTER4")
 
 func has_all_required_items() -> bool:
   return key_items_held >= current_floor.items_required_for_exit
@@ -186,8 +186,8 @@ func find_and_grab_focus(node: Node) -> bool:
   return false
 
 func _input(event: InputEvent) -> void:
-  if event.is_action_pressed("ui_end"):
-    grant_item_to_player()
+  #if event.is_action_pressed("ui_end"):
+    #grant_item_to_player()
   
   if event is InputEventMouseMotion or event.is_echo():
     return

@@ -10,6 +10,7 @@ extends Node2D
 ## used for unlocked_levels array in SaveManager
 @export var level_index: int = 0
 @export var chapter_index: int = 0
+@export var is_chapter_start: bool = false
 @export var is_chapter_finale: bool = false
 
 
@@ -17,7 +18,7 @@ extends Node2D
 
 func _ready() -> void:
   GameManager.current_floor = self
-  GameManager.hud.display_level_title(floor_name.to_upper(), level_title)
+  GameManager.hud.display_level_title(floor_name.capitalize(), level_title)
 
 func fade_darkness():
   var tween = create_tween()

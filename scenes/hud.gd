@@ -62,20 +62,23 @@ func update_memory_count(count: int):
   memory_count_ui.visible = (count > 0 and count <= 9)
 
 func display_level_title(floor_name: String, subtitle: String) -> void:
-  intro_label.text = "[center][fade start=30 length=0]" + floor_name + "\n[font_size=36 ]" + subtitle + "[/font_size][/fade][/center]"
+  var body := floor_name + "\n[font_size=32]" + subtitle + "[/font_size]"
+  if GameManager.current_floor.is_chapter_start:
+    body = "[font_size=48]Chapter %d[/font_size]\n" % (GameManager.current_floor.chapter_index + 1) + body
+  intro_label.text = "[center][fade start=999 length=0]" + body + "[/fade][/center]"
+  
   intro_label.modulate.a = 1.0
   intro_label.visible = true
 
   await get_tree().create_timer(3.0, false).timeout
 
   var fade_tween = create_tween()
-  
   fade_tween.tween_method(
     func(progress: float):
       var total_chars = intro_label.get_total_character_count()
       var current_start = int(total_chars * (1.0 - progress))
       var current_length = int(total_chars * progress)
-      intro_label.text = "[center][fade start=" + str(current_start) + " length=" + str(current_length) + "]" + floor_name + "\n[font_size=36]" + subtitle + "[/font_size][/fade][/center]",
+      intro_label.text = "[center][fade start=%d length=%d]%s[/fade][/center]" % [current_start, current_length, body],
     0.0, 1.0, 1.5
   )
   
