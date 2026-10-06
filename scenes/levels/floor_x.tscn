@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bxtlahomjt2sv" path="res://scenes/rooms/hallway_l_180_connector.tscn" id="16_f0pka"]
 [ext_resource type="PackedScene" uid="uid://buecwqrmj1sx1" path="res://scenes/rooms/hallway_l_90_connector.tscn" id="17_dmyum"]
 [ext_resource type="PackedScene" uid="uid://berp1akae1vmm" path="res://scenes/props/exit_door.tscn" id="18_cjhdo"]
+[ext_resource type="PackedScene" uid="uid://bxqr65pt7m3e5" path="res://scenes/props/pressure_plate.tscn" id="19_dt2rc"]
 [ext_resource type="PackedScene" uid="uid://b48727n3mrxi0" path="res://scenes/player/player.tscn" id="19_rt57f"]
 [ext_resource type="PackedScene" uid="uid://rervtd4m140v" path="res://scenes/props/cart_vertical.tscn" id="20_108o8"]
 [ext_resource type="PackedScene" uid="uid://diokk8q0r0xbc" path="res://scenes/props/cart_horizontal.tscn" id="21_be1lr"]
@@ -26,9 +27,12 @@
 [ext_resource type="PackedScene" uid="uid://bberg6nkc86o2" path="res://scenes/props/searchable/searchable_cabinet_glass.tscn" id="24_1p3oa"]
 [ext_resource type="PackedScene" uid="uid://cm7sad3js2rbg" path="res://scenes/props/searchable/searchable_cabinet.tscn" id="25_3fih1"]
 [ext_resource type="Script" uid="uid://c8cxc5uejoi6g" path="res://utils/runtime_visible.gd" id="26_4uie5"]
+[ext_resource type="PackedScene" uid="uid://c4uspqnm700i3" path="res://scenes/possessables/possessable_vase_a.tscn" id="26_i0pka"]
 [ext_resource type="Script" uid="uid://bytj751rstygx" path="res://scenes/props/possessor.gd" id="27_2gul8"]
 [ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="28_oafwv"]
+[ext_resource type="PackedScene" uid="uid://cqxxun336r1lw" path="res://scenes/props/crate_a.tscn" id="28_sgfj1"]
 [ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="29_2cwtd"]
+[ext_resource type="PackedScene" uid="uid://b6t0jo8vyjl4l" path="res://scenes/props/blocking_door_vertical.tscn" id="29_esiev"]
 [ext_resource type="Resource" uid="uid://c4md415vavjcs" path="res://audio/music/Longing (RT 3.077)/longing.tres" id="30_7wng2"]
 
 [node name="FloorX" type="Node2D" unique_id=554474155]
@@ -117,11 +121,15 @@ position = Vector2(-96, 64)
 [node name="ExitDoor" parent="Rooms/Hallway_Horizontal_3x" unique_id=471537759 instance=ExtResource("18_cjhdo")]
 position = Vector2(8, -32)
 
+[node name="PressurePlate" parent="Rooms" unique_id=1844412683 instance=ExtResource("19_dt2rc")]
+position = Vector2(81, 9)
+
 [node name="YSort" type="Node2D" parent="." unique_id=1814523132]
+z_index = 1
 y_sort_enabled = true
 
 [node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("19_rt57f")]
-position = Vector2(16, 88)
+position = Vector2(16, 87)
 
 [node name="Pushables" type="Node2D" parent="YSort" unique_id=1815342450]
 y_sort_enabled = true
@@ -227,6 +235,19 @@ position = Vector2(277, -336)
 
 [node name="PossessedProps" type="Node2D" parent="YSort" unique_id=944234385]
 y_sort_enabled = true
+
+[node name="PossessableDollA" parent="YSort" unique_id=1282559479 instance=ExtResource("26_i0pka")]
+position = Vector2(-48, 56)
+
+[node name="CrateA" parent="YSort" unique_id=1666416589 instance=ExtResource("28_sgfj1")]
+position = Vector2(-16, 24)
+
+[node name="CrateA2" parent="YSort" unique_id=293669955 instance=ExtResource("28_sgfj1")]
+position = Vector2(56, 40)
+
+[node name="BlockingDoorVertical" parent="YSort" unique_id=1900830467 node_paths=PackedStringArray("pressure_plate") instance=ExtResource("29_esiev")]
+position = Vector2(16, 0)
+pressure_plate = NodePath("../../Rooms/PressurePlate")
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
 visible = false

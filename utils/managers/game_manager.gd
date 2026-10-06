@@ -175,7 +175,7 @@ func change_scene(target_scene_path: String) -> void:
   fade_tween.chain().tween_property(transition_rect, "modulate:a", 0.0, 0.5)
   
 func find_and_grab_focus(node: Node) -> bool:
-  if node is Control and node.focus_mode != Control.FOCUS_NONE:
+  if node is Control and (node.focus_mode == Control.FOCUS_ALL or node.focus_mode == Control.FOCUS_CLICK):
     node.grab_focus()
     return true
   

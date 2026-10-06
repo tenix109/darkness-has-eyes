@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cqxxun336r1lw"]
+
+[ext_resource type="Script" uid="uid://byywrhtwvn8uc" path="res://scenes/props/pushable.gd" id="1_w2sr7"]
+[ext_resource type="Texture2D" uid="uid://dpqeiv6vnd05d" path="res://art/images/Bedroom_Black_Shadow_Singles_32x32_298.png" id="2_w2sr7"]
+[ext_resource type="Script" uid="uid://b71uk53i85sa2" path="res://scenes/props/handle.gd" id="3_8da80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knyln"]
+size = Vector2(20, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wl74"]
+size = Vector2(2, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hnvp"]
+size = Vector2(1, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2sr7"]
+size = Vector2(2, 2)
+
+[node name="CrateA" type="AnimatableBody2D" unique_id=2093506797]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_w2sr7")
+pull_clearance = 18.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1594096047]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_w2sr7")
+offset = Vector2(0, -8)
+region_rect = Rect2(0, 9, 50, 55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1837979125]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_knyln")
+debug_color = Color(0.9747439, 0, 0.4280039, 0.41960785)
+
+[node name="HandleTop" type="Area2D" parent="." unique_id=1366531688]
+position = Vector2(0, -13)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_8da80")
+side = Vector2(0, -1)
+side_margin = 0.0
+interaction_prompt = "Grab and Push Top"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleTop" unique_id=6352307]
+shape = SubResource("RectangleShape2D_1wl74")
+
+[node name="HandleRight" type="Area2D" parent="." unique_id=1401861251]
+position = Vector2(7, -16)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_8da80")
+side = Vector2(1, 0)
+interaction_prompt = "Grab and Push"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleRight" unique_id=914506145]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_7hnvp")
+
+[node name="HandleBottom" type="Area2D" parent="." unique_id=1098276797]
+position = Vector2(0, -9)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_8da80")
+side = Vector2(0, 1)
+interaction_prompt = "Grab and Push"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleBottom" unique_id=1483405155]
+shape = SubResource("RectangleShape2D_1wl74")
+
+[node name="HandleLeft" type="Area2D" parent="." unique_id=417823894]
+position = Vector2(-7, -16)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_8da80")
+side = Vector2(-1, 0)
+interaction_prompt = "Grab and Push"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleLeft" unique_id=1600959515]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_7hnvp")
+
+[node name="WeightArea" type="Area2D" parent="." unique_id=1216664104]
+position = Vector2(0, -7)
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeightArea" unique_id=9786475]
+shape = SubResource("RectangleShape2D_w2sr7")

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bxqr65pt7m3e5"]
+
+[ext_resource type="Texture2D" uid="uid://b626y7nr64bg2" path="res://art/tilesets/Room_Builder_32x32.png" id="1_4owma"]
+[ext_resource type="Script" uid="uid://bwj0qwc6iuv3r" path="res://scenes/props/pressure_plate.gd" id="1_bcxoe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcxoe"]
+size = Vector2(10, 10)
+
+[node name="PressurePlate" type="Area2D" unique_id=1844412683]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("1_bcxoe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419058099]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4owma")
+region_enabled = true
+region_rect = Rect2(1345, 1185, 29, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62729844]
+shape = SubResource("RectangleShape2D_bcxoe")
+debug_color = Color(0.47025502, 0.5907905, 0, 0.41960785)
