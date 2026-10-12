@@ -42,6 +42,6 @@ func physics_update(_delta):
   actor.velocity = (direction * actor.current_speed) + zigzag
   
 func exit(_next):
-  GameManager.possessor.remove_current_possessable()
+  GameManager.possessor.release_possessable(actor)
   actor.is_possessed = false
   actor.z_index = 0

@@ -52,7 +52,7 @@ func physics_update(delta):
     state_machine.request_state("Idle", true)
 
 func exit(next):
-  GameManager.possessor.remove_current_possessable()
+  GameManager.possessor.release_possessable(actor)
   actor.is_possessed = false
   actor.velocity = Vector2.ZERO
   actor.sprite.position = Vector2.ZERO

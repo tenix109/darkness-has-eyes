@@ -117,7 +117,7 @@ func use_items_on_exit() -> bool:
     hud.update_fuse_count(key_items_held)
     current_floor.fade_darkness()
     await get_tree().create_timer(0.5, false).timeout
-    possessor.repel_current_possessable()
+    possessor.repel_all()
     await get_tree().create_timer(1.5, false).timeout
     if current_floor.is_chapter_finale:
       hud.chapter_complete(current_floor.chapter_index)

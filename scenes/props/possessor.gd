@@ -7,7 +7,6 @@ extends Node
 
 var possessables: Array[Possessable]
 @export var max_possessed: int = 1
-var possessed_count: int = 0
 
 var check_timer: float = 0.0
 var check_interval: float = 1.0
@@ -16,11 +15,10 @@ var check_interval: float = 1.0
 var possess_cooldown: float = 3.0
 var possess_cooldown_timer: float = 0.0
 
-var current_possessable: Possessable
+var active_possessables: Array[Possessable] = []
 
 func _ready() -> void:
   GameManager.possessor = self
-  possessed_count = 0
 
 func _process(delta):
   check_timer += delta
@@ -45,7 +43,7 @@ func register_possessable(possessable: Possessable):
 
 func _update_music_intensity():
   var target_intensity: float = 0.0
-  if possessed_count > 0:
+  if active_possessables.size() > 0:
     target_intensity = 1.0
   else:
     target_intensity = (GameManager.player.threat_meter.threat / 100.0) * 0.8
@@ -57,9 +55,12 @@ func _update_music_intensity():
 @export var dist_increase_at_high_threat: float = 32.0
 func _evaluate_threat():
   var threat = GameManager.player.threat_meter.threat
-  if threat < 30.0 or possessed_count >= max_possessed:
+  if threat < 30.0 or active_possessables.size() >= max_possessed or GameManager.player.is_dead:
     return
   
+  _possess_nearby_prop(threat)
+  
+func _possess_nearby_prop(threat: float):
   var effective_max_dist = max_dist
   
   if threat >= 70.0:
@@ -79,13 +80,14 @@ func _evaluate_threat():
     return
 
   var selected = nearby_props.pick_random()
-  current_possessable = selected
+  active_possessables.append(selected)
   selected.awaken()
 
-func remove_current_possessable():
-  current_possessable = null
-  possessed_count -= 1
+func release_possessable(prop: Possessable):
+  if prop in active_possessables:
+    active_possessables.erase(prop)
 
-func repel_current_possessable():
-  if current_possessable:
-    current_possessable.state_machine.request_state("Repelled", true)
+func repel_all():
+  for prop in active_possessables.duplicate():
+    if is_instance_valid(prop):
+      prop.state_machine.request_state("Repelled", true)

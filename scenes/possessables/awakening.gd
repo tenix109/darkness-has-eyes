@@ -9,7 +9,6 @@ var tween: Tween
 func enter(_prev):
   actor.set_physics_process(true)
   actor.set_process(true)
-  GameManager.possessor.possessed_count += 1
   actor.outline_sprite.visible = true
   awaken_timer = 0.0
   tween = create_tween()
@@ -20,7 +19,7 @@ func enter(_prev):
 
 func update(delta: float) -> void:
   if actor.is_in_light():
-    GameManager.possessor.possessed_count -= 1
+    GameManager.possessor.release_possessable(actor)
     state_machine.request_state("Idle", true)
     return
 
