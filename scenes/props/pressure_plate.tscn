@@ -20,4 +20,4 @@ region_rect = Rect2(1345, 1185, 29, 28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62729844]
 shape = SubResource("RectangleShape2D_bcxoe")
-debug_color = Color(0.47025502, 0.5907905, 0, 0.41960785)
+debug_color = Color(0.99999994, 0.026253784, 0.08318757, 0.41960785)

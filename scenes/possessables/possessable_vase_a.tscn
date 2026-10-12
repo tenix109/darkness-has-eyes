@@ -1,14 +1,33 @@
 [gd_scene format=3 uid="uid://c4uspqnm700i3"]
 
 [ext_resource type="Script" uid="uid://q6psxft3phds" path="res://scenes/possessables/possessable.gd" id="1_upoff"]
+[ext_resource type="Shader" uid="uid://dvaenr6wme3iu" path="res://scenes/possessables/shatter.gdshader" id="2_1u5it"]
 [ext_resource type="Texture2D" uid="uid://bcuycph8icn3p" path="res://art/tilesets/props_and_objects.png" id="2_7vagu"]
 [ext_resource type="Shader" uid="uid://c2d7dgnwswipy" path="res://scenes/possessables/white_outline_overlay.gdshader" id="3_1u5it"]
 [ext_resource type="Script" uid="uid://0embql8uahlu" path="res://utils/state_machine/state_machine.gd" id="4_ow0hi"]
 [ext_resource type="Script" uid="uid://dinb7cwx0i30x" path="res://scenes/possessables/idle.gd" id="5_7fejm"]
 [ext_resource type="Script" uid="uid://cw8nn43l7ayb7" path="res://scenes/possessables/awakening_rise.gd" id="6_opmd1"]
-[ext_resource type="Script" uid="uid://cuq76iqhwocwq" path="res://scenes/possessables/possessed_rush.gd" id="7_2qspn"]
 [ext_resource type="Script" uid="uid://n86s8nn0ly04" path="res://scenes/possessables/repelled.gd" id="8_0sa2i"]
+[ext_resource type="Script" uid="uid://ds78yff5v6unu" path="res://scenes/possessables/possessed_smash.gd" id="8_7vagu"]
 [ext_resource type="Script" uid="uid://bkwkbpit1em4v" path="res://scenes/possessables/flee.gd" id="9_i0dj5"]
+[ext_resource type="Script" uid="uid://ctgno1n67rq41" path="res://scenes/possessables/smashed.gd" id="11_1u5it"]
+[ext_resource type="AudioStream" uid="uid://csl5exn0oxf00" path="res://audio/sounds/shatter/shatter01.wav" id="12_7fejm"]
+[ext_resource type="AudioStream" uid="uid://bhjlu5l13cf8h" path="res://audio/sounds/shatter/shatter02.wav" id="13_opmd1"]
+[ext_resource type="AudioStream" uid="uid://ta4cfl0y7o0s" path="res://audio/sounds/shatter/unshatter01.wav" id="14_2qspn"]
+[ext_resource type="AudioStream" uid="uid://csl0bs810v1cu" path="res://audio/sounds/shatter/unshatter02.wav" id="15_0sa2i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ow0hi"]
+resource_local_to_scene = true
+shader = ExtResource("2_1u5it")
+shader_parameter/progress = 0.0
+shader_parameter/seed = 0.0
+shader_parameter/grid = Vector2i(3, 5)
+shader_parameter/crumble = 1.1
+shader_parameter/spread = 1.0
+shader_parameter/bottom_pad = 8.0
+shader_parameter/side_pad = 4.0
+shader_parameter/region_pos = Vector2(135, 268)
+shader_parameter/region_size = Vector2(12, 17)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkl3u"]
 shader = ExtResource("3_1u5it")
@@ -18,31 +37,34 @@ shader_parameter/outline_size = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rkbd"]
 radius = 6.0
 
-[node name="PossessableDollA" type="CharacterBody2D" unique_id=1282559479]
+[node name="PossessableVaseA" type="CharacterBody2D" unique_id=1282559479]
 collision_layer = 4
 collision_mask = 4
 motion_mode = 1
 safe_margin = 0.001
 script = ExtResource("1_upoff")
-max_speed = 240.0
-acceleration_rate = 0.9
+max_speed = 160.0
+acceleration_rate = 1.0
 awaken_max_dist = 64.0
 
 [node name="Visuals" type="Node2D" parent="." unique_id=809882152]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1137627167]
+material = SubResource("ShaderMaterial_ow0hi")
 position = Vector2(0, -5)
 texture = ExtResource("2_7vagu")
 region_enabled = true
 region_rect = Rect2(135, 268, 12, 17)
 
 [node name="OutlineSprite" type="Sprite2D" parent="Visuals/Sprite2D" unique_id=1159884334]
+visible = false
 material = SubResource("ShaderMaterial_fkl3u")
 texture = ExtResource("2_7vagu")
 region_enabled = true
 region_rect = Rect2(134, 267, 14, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2140863421]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_8rkbd")
 debug_color = Color(0.6820725, 0.50305635, 3.85046e-07, 0.41960785)
@@ -55,18 +77,31 @@ script = ExtResource("5_7fejm")
 
 [node name="Awakening" type="Node" parent="StateMachine" unique_id=1235259240]
 script = ExtResource("6_opmd1")
-rise_duration = 1.2
+rise_height = 8.0
+rise_duration = 0.4
+pause_duration = 0.4
 
 [node name="Possessed" type="Node" parent="StateMachine" unique_id=1523020939]
-script = ExtResource("7_2qspn")
-overshoot_distance = 32.0
+script = ExtResource("8_7vagu")
+max_travel_distance = 80.0
+wall_collision_after = 60.0
+homing_rate = 12.0
 
 [node name="Repelled" type="Node" parent="StateMachine" unique_id=1852756998]
 script = ExtResource("8_0sa2i")
-repel_duration = 0.6
+repel_duration = 0.2
 
 [node name="Flee" type="Node" parent="StateMachine" unique_id=476268663]
 script = ExtResource("9_i0dj5")
+
+[node name="Smashed" type="Node" parent="StateMachine" unique_id=961228390]
+script = ExtResource("11_1u5it")
+shatter_time = 0.5
+restore_time = 0.8
+smashed_duration = 7.0
+seeds = Array[float]([777.0, 111.0, 222.0, 333.0, 444.0])
+shatter_sounds = Array[AudioStream]([ExtResource("12_7fejm"), ExtResource("13_opmd1")])
+restore_sounds = Array[AudioStream]([ExtResource("14_2qspn"), ExtResource("15_0sa2i")])
 
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=937690142]
 

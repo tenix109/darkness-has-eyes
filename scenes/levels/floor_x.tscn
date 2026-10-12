@@ -32,11 +32,10 @@
 [ext_resource type="Script" uid="uid://nyi7s3s8faao" path="res://OvaniPlugin/OvaniPlayer.gd" id="28_oafwv"]
 [ext_resource type="PackedScene" uid="uid://cqxxun336r1lw" path="res://scenes/props/crate_a.tscn" id="28_sgfj1"]
 [ext_resource type="Script" uid="uid://b6hl5qjc8221s" path="res://OvaniPlugin/OvaniSong.gd" id="29_2cwtd"]
-[ext_resource type="PackedScene" uid="uid://b6t0jo8vyjl4l" path="res://scenes/props/blocking_door_vertical.tscn" id="29_esiev"]
+[ext_resource type="PackedScene" uid="uid://b6t0jo8vyjl4l" path="res://scenes/props/blocking_door_front.tscn" id="29_esiev"]
 [ext_resource type="Resource" uid="uid://c4md415vavjcs" path="res://audio/music/Longing (RT 3.077)/longing.tres" id="30_7wng2"]
 
 [node name="FloorX" type="Node2D" unique_id=554474155]
-position = Vector2(40, 80)
 script = ExtResource("1_wveyn")
 items_required_for_exit = 100
 floor_name = "Floor X"
@@ -124,12 +123,15 @@ position = Vector2(8, -32)
 [node name="PressurePlate" parent="Rooms" unique_id=1844412683 instance=ExtResource("19_dt2rc")]
 position = Vector2(81, 9)
 
+[node name="PressurePlate2" parent="Rooms" unique_id=1236581840 instance=ExtResource("19_dt2rc")]
+position = Vector2(-67, -203)
+
 [node name="YSort" type="Node2D" parent="." unique_id=1814523132]
 z_index = 1
 y_sort_enabled = true
 
 [node name="PlayerTheGirl" parent="YSort" unique_id=1218181351 instance=ExtResource("19_rt57f")]
-position = Vector2(16, 87)
+position = Vector2(16, -232)
 
 [node name="Pushables" type="Node2D" parent="YSort" unique_id=1815342450]
 y_sort_enabled = true
@@ -147,7 +149,7 @@ position = Vector2(-157, 486)
 position = Vector2(-289, 479)
 
 [node name="CartVertical7" parent="YSort/Pushables" unique_id=819880126 instance=ExtResource("20_108o8")]
-position = Vector2(-70, -251)
+position = Vector2(-56, -304)
 
 [node name="CartHorizontal4" parent="YSort/Pushables" unique_id=593767123 instance=ExtResource("21_be1lr")]
 position = Vector2(244, 379)
@@ -207,7 +209,7 @@ position = Vector2(343, 489)
 position = Vector2(228, -286)
 
 [node name="SearchableDresser9" parent="YSort/Searchable" unique_id=1122443297 instance=ExtResource("23_03cfb")]
-position = Vector2(32, -283)
+position = Vector2(-16, -357)
 
 [node name="SearchableDresser8" parent="YSort/Searchable" unique_id=1626622090 instance=ExtResource("23_03cfb")]
 position = Vector2(317, -332)
@@ -236,18 +238,24 @@ position = Vector2(277, -336)
 [node name="PossessedProps" type="Node2D" parent="YSort" unique_id=944234385]
 y_sort_enabled = true
 
-[node name="PossessableDollA" parent="YSort" unique_id=1282559479 instance=ExtResource("26_i0pka")]
-position = Vector2(-48, 56)
-
 [node name="CrateA" parent="YSort" unique_id=1666416589 instance=ExtResource("28_sgfj1")]
-position = Vector2(-16, 24)
+position = Vector2(-48, -200)
 
 [node name="CrateA2" parent="YSort" unique_id=293669955 instance=ExtResource("28_sgfj1")]
 position = Vector2(56, 40)
 
-[node name="BlockingDoorVertical" parent="YSort" unique_id=1900830467 node_paths=PackedStringArray("pressure_plate") instance=ExtResource("29_esiev")]
-position = Vector2(16, 0)
+[node name="BlockingDoorFront" parent="YSort" unique_id=1900830467 node_paths=PackedStringArray("pressure_plate", "room") groups=["spill_light"] instance=ExtResource("29_esiev")]
+position = Vector2(16, -3)
 pressure_plate = NodePath("../../Rooms/PressurePlate")
+room = NodePath("../../Rooms/RoomStart")
+
+[node name="BlockingDoorFront2" parent="YSort" unique_id=449571856 node_paths=PackedStringArray("pressure_plate", "room") groups=["spill_light"] instance=ExtResource("29_esiev")]
+position = Vector2(16, -132)
+pressure_plate = NodePath("../../Rooms/PressurePlate2")
+room = NodePath("../../Rooms/Room_A_South_West2")
+
+[node name="PossessableVaseA" parent="YSort" unique_id=1282559479 instance=ExtResource("26_i0pka")]
+position = Vector2(-6, -355)
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=1475183751]
 visible = false

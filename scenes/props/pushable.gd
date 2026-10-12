@@ -2,11 +2,11 @@ class_name Pushable
 extends AnimatableBody2D
 
 @export var pull_clearance: float = 10.0
-@export var activates_pressure_plates: bool = false
 
 var is_grabbed: bool = false
 var grabbed_side_axis: Vector2 = Vector2.ZERO
 var grabbing_player: Player = null
+var locked: bool = false
 
 func axis_from_side(side: Vector2) -> Vector2:
   if abs(side.x) > abs(side.y):

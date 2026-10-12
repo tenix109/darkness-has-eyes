@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8o2y6"]
 size = Vector2(32, 56)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31m3s"]
+size = Vector2(32, 13.5)
+
 [sub_resource type="Animation" id="Animation_r22d7"]
 length = 0.001
 tracks/0/type = "value"
@@ -43,10 +46,10 @@ tracks/0/path = NodePath("Clip/WallSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5),
-"transitions": PackedFloat32Array(1, -2, 2),
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 2, 2),
 "update": 0,
-"values": [Vector2(0, 48), Vector2(0, 12), Vector2(0, 0)]
+"values": [Vector2(0, 48), Vector2(0, 40), Vector2(0, 8), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -55,10 +58,24 @@ tracks/1/path = NodePath("Clip:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [-1, 0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"toggle_spill_light"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_8o2y6"]
@@ -88,7 +105,7 @@ tracks/1/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_4cw66"]
+[sub_resource type="Animation" id="Animation_31m3s"]
 resource_name = "open"
 length = 0.5
 tracks/0/type = "value"
@@ -98,10 +115,10 @@ tracks/0/path = NodePath("Clip/WallSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.5),
-"transitions": PackedFloat32Array(1, -2, 2),
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 2, 2),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 36), Vector2(0, 48)]
+"values": [Vector2(0, 0), Vector2(0, 8), Vector2(0, 40), Vector2(0, 48)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,10 +127,24 @@ tracks/1/path = NodePath("Clip:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.03333334, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-1]
+"values": [0, -1]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"toggle_spill_light"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_q8sh5"]
@@ -136,11 +167,11 @@ _data = {
 &"RESET": SubResource("Animation_r22d7"),
 &"close": SubResource("Animation_qccsm"),
 &"closed": SubResource("Animation_8o2y6"),
-&"open": SubResource("Animation_4cw66"),
+&"open": SubResource("Animation_31m3s"),
 &"opened": SubResource("Animation_q8sh5")
 }
 
-[node name="BlockingDoorVertical" type="StaticBody2D" unique_id=1900830467]
+[node name="BlockingDoorFront" type="StaticBody2D" unique_id=1900830467]
 script = ExtResource("1_31m3s")
 
 [node name="Clip" type="Sprite2D" parent="." unique_id=1239953697]
@@ -164,8 +195,18 @@ region_enabled = true
 region_rect = Rect2(96, 1500, 32, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754469788]
+visible = false
 position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_8o2y6")
+
+[node name="OccupancyArea" type="Area2D" parent="." unique_id=945400259]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OccupancyArea" unique_id=2081946563]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_31m3s")
+debug_color = Color(0.99269253, 0, 0.25492138, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=115735900]
 libraries/ = SubResource("AnimationLibrary_qccsm")

@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://hgtsyldqn0s5"]
+
+[ext_resource type="Script" uid="uid://8omhrpncx3io" path="res://scenes/props/blocking_door.gd" id="1_64ecw"]
+[ext_resource type="Texture2D" uid="uid://b2okyyvnbkjei" path="res://art/tilesets/Borders_32x32.png" id="1_yimte"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yimte"]
+size = Vector2(14, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ll2u5"]
+size = Vector2(14, 32)
+
+[sub_resource type="Animation" id="Animation_64ecw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clip/WallContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ll2u5"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clip/WallContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 54), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b54l5"]
+resource_name = "closed"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clip/WallContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ubnft"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clip/WallContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 54)]
+}
+
+[sub_resource type="Animation" id="Animation_yimte"]
+resource_name = "opened"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clip/WallContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6mlr5"]
+_data = {
+&"RESET": SubResource("Animation_64ecw"),
+&"close": SubResource("Animation_ll2u5"),
+&"closed": SubResource("Animation_b54l5"),
+&"open": SubResource("Animation_ubnft"),
+&"opened": SubResource("Animation_yimte")
+}
+
+[node name="BlockingDoorSide" type="StaticBody2D" unique_id=1957803357]
+script = ExtResource("1_64ecw")
+metadata/_edit_horizontal_guides_ = [28.0]
+
+[node name="Clip" type="Sprite2D" parent="." unique_id=260671055]
+clip_children = 1
+position = Vector2(7, -11)
+texture = ExtResource("1_yimte")
+region_enabled = true
+region_rect = Rect2(677, 0, 14, 86)
+
+[node name="WallContainer" type="Node2D" parent="Clip" unique_id=951520574]
+
+[node name="TopPiece" type="Sprite2D" parent="Clip/WallContainer" unique_id=1922028976]
+position = Vector2(0, -16)
+texture = ExtResource("1_yimte")
+region_enabled = true
+region_rect = Rect2(562, 42, 14, 54)
+
+[node name="BottomPiece" type="Sprite2D" parent="Clip/WallContainer" unique_id=55990386]
+position = Vector2(0, 25)
+texture = ExtResource("1_yimte")
+region_enabled = true
+region_rect = Rect2(562, 65, 14, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1585334674]
+visible = false
+position = Vector2(7, -10)
+shape = SubResource("RectangleShape2D_yimte")
+
+[node name="OccupancyArea" type="Area2D" parent="." unique_id=679238688]
+visible = false
+position = Vector2(7, -9)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OccupancyArea" unique_id=1885334559]
+position = Vector2(0, 23)
+shape = SubResource("RectangleShape2D_ll2u5")
+debug_color = Color(0.99269253, 0, 0.25492138, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=938253870]
+libraries/ = SubResource("AnimationLibrary_6mlr5")
+autoplay = &"closed"

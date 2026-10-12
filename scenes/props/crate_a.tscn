@@ -29,11 +29,13 @@ offset = Vector2(0, -8)
 region_rect = Rect2(0, 9, 50, 55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1837979125]
+visible = false
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_knyln")
 debug_color = Color(0.9747439, 0, 0.4280039, 0.41960785)
 
 [node name="HandleTop" type="Area2D" parent="." unique_id=1366531688]
+visible = false
 position = Vector2(0, -13)
 collision_layer = 8
 collision_mask = 0
@@ -46,6 +48,7 @@ interaction_prompt = "Grab and Push Top"
 shape = SubResource("RectangleShape2D_1wl74")
 
 [node name="HandleRight" type="Area2D" parent="." unique_id=1401861251]
+visible = false
 position = Vector2(7, -16)
 collision_layer = 8
 collision_mask = 0
@@ -58,6 +61,7 @@ position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_7hnvp")
 
 [node name="HandleBottom" type="Area2D" parent="." unique_id=1098276797]
+visible = false
 position = Vector2(0, -9)
 collision_layer = 8
 collision_mask = 0
@@ -69,6 +73,7 @@ interaction_prompt = "Grab and Push"
 shape = SubResource("RectangleShape2D_1wl74")
 
 [node name="HandleLeft" type="Area2D" parent="." unique_id=417823894]
+visible = false
 position = Vector2(-7, -16)
 collision_layer = 8
 collision_mask = 0

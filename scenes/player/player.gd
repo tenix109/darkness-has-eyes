@@ -162,6 +162,8 @@ func update_current_interactable() -> void:
 func refresh_context_prompt() -> void:
   if current_pushable:
     GameManager.show_context_message("{interact}Let go")
+  elif current_interactable is PushHandle and current_interactable.pushable.locked:
+    GameManager.show_context_message(current_interactable.locked_prompt)
   elif current_interactable is PushHandle and not current_interactable.can_interact(self):
     GameManager.hide_context_message()
   elif current_interactable:

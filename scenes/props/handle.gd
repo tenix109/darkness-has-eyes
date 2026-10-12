@@ -3,9 +3,12 @@ extends Interactable
 
 @export var side: Vector2
 @export var side_margin: float = 2.0
-#@export var alignment_margin: float = 12.0
+
+@export var locked_prompt: String = "The doorway is blocked."
 
 @export var pushable: Pushable
+
+var default_interaction_prompt: String = ""
 
 func _ready() -> void:
   if not pushable:
@@ -23,6 +26,8 @@ func can_interact(player: Player) -> bool:
   return true
   
 func interact(player: Player) -> void:
+  if pushable.locked:
+    return
   if not can_interact(player):
     return
   player.start_pushing(pushable, side)

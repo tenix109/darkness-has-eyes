@@ -49,13 +49,13 @@ range_z_max = 512
 texture = SubResource("GradientTexture2D_4uciv")
 offset = Vector2(16, 54)
 
-[node name="SpillLightE" type="PointLight2D" parent="Lights" unique_id=1851155937]
+[node name="SpillLightE" type="PointLight2D" parent="Lights" unique_id=1851155937 groups=["spill_light"]]
 position = Vector2(145, 55)
 rotation = 1.5707964
 scale = Vector2(1.3, 0.2)
 texture = ExtResource("4_1i0no")
 
-[node name="SpillLightN" type="PointLight2D" parent="Lights" unique_id=1292744075]
+[node name="SpillLightN" type="PointLight2D" parent="Lights" unique_id=1292744075 groups=["spill_light"]]
 position = Vector2(16, -82)
 scale = Vector2(1, 0.4)
 texture = ExtResource("5_vronv")

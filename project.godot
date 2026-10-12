@@ -44,6 +44,14 @@ window/default_playback_type.web=1
 
 movie_writer/movie_file="E:/Godot-Projects/darkness_has_eyes/recordings/video.avi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg")
+
+[global_group]
+
+spill_light=""
+
 [input]
 
 ui_accept={

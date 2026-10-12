@@ -39,7 +39,7 @@ range_z_max = 512
 texture = SubResource("GradientTexture2D_r2mul")
 offset = Vector2(16, 54)
 
-[node name="SpillLight" type="PointLight2D" parent="." unique_id=1341783613]
+[node name="SpillLight" type="PointLight2D" parent="." unique_id=1341783613 groups=["spill_light"]]
 position = Vector2(16, -89)
 scale = Vector2(1, 0.4)
 texture = ExtResource("2_ckmdi")
