@@ -159,10 +159,10 @@ func load_title_screen():
   change_scene("res://scenes/main_menu.tscn")
 
 func next_level():
-  reset_floor()
   change_scene(current_floor.next_scene_path)
 
 func change_scene(target_scene_path: String) -> void:
+  reset_floor()
   Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
   var fade_tween = create_tween()
   fade_tween.tween_property(transition_rect, "modulate:a", 1.0, 1.0)
