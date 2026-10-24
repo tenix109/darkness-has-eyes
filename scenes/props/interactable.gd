@@ -5,3 +5,6 @@ extends Area2D
 
 func interact(_player: Player) -> void:
     pass
+
+func can_interact(_player: Player) -> bool:
+  return true
